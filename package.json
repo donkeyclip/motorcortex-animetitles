@@ -123,7 +123,7 @@
     "prettier": "1.19.1",
     "react-svg-loader": "3.0.3",
     "rimraf": "2.7.1",
-    "rollup": "2.53.2",
+    "rollup": "2.55.1",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
