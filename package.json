@@ -1,6 +1,6 @@
 {
   "name": "@kissmybutton/motorcortex-animetitles",
-  "version": "1.2.0",
+  "version": "1.0.3",
   "description": "Animetitles plugin for MotorCortex",
   "main": "dist/motorcortex-animetitles.cjs.js",
   "module": "dist/motorcortex-animetitles.esm.js",

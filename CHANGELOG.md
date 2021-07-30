@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/kissmybutton/motorcortex-animetitles/compare/v1.0.2...v1.0.3) (2021-07-30)
+
+
+### Bug Fixes
+
+* remove timing attribute from incidents ([2a9cad8](https://www.github.com/kissmybutton/motorcortex-animetitles/commit/2a9cad84b02d4c3b2cdb5d49941eeae9cd69a5fe))
+
 ### 1.0.2 (2021-04-16)
 
 
