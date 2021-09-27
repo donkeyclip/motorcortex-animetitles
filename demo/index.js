@@ -1,6 +1,6 @@
-import MotorCortex from "@kissmybutton/motorcortex";
-import Player from "@kissmybutton/motorcortex-player";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import MotorCortex from "@donkeyclip/motorcortex";
+import Player from "@donkeyclip/motorcortex-player";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 import TitlesPlugin from "../dist/motorcortex-animetitles.umd";
 import imgsvg from "./assets/imgsvg.js";
 
@@ -199,7 +199,7 @@ const logobox = new Titles.LogoBox(
     stopOnLast: false,
     fontFamily: "Commissioner",
     logoUrl:
-      "https://kissmybutton.github.io/motorcortex-animetitles/demo/assets/logo.png"
+      "https://donkeyclip.github.io/motorcortex-animetitles/demo/assets/logo.png"
   },
   {
     selector: ".logobox"
