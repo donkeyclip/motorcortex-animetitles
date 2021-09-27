@@ -249,7 +249,7 @@ const LetterScale = new Titles.LetterScale(
     stroke: false,
     strokeSize: 2,
     strokeColor: "rebeccapurple",
-    fontFamily: "Righteous",
+    fontFamily: "Righteous"
   },
   {
     selector: ".letterscale"
@@ -291,12 +291,12 @@ const CircularText = new Titles.CircularText(
     fontSize: 10,
     viewBox: 100,
     path: 38,
-    fill: "#ff000000",    
+    fill: "#ff000000",
     fontFamily: "Righteous"
   },
   {
     selector: ".circulartext",
-    repeats: 2,
+    repeats: 2
   }
 );
 

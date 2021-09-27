@@ -218,15 +218,9 @@ export default class RotatedLine extends HTMLClip {
     this.addIncident(rotateAminmeEnd, 450);
     this.addIncident(leftTextAnimate, 900);
     if (!this.attrs.stopOnLast) {
-      this.addIncident(
-        rightTextAnimateIn,
-        4200 + delayEnd
-      );
+      this.addIncident(rightTextAnimateIn, 4200 + delayEnd);
       this.addIncident(leftTextAnimateIn, 4200 + delayEnd);
-      this.addIncident(
-        rotateAminmeStartOut,
-        5100 + delayEnd
-      );
+      this.addIncident(rotateAminmeStartOut, 5100 + delayEnd);
       this.addIncident(widthLIneOut, 5550 + delayEnd);
     }
   }
