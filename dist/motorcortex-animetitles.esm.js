@@ -1,5 +1,5 @@
-import { loadPlugin, HTMLClip, Group } from '@kissmybutton/motorcortex';
-import AnimeDefinition from '@kissmybutton/motorcortex-anime';
+import { loadPlugin, HTMLClip, Group } from '@donkeyclip/motorcortex';
+import AnimeDefinition from '@donkeyclip/motorcortex-anime';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -1621,7 +1621,7 @@ var CircularTextValidation = {
   }
 };
 
-var name = "@kissmybutton/motorcortex-animetitles";
+var name = "@donkeyclip/motorcortex-animetitles";
 var version = "1.2.0";
 
 var index = {

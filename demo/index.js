@@ -1,6 +1,6 @@
-import MotorCortex from "@kissmybutton/motorcortex";
-import Player from "@kissmybutton/motorcortex-player";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import MotorCortex from "@donkeyclip/motorcortex";
+import Player from "@donkeyclip/motorcortex-player";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 import TitlesPlugin from "../dist/motorcortex-animetitles.umd";
 import imgsvg from "./assets/imgsvg.js";
 
@@ -199,7 +199,7 @@ const logobox = new Titles.LogoBox(
     stopOnLast: false,
     fontFamily: "Commissioner",
     logoUrl:
-      "https://kissmybutton.github.io/motorcortex-animetitles/demo/assets/logo.png"
+      "https://donkeyclip.github.io/motorcortex-animetitles/demo/assets/logo.png"
   },
   {
     selector: ".logobox"
@@ -249,7 +249,7 @@ const LetterScale = new Titles.LetterScale(
     stroke: false,
     strokeSize: 2,
     strokeColor: "rebeccapurple",
-    fontFamily: "Righteous",
+    fontFamily: "Righteous"
   },
   {
     selector: ".letterscale"
@@ -291,12 +291,12 @@ const CircularText = new Titles.CircularText(
     fontSize: 10,
     viewBox: 100,
     path: 38,
-    fill: "#ff000000",    
+    fill: "#ff000000",
     fontFamily: "Righteous"
   },
   {
     selector: ".circulartext",
-    repeats: 2,
+    repeats: 2
   }
 );
 

@@ -1,5 +1,5 @@
-import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = loadPlugin(AnimeDefinition);
 
 export default class RolingText extends HTMLClip {
@@ -183,14 +183,8 @@ export default class RolingText extends HTMLClip {
     const delayEnd = this.attrs.delayEnd || 0;
 
     if (!this.attrs.stopOnLast) {
-      this.addIncident(
-        animeTextLeftBack,
-        4500 + delayEnd
-      );
-      this.addIncident(
-        animeLineHeightBack,
-        5550 + delayEnd
-      );
+      this.addIncident(animeTextLeftBack, 4500 + delayEnd);
+      this.addIncident(animeLineHeightBack, 5550 + delayEnd);
     }
   }
 }

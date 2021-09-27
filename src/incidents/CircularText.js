@@ -1,5 +1,5 @@
-import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = loadPlugin(AnimeDefinition);
 
 export default class CircularText extends HTMLClip {
@@ -75,7 +75,7 @@ export default class CircularText extends HTMLClip {
       },
       {
         duration: 3000,
-        selector: ".circle svg",
+        selector: ".circle svg"
       }
     );
     this.addIncident(left, 0);

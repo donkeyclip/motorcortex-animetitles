@@ -1,7 +1,7 @@
 'use strict';
 
-var motorcortex = require('@kissmybutton/motorcortex');
-var AnimeDefinition = require('@kissmybutton/motorcortex-anime');
+var motorcortex = require('@donkeyclip/motorcortex');
+var AnimeDefinition = require('@donkeyclip/motorcortex-anime');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -1627,7 +1627,7 @@ var CircularTextValidation = {
   }
 };
 
-var name = "@kissmybutton/motorcortex-animetitles";
+var name = "@donkeyclip/motorcortex-animetitles";
 var version = "1.2.0";
 
 var index = {

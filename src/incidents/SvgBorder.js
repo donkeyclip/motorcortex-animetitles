@@ -1,5 +1,5 @@
-import { HTMLClip, loadPlugin, Group } from "@kissmybutton/motorcortex";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import { HTMLClip, loadPlugin, Group } from "@donkeyclip/motorcortex";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = loadPlugin(AnimeDefinition);
 
 export default class SvgBorder extends HTMLClip {
