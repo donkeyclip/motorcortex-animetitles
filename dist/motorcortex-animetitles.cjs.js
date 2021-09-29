@@ -84,6 +84,8 @@ function _assertThisInitialized(self) {
 function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -108,7 +110,7 @@ function _createSuper(Derived) {
   };
 }
 
-var Anime$9 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$9 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
   _inherits(RotatedLine, _HTMLClip);
@@ -269,7 +271,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
   return RotatedLine;
 }(motorcortex.HTMLClip);
 
-var Anime$8 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$8 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var RolingText = /*#__PURE__*/function (_HTMLClip) {
   _inherits(RolingText, _HTMLClip);
@@ -402,7 +404,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
   return RolingText;
 }(motorcortex.HTMLClip);
 
-var Anime$7 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$7 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
   _inherits(SvgBorder, _HTMLClip);
@@ -553,7 +555,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
   return SvgBorder;
 }(motorcortex.HTMLClip);
 
-var Anime$6 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$6 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
   _inherits(RotatadLineReveal, _HTMLClip);
@@ -699,7 +701,7 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
   return RotatadLineReveal;
 }(motorcortex.HTMLClip);
 
-var Anime$5 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$5 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
   _inherits(SvgDraw, _HTMLClip);
@@ -794,7 +796,7 @@ var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
   return SvgDraw;
 }(motorcortex.HTMLClip);
 
-var Anime$4 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$4 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var Circle = /*#__PURE__*/function (_HTMLClip) {
   _inherits(Circle, _HTMLClip);
@@ -941,7 +943,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
   return Circle;
 }(motorcortex.HTMLClip);
 
-var Anime$3 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$3 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var LogoBox = /*#__PURE__*/function (_HTMLClip) {
   _inherits(LogoBox, _HTMLClip);
@@ -1054,7 +1056,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
   return LogoBox;
 }(motorcortex.HTMLClip);
 
-var Anime$2 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$2 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
   _inherits(RightOpacity, _HTMLClip);
@@ -1154,7 +1156,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
   return RightOpacity;
 }(motorcortex.HTMLClip);
 
-var Anime$1 = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime$1 = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var LetterScale = /*#__PURE__*/function (_HTMLClip) {
   _inherits(LetterScale, _HTMLClip);
@@ -1205,7 +1207,7 @@ var LetterScale = /*#__PURE__*/function (_HTMLClip) {
   return LetterScale;
 }(motorcortex.HTMLClip);
 
-var Anime = motorcortex.loadPlugin(AnimeDefinition__default['default']);
+var Anime = motorcortex.loadPlugin(AnimeDefinition__default["default"]);
 
 var CircularText = /*#__PURE__*/function (_HTMLClip) {
   _inherits(CircularText, _HTMLClip);

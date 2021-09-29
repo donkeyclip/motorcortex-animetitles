@@ -1,20 +1,20 @@
 # motorcortex-animetitles
 
-## [Demo](https://kissmybutton.github.io/motorcortex-animetitles/demo/)
+## [Demo](https://donkeyclip.github.io/motorcortex-animetitles/demo/)
 
 ## Installation
 
 ```bash
-$ npm install --save @kissmybutton/motorcortex-animetitles
+$ npm install --save @donkeyclip/motorcortex-animetitles
 # OR
-$ yarn add @kissmybutton/motorcortex-animetitles
+$ yarn add @donkeyclip/motorcortex-animetitles
 ```
 
 ## Loading
 
 ```javascript
-import {loadPlugin} from "@kissmybutton/motorcortex";
-import TitlesPlugin from "@kissmybutton/motorcortex-animetitles";
+import {loadPlugin} from "@donkeyclip/motorcortex";
+import TitlesPlugin from "@donkeyclip/motorcortex-animetitles";
 const Titles = loadPlugin(TitlesPlugin);
 ```
 
