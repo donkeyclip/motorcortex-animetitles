@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.2...v1.0.3) (2021-09-29)
+
+
+### Bug Fixes
+
+* lint ([3d6ccad](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/3d6ccade3c062a2311287e39a0857bd90fd49a44))
+* remove timing attribute from incidents ([2a9cad8](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/2a9cad84b02d4c3b2cdb5d49941eeae9cd69a5fe))
+* update npm name ([b0a4813](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/b0a4813e97535fe9fe184459237c9f2fd5785a21))
+
 ### 1.0.2 (2021-04-16)
 
 
