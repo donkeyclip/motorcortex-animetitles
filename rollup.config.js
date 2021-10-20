@@ -10,9 +10,9 @@ export default [
     external: ["@donkeyclip/motorcortex"],
     output: [
       { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" }
+      { file: pkg.module, format: "es" },
     ],
-    plugins: [commonjs(), babel(), json()]
+    plugins: [commonjs(), babel(), json()],
   },
   {
     input: "src/index.js",
@@ -20,19 +20,19 @@ export default [
     output: [
       {
         globals: {
-          "@donkeyclip/motorcortex": "MotorCortex"
+          "@donkeyclip/motorcortex": "MotorCortex",
         },
         name: pkg.name,
         file: pkg.browser,
-        format: "umd"
-      }
+        format: "umd",
+      },
     ],
     plugins: [
       nodeResolve({ mainFields: ["module", "main", "browser"] }),
+      json(),
       commonjs(),
       babel(),
       terser(),
-      json()
-    ]
-  }
+    ],
+  },
 ];
