@@ -1,7 +1,13 @@
 'use strict';
 
+require('core-js/modules/es.array.concat.js');
 var motorcortex = require('@donkeyclip/motorcortex');
 var AnimeDefinition = require('@donkeyclip/motorcortex-anime');
+require('core-js/modules/es.regexp.exec.js');
+require('core-js/modules/es.string.split.js');
+require('core-js/modules/es.array.join.js');
+require('core-js/modules/es.array.map.js');
+require('core-js/modules/es.array.fill.js');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 

@@ -1,5 +1,11 @@
+import 'core-js/modules/es.array.concat.js';
 import { loadPlugin, HTMLClip, Group } from '@donkeyclip/motorcortex';
 import AnimeDefinition from '@donkeyclip/motorcortex-anime';
+import 'core-js/modules/es.regexp.exec.js';
+import 'core-js/modules/es.string.split.js';
+import 'core-js/modules/es.array.join.js';
+import 'core-js/modules/es.array.map.js';
+import 'core-js/modules/es.array.fill.js';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
