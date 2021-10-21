@@ -1,7 +1,7 @@
 import MotorCortex from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-import TitlesPlugin from "../dist/motorcortex-animetitles.umd";
+import TitlesPlugin from "../dist/motorcortex-animetitles.esm";
 import imgsvg from "./assets/imgsvg.js";
 
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
@@ -9,12 +9,12 @@ const Titles = MotorCortex.loadPlugin(TitlesPlugin);
 
 const clip = new MotorCortex.HTMLClip({
   css: `
-    body{ 
-      background-color : white; 
+    body{
+      background-color : white;
     }
 
     .container{
-      position: relative; 
+      position: relative;
       background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
       height:100%;
       display: flex;
@@ -63,23 +63,22 @@ const clip = new MotorCortex.HTMLClip({
   fonts: [
     {
       type: `google-font`,
-      src: `https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap`
+      src: `https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap`,
     },
     {
       type: `google-font`,
-      src: `https://fonts.googleapis.com/css2?family=Righteous&display=swap`
+      src: `https://fonts.googleapis.com/css2?family=Righteous&display=swap`,
     },
     {
       type: "google-font",
-      src:
-        "https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    }
+      src: "https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    },
   ],
   host: document.getElementById("clip"),
   containerParams: {
     width: "1280px",
-    height: "720px"
-  }
+    height: "720px",
+  },
 });
 
 const svgdraw = new Titles.SvgDraw(
@@ -91,10 +90,10 @@ const svgdraw = new Titles.SvgDraw(
     strokeDashOffset: 10000,
     StrokeDashArray: 10000,
     svg: imgsvg,
-    stopOnLast: false
+    stopOnLast: false,
   },
   {
-    selector: ".svgdraw"
+    selector: ".svgdraw",
   }
 );
 
@@ -110,10 +109,10 @@ const rolinText = new Titles.RolingText(
     subTitle3: "Presents",
     stopOnLast: false,
     delayEnd: 1000,
-    fontFamily: "Commissioner"
+    fontFamily: "Commissioner",
   },
   {
-    selector: ".rolingtext"
+    selector: ".rolingtext",
   }
 );
 
@@ -128,10 +127,10 @@ const rotatedlinereveal = new Titles.RotatadLineReveal(
     subtitle: "MC Plugin",
     leftEnd: 100,
     stopOnLast: false,
-    fontFamily: "Commissioner"
+    fontFamily: "Commissioner",
   },
   {
-    selector: ".rotatedlinereveal"
+    selector: ".rotatedlinereveal",
   }
 );
 
@@ -147,10 +146,10 @@ const rotatedline = new Titles.RotatedLine(
     subTitle3: "Modern",
     title: "Title",
     stopOnLast: false,
-    fontFamily: "Commissioner"
+    fontFamily: "Commissioner",
   },
   {
-    selector: ".rotatedline"
+    selector: ".rotatedline",
   }
 );
 
@@ -164,10 +163,10 @@ const svgborder = new Titles.SvgBorder(
     slogan: "-KMB-",
     title: "MotorCortex Team",
     stopOnLast: false,
-    fontFamily: "Commissioner"
+    fontFamily: "Commissioner",
   },
   {
-    selector: ".svgborder"
+    selector: ".svgborder",
   }
 );
 
@@ -180,10 +179,10 @@ const circle = new Titles.Circle(
     subTitle: "TITLES",
     stopOnLast: false,
     fontFamily: "Commissioner",
-    width: 500
+    width: 500,
   },
   {
-    selector: ".circle"
+    selector: ".circle",
   }
 );
 
@@ -199,10 +198,10 @@ const logobox = new Titles.LogoBox(
     stopOnLast: false,
     fontFamily: "Commissioner",
     logoUrl:
-      "https://donkeyclip.github.io/motorcortex-animetitles/demo/assets/logo.png"
+      "https://donkeyclip.github.io/motorcortex-animetitles/demo/assets/logo.png",
   },
   {
-    selector: ".logobox"
+    selector: ".logobox",
   }
 );
 
@@ -217,25 +216,25 @@ const RightOpacity = new Titles.RightOpacity(
     strokeSize: 2,
     strokeColor: "rebeccapurple",
     fontFamily: "Rubik Mono One",
-    exitTime: 1000
+    exitTime: 1000,
   },
   {
-    selector: ".rightopacity"
+    selector: ".rightopacity",
   }
 );
 
 const rightopacityOpacity = new Anime.Anime(
   {
     animatedAttrs: {
-      opacity: 1
+      opacity: 1,
     },
     initialValues: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   {
     duration: 1,
-    selector: ".rightopacity"
+    selector: ".rightopacity",
   }
 );
 
@@ -249,36 +248,36 @@ const LetterScale = new Titles.LetterScale(
     stroke: false,
     strokeSize: 2,
     strokeColor: "rebeccapurple",
-    fontFamily: "Righteous"
+    fontFamily: "Righteous",
   },
   {
-    selector: ".letterscale"
+    selector: ".letterscale",
   }
 );
 
 const LetterScaleOpacity = new Anime.Anime(
   {
     animatedAttrs: {
-      opacity: 1
+      opacity: 1,
     },
     initialValues: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   {
     duration: 1,
-    selector: ".letterscale"
+    selector: ".letterscale",
   }
 );
 const LetterScaleOpacityBack = new Anime.Anime(
   {
     animatedAttrs: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   {
     duration: 1,
-    selector: ".letterscale"
+    selector: ".letterscale",
   }
 );
 
@@ -292,26 +291,26 @@ const CircularText = new Titles.CircularText(
     viewBox: 100,
     path: 38,
     fill: "#ff000000",
-    fontFamily: "Righteous"
+    fontFamily: "Righteous",
   },
   {
     selector: ".circulartext",
-    repeats: 2
+    repeats: 2,
   }
 );
 
 const CircularTextOpacity = new Anime.Anime(
   {
     animatedAttrs: {
-      opacity: 1
+      opacity: 1,
     },
     initialValues: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   {
     duration: 1,
-    selector: ".circulartext"
+    selector: ".circulartext",
   }
 );
 
