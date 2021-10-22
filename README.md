@@ -13,7 +13,7 @@ $ yarn add @donkeyclip/motorcortex-animetitles
 ## Loading
 
 ```javascript
-import {loadPlugin} from "@donkeyclip/motorcortex";
+import { loadPlugin } from "@donkeyclip/motorcortex";
 import TitlesPlugin from "@donkeyclip/motorcortex-animetitles";
 const Titles = loadPlugin(TitlesPlugin);
 ```
@@ -34,28 +34,26 @@ const nameOfIncident = new Titles.RotatedLine(
     subTitle3: "test3",
     title: "dokimi",
     stopOnLast: false,
-    delayEnd : 3000
+    delayEnd: 3000,
   },
   {
-    selector: ".rotatedline"
+    selector: ".rotatedline",
   }
 );
 ```
 
 ### RotateLine Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container | all positive numbers |
-| size |  scale of clip components   |  "S","M","L","XL"  |
-| lineColor |  the color of line |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| subTitle1 , subTitle2 , subTitle3 |  right texts |  normal text  |
-| title |  left text |  normal text  |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
-
+| Name                              |                       Are                       |               Values |
+| --------------------------------- | :---------------------------------------------: | -------------------: |
+| width                             |          total width of clip container          | all positive numbers |
+| size                              |            scale of clip components             |     "S","M","L","XL" |
+| lineColor                         |                the color of line                |    hex values or RGB |
+| textColor                         |                the color of text                |    hex values or RGB |
+| subTitle1 , subTitle2 , subTitle3 |                   right texts                   |          normal text |
+| title                             |                    left text                    |          normal text |
+| stopOnLast                        | if you like to stop animation on last text line |           true,false |
+| delayEnd                          |           delay before last animation           |          millisecond |
 
 ## RolingText
 
@@ -70,27 +68,25 @@ const nameOfIncident = new Titles.RolingText(
     subTitle2: "test2",
     subTitle3: "test3",
     stopOnLast: false,
-    delayEnd : 3000
+    delayEnd: 3000,
   },
   {
-    selector: ".rolingtext"
+    selector: ".rolingtext",
   }
 );
 ```
 
 ### Rolingtext Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container | all positive numbers |
-| size |  scale of clip components   |  "S","M","L","XL","XXL","XXXL"    |
-| lineColor |  the color of line |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| subTitle1 , subTitle2 , subTitle3 |  roling text lines |  normal text  |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
-
+| Name                              |                       Are                       |                        Values |
+| --------------------------------- | :---------------------------------------------: | ----------------------------: |
+| width                             |          total width of clip container          |          all positive numbers |
+| size                              |            scale of clip components             | "S","M","L","XL","XXL","XXXL" |
+| lineColor                         |                the color of line                |             hex values or RGB |
+| textColor                         |                the color of text                |             hex values or RGB |
+| subTitle1 , subTitle2 , subTitle3 |                roling text lines                |                   normal text |
+| stopOnLast                        | if you like to stop animation on last text line |                    true,false |
+| delayEnd                          |           delay before last animation           |                   millisecond |
 
 ## RotatadLineReveal
 
@@ -106,36 +102,34 @@ const nameOfIncident = new Titles.RotatadLineReveal(
     subtitle: "MC Plugin",
     leftEnd: 100,
     stopOnLast: false,
-    delayEnd : 3000
+    delayEnd: 3000,
   },
   {
-    selector: ".rotatedlinereveal"
+    selector: ".rotatedlinereveal",
   }
 );
 ```
 
 ### RotatadLineReveal Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container | all positive numbers |
-| size |  scale of clip components   |  "S","M","L"    |
-| lineColor |  the color of line |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| title | title text |  normal text  |
-| subtitle | subtitle text |  normal text  |
-| leftEnd |  left distance of componet from the left side of container |  numbers |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
-
+| Name       |                            Are                            |               Values |
+| ---------- | :-------------------------------------------------------: | -------------------: |
+| width      |               total width of clip container               | all positive numbers |
+| size       |                 scale of clip components                  |          "S","M","L" |
+| lineColor  |                     the color of line                     |    hex values or RGB |
+| textColor  |                     the color of text                     |    hex values or RGB |
+| title      |                        title text                         |          normal text |
+| subtitle   |                       subtitle text                       |          normal text |
+| leftEnd    | left distance of componet from the left side of container |              numbers |
+| stopOnLast |      if you like to stop animation on last text line      |           true,false |
+| delayEnd   |                delay before last animation                |          millisecond |
 
 ## SvgBorder
 
 ```javascript
 const nameOfIncident = new Titles.SvgBorder(
   {
-   duration: 5000,
+    duration: 5000,
     size: "L",
     lineColor: "#ff0000",
     textColor: "#000",
@@ -143,29 +137,27 @@ const nameOfIncident = new Titles.SvgBorder(
     slogan: "-KMB-",
     title: "MotorCortex Team",
     stopOnLast: false,
-    delayEnd : 3000
+    delayEnd: 3000,
   },
   {
-    selector: ".svgborder"
+    selector: ".svgborder",
   }
 );
 ```
 
 ### SvgBorder Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container | all positive numbers |
-| size |  scale of clip components   |  "S","M","L" |
-| lineColor |  the color of line |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| subTitle | top left text |  normal text  |
-| slogan  | under border text |  normal text  |
-| title  | title text |  normal text  |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
-
+| Name       |                       Are                       |               Values |
+| ---------- | :---------------------------------------------: | -------------------: |
+| width      |          total width of clip container          | all positive numbers |
+| size       |            scale of clip components             |          "S","M","L" |
+| lineColor  |                the color of line                |    hex values or RGB |
+| textColor  |                the color of text                |    hex values or RGB |
+| subTitle   |                  top left text                  |          normal text |
+| slogan     |                under border text                |          normal text |
+| title      |                   title text                    |          normal text |
+| stopOnLast | if you like to stop animation on last text line |           true,false |
+| delayEnd   |           delay before last animation           |          millisecond |
 
 ## Circle
 
@@ -178,35 +170,35 @@ const nameOfIncident = new Titles.Circle(
     title: "IOAN",
     subTitle: "BRAPAPAPA",
     stopOnLast: false,
-    delayEnd : 3000,
-    width:500
+    delayEnd: 3000,
+    width: 500,
   },
   {
-    selector: ".circle"
+    selector: ".circle",
   }
 );
-
 ```
+
 ## In order to use tin incident you should include the img.svg that is in demo folder in your clip.js directory
+
 ### Circle Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container and width/height of the circle | all positive numbers |
-| circleColor |  the color of circle |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| subTitle | top left text |  normal text  |
-| title  | svg cobe with 1 path tag only|  svg text  |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
+| Name        |                             Are                              |               Values |
+| ----------- | :----------------------------------------------------------: | -------------------: |
+| width       | total width of clip container and width/height of the circle | all positive numbers |
+| circleColor |                     the color of circle                      |    hex values or RGB |
+| textColor   |                      the color of text                       |    hex values or RGB |
+| subTitle    |                        top left text                         |          normal text |
+| title       |                svg cobe with 1 path tag only                 |             svg text |
+| stopOnLast  |       if you like to stop animation on last text line        |           true,false |
+| delayEnd    |                 delay before last animation                  |          millisecond |
 
 ## SvgDrow
 
 ```javascript
 const nameOfIncident = new Titles.SvgDrow(
   {
- duration: 1600,
+    duration: 1600,
     width: 900,
     size: "M",
     lineColor: "#ff0000",
@@ -215,29 +207,28 @@ const nameOfIncident = new Titles.SvgDrow(
     erase: true,
     svg: `svg code`,
     stopOnLast: false,
-    delayEnd : 3000
+    delayEnd: 3000,
   },
   {
-    selector: ".svgdrow"
+    selector: ".svgdrow",
   }
 );
 ```
 
 ### SvgDrow Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width      | total width of clip container | all positive numbers |
-| size |  scale of clip components   |  "S","M","L" |
-| lineColor |  the color of line |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| strokeDashOffset: | The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array. |  number  |
-| StrokeDashArray  | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |  number  |
-| erase  | erase svg after drow it |  true, false  |
-| svg |  The width of the title container  |  numbers |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| delayEnd |  delay before last animation |  millisecond  |
-
+| Name              |                                                                    Are                                                                    |               Values |
+| ----------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | -------------------: |
+| width             |                                                       total width of clip container                                                       | all positive numbers |
+| size              |                                                         scale of clip components                                                          |          "S","M","L" |
+| lineColor         |                                                             the color of line                                                             |    hex values or RGB |
+| textColor         |                                                             the color of text                                                             |    hex values or RGB |
+| strokeDashOffset: |       The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array.        |               number |
+| StrokeDashArray   | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |               number |
+| erase             |                                                          erase svg after drow it                                                          |          true, false |
+| svg               |                                                     The width of the title container                                                      |              numbers |
+| stopOnLast        |                                              if you like to stop animation on last text line                                              |           true,false |
+| delayEnd          |                                                        delay before last animation                                                        |          millisecond |
 
 ## LogoBox
 
@@ -252,34 +243,37 @@ const nameOfIncident = new Titles.LogoBox(
     subTitle3: "test3",
     width: 200,
     stopOnLast: false,
-    logoUrl: "https://kissmybutton.github.io/motorcortex-animetitles/demo/logo.png"
+    logoUrl:
+      "https://donkeyclip.github.io/motorcortex-animetitles/demo/logo.png",
   },
   {
-    selector: ".logobox"
+    selector: ".logobox",
   }
 );
 ```
+
 ## In order to use tin incident you should include the logo.png image in your clip.js directory
 
 ### LogoBox Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| size     | change the size of element  | all positive numbers |
-| bgColor   |  the color of bg |  hex values or RGB  |
-| textColor |  the color of text |  hex values or RGB  |
-| subTitle1 , subTitle2 , subTitle3 |  right texts |  normal text  |
-| width      | total width of text container | all positive numbers |
-| stopOnLast |  if you like to stop animation on last text line |  true,false |
-| logoUrl      | url of an image | string |
-
+| Name                              |                       Are                       |               Values |
+| --------------------------------- | :---------------------------------------------: | -------------------: |
+| size                              |           change the size of element            | all positive numbers |
+| bgColor                           |                 the color of bg                 |    hex values or RGB |
+| textColor                         |                the color of text                |    hex values or RGB |
+| subTitle1 , subTitle2 , subTitle3 |                   right texts                   |          normal text |
+| width                             |          total width of text container          | all positive numbers |
+| stopOnLast                        | if you like to stop animation on last text line |           true,false |
+| logoUrl                           |                 url of an image                 |               string |
 
 # Add incident to your clip
 
 ```javascript
 clipName.addIncident(nameOfIncident, 0);
-
 ```
 
+## License
 
+[MIT License](https://opensource.org/licenses/MIT)
 
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
