@@ -107,7 +107,7 @@
     "eslint-plugin-promise": "5.2.0",
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "react-svg-loader": "3.0.3",
     "rimraf": "3.0.2",
     "rollup": "2.60.2",
