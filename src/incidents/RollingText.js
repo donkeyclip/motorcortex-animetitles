@@ -2,7 +2,7 @@ import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
 import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = loadPlugin(AnimeDefinition);
 
-export default class RolingText extends HTMLClip {
+export default class RollingText extends HTMLClip {
   get html() {
     return `
       <div class="wrapper">
@@ -92,7 +92,7 @@ export default class RolingText extends HTMLClip {
       topMove,
       lineHeight,
       gap,
-      topMove2
+      topMove2,
     };
   }
 
@@ -100,78 +100,78 @@ export default class RolingText extends HTMLClip {
     const animeLineHeight = new Anime.Anime(
       {
         animatedAttrs: {
-          height: this.size.lineHeight
+          height: this.size.lineHeight,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
-        selector: ".line"
+        selector: ".line",
       }
     );
 
     const animeTextLeft = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0px"
+          left: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 800,
-        selector: ".textClip span"
+        selector: ".textClip span",
       }
     );
 
     const animeTextTop = new Anime.Anime(
       {
         animatedAttrs: {
-          top: this.size.topMove
+          top: this.size.topMove,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
-        selector: ".textClip span"
+        selector: ".textClip span",
       }
     );
 
     const animeTextTopNext = new Anime.Anime(
       {
         animatedAttrs: {
-          top: this.size.topMove2
+          top: this.size.topMove2,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
-        selector: ".textClip span"
+        selector: ".textClip span",
       }
     );
 
     const animeTextLeftBack = new Anime.Anime(
       {
         animatedAttrs: {
-          left: `-${this.attrs.width / 2}px`
+          left: `-${this.attrs.width / 2}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
-        selector: ".textClip span"
+        selector: ".textClip span",
       }
     );
 
     const animeLineHeightBack = new Anime.Anime(
       {
         animatedAttrs: {
-          height: "0px"
+          height: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
-        selector: ".line"
+        selector: ".line",
       }
     );
 

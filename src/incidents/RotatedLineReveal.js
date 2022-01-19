@@ -2,7 +2,7 @@ import { HTMLClip, loadPlugin, Group } from "@donkeyclip/motorcortex";
 import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = loadPlugin(AnimeDefinition);
 
-export default class RotatadLineReveal extends HTMLClip {
+export default class RotatedLineReveal extends HTMLClip {
   get html() {
     switch (this.attrs.size) {
       case "S":
@@ -77,7 +77,7 @@ export default class RotatadLineReveal extends HTMLClip {
       fontSize,
       fontSizeSub,
       lineSize,
-      lineHeight
+      lineHeight,
     };
   }
 
@@ -88,72 +88,72 @@ export default class RotatadLineReveal extends HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            rotate: "0deg"
-          }
+            rotate: "0deg",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1200,
         selector: `.redLine`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
     const lineMoveEnd = new Anime.Anime(
       {
         animatedAttrs: {
-          left: `${this.attrs.leftEnd}px`
+          left: `${this.attrs.leftEnd}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: `.redLine`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
     const lineWidthEnd = new Anime.Anime(
       {
         animatedAttrs: {
-          width: "400px"
+          width: "400px",
         },
         attrs: {
-          easing: "easeOutExpo"
-        }
+          easing: "easeOutExpo",
+        },
       },
       {
         duration: 800,
-        selector: `.redLine`
+        selector: `.redLine`,
       }
     );
 
     const moveText = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "10px"
+          left: "10px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 800,
         selector: `.text`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
     const moveSub = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 400,
         selector: `.sub`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
@@ -161,14 +161,14 @@ export default class RotatadLineReveal extends HTMLClip {
       const moveTextOut = new Anime.Anime(
         {
           animatedAttrs: {
-            left: `-${this.attrs.width}px`
+            left: `-${this.attrs.width}px`,
           },
-          attrs: {}
+          attrs: {},
         },
         {
           duration: Math.round(1700),
           selector: ".text" + i,
-          easing: "easeOutExpo"
+          easing: "easeOutExpo",
         }
       );
 
@@ -178,14 +178,14 @@ export default class RotatadLineReveal extends HTMLClip {
     const lineHeight = new Anime.Anime(
       {
         animatedAttrs: {
-          height: "0px"
+          height: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 400,
         selector: `.redLine`,
-        easing: "easeInSine"
+        easing: "easeInSine",
       }
     );
 

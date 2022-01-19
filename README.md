@@ -55,10 +55,10 @@ const nameOfIncident = new Titles.RotatedLine(
 | stopOnLast                        | if you like to stop animation on last text line |           true,false |
 | delayEnd                          |           delay before last animation           |          millisecond |
 
-## RolingText
+## RollingText
 
 ```javascript
-const nameOfIncident = new Titles.RolingText(
+const nameOfIncident = new Titles.RollingText(
   {
     width: 250,
     size: "L",
@@ -71,12 +71,12 @@ const nameOfIncident = new Titles.RolingText(
     delayEnd: 3000,
   },
   {
-    selector: ".rolingtext",
+    selector: ".rollingtext",
   }
 );
 ```
 
-### Rolingtext Attrs
+### Rollingtext Attrs
 
 | Name                              |                       Are                       |                        Values |
 | --------------------------------- | :---------------------------------------------: | ----------------------------: |
@@ -84,14 +84,14 @@ const nameOfIncident = new Titles.RolingText(
 | size                              |            scale of clip components             | "S","M","L","XL","XXL","XXXL" |
 | lineColor                         |                the color of line                |             hex values or RGB |
 | textColor                         |                the color of text                |             hex values or RGB |
-| subTitle1 , subTitle2 , subTitle3 |                roling text lines                |                   normal text |
+| subTitle1 , subTitle2 , subTitle3 |               rolling text lines                |                   normal text |
 | stopOnLast                        | if you like to stop animation on last text line |                    true,false |
 | delayEnd                          |           delay before last animation           |                   millisecond |
 
-## RotatadLineReveal
+## RotatedLineReveal
 
 ```javascript
-const nameOfIncident = new Titles.RotatadLineReveal(
+const nameOfIncident = new Titles.RotatedLineReveal(
   {
     duration: 5000,
     width: 800,
@@ -110,7 +110,7 @@ const nameOfIncident = new Titles.RotatadLineReveal(
 );
 ```
 
-### RotatadLineReveal Attrs
+### RotatedLineReveal Attrs
 
 | Name       |                            Are                            |               Values |
 | ---------- | :-------------------------------------------------------: | -------------------: |

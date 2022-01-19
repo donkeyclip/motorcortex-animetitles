@@ -46,7 +46,7 @@ const clip = new MotorCortex.HTMLClip({
   html: `
     <div class="container">
       <div class="row" >
-        <div class="cel"> <div class="rolingtext full"></div>  </div>
+        <div class="cel"> <div class="rollingtext full"></div>  </div>
         <div class="cel"><div class="svgborder full"></div> </div>
         <div class="cel"> <div class="rotatedline full"></div> </div>
         <div class="cel"> <div class="rotatedlinereveal full"></div> </div>
@@ -97,7 +97,7 @@ const svgdraw = new Titles.SvgDraw(
   }
 );
 
-const rolinText = new Titles.RolingText(
+const rollingText = new Titles.RollingText(
   {
     duration: 6000,
     width: 450,
@@ -112,11 +112,11 @@ const rolinText = new Titles.RolingText(
     fontFamily: "Commissioner",
   },
   {
-    selector: ".rolingtext",
+    selector: ".rollingtext",
   }
 );
 
-const rotatedlinereveal = new Titles.RotatadLineReveal(
+const rotatedlinereveal = new Titles.RotatedLineReveal(
   {
     duration: 5000,
     width: 800,
@@ -314,7 +314,7 @@ const CircularTextOpacity = new Anime.Anime(
   }
 );
 
-clip.addIncident(rolinText, 0);
+clip.addIncident(rollingText, 0);
 clip.addIncident(rotatedlinereveal, 7000);
 clip.addIncident(svgborder, 11025);
 clip.addIncident(rotatedline, 16025);

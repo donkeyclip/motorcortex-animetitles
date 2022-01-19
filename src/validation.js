@@ -4,424 +4,424 @@ export const RotatedLIneVal = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   size: {
     type: "enum",
-    values: ["S", "M", "L", "XL"]
+    values: ["S", "M", "L", "XL"],
   },
   lineColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   subTitle1: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle2: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle3: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
-export const RolingTextVal = {
+export const RollingTextVal = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   size: {
     type: "enum",
-    values: ["S", "M", "L", "XL", "XXL", "XXXL"]
+    values: ["S", "M", "L", "XL", "XXL", "XXXL"],
   },
   lineColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   subTitle1: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle2: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle3: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
-export const RotatadLineRevealVal = {
+export const RotatedLineRevealVal = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   size: {
     type: "enum",
-    values: ["S", "M", "L"]
+    values: ["S", "M", "L"],
   },
   lineColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subtitle: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   leftEnd: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
 export const SvgBorderVal = {
   width: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   size: {
     type: "enum",
-    values: ["S", "M", "L"]
+    values: ["S", "M", "L"],
   },
   lineColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   slogan: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
 export const CircleVal = {
   width: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   fontsize: {
     optional: true,
     type: "number",
-    min: 1
+    min: 1,
   },
   circleColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
 export const SvgDrawVal = {
   width: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   size: {
     type: "enum",
-    values: ["S", "M", "L"]
+    values: ["S", "M", "L"],
   },
   lineColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   strokeDashOffset: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   StrokeDashArray: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   erase: {
     optional: true,
-    type: "boolean"
+    type: "boolean",
   },
   svg: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   delayEnd: {
     optional: true,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 export const LogoBoxVal = {
   size: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   bgColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   textColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   subTitle1: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle2: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subTitle3: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   width: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   stopOnLast: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   logoUrl: {
     optional: false,
-    type: "string"
-  }
+    type: "string",
+  },
 };
 
 export const RigthOpacityValidationVal = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   height: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   text: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   color: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   fontSize: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   stroke: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   strokeSize: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   strokeColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   fontFamily: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   exitTime: {
     optional: false,
     type: "number",
-    min: 0
-  }
+    min: 0,
+  },
 };
 
 export const LetterScaleValidationVal = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   height: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   text: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   color: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   fontSize: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   stroke: {
     optional: false,
-    type: "boolean"
+    type: "boolean",
   },
   strokeSize: {
     optional: true,
     type: "number",
-    min: 0
+    min: 0,
   },
   strokeColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   fontFamily: {
     optional: false,
-    type: "string"
-  }
+    type: "string",
+  },
 };
 
 export const CircularTextValidation = {
   width: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   height: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   color: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   text: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   fontSize: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   viewBox: {
     optional: false,
-    type: "number"
+    type: "number",
   },
   path: {
     optional: false,
     type: "number",
-    min: 0
+    min: 0,
   },
   fill: {
     optional: false,
-    type: _COLOR
+    type: _COLOR,
   },
   fontFamily: {
     optional: false,
-    type: "string"
+    type: "string",
   },
 };
