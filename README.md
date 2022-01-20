@@ -1,7 +1,47 @@
-# motorcortex-animetitles
+# MotorCortex-Animetitles
+**Table of Contents**
 
-## [Demo](https://donkeyclip.github.io/motorcortex-animetitles/demo/)
+- [MotorCortex-Animetitles](#motorcortex-animetitles)
+  - [Demo](#demo)
+- [Intro / Features](#intro--features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Importing and Loading](#importing-and-loading)
+- [Creating Incidents](#creating-incidents)
+  - [RotatedLine](#rotatedline)
+  - [RollingText](#rollingtext)
+  - [RotatedLineReveal](#rotatedlinereveal)
+  - [SvgBorder](#svgborder)
+  - [Circle](#circle)
+  - [SvgDraw](#svgdraw)
+  - [LogoBox](#logobox)
+  - [CircularText](#circulartext)
+  - [LetterScale](#letterscale)
+  - [RightOpacity](#rightopacity)
+- [Adding Incidents in your clip](#adding-incidents-in-your-clip)
+- [Contributing](#contributing)
+- [License](#license)
+- [Sponsored by](#sponsored-by)
 
+## Demo
+[Check it out here](https://donkeyclip.github.io/motorcortex-animetitles/demo/)
+
+# Intro / Features
+Using MotorCortex-Animetitles you can animate perfect titles for your clips, via its easy to use incidents.
+
+This Plugin exposes ten incidents:
+  - RotatedLine
+  - RollingText
+  - RotatedLineReveal
+  - SvgBorder
+  - Circle
+  - SvgDraw
+  - LogoBox
+  - CircularText
+  - LetterScale
+  - RightOpacity
+
+# Getting Started
 ## Installation
 
 ```bash
@@ -10,7 +50,7 @@ $ npm install --save @donkeyclip/motorcortex-animetitles
 $ yarn add @donkeyclip/motorcortex-animetitles
 ```
 
-## Loading
+## Importing and loading
 
 ```javascript
 import { loadPlugin } from "@donkeyclip/motorcortex";
@@ -18,7 +58,8 @@ import TitlesPlugin from "@donkeyclip/motorcortex-animetitles";
 const Titles = loadPlugin(TitlesPlugin);
 ```
 
-# Create incident
+
+# Creating Incidents
 
 ## RotatedLine
 
@@ -179,7 +220,8 @@ const nameOfIncident = new Titles.Circle(
 );
 ```
 
-## In order to use tin incident you should include the img.svg that is in demo folder in your clip.js directory
+#### IMPORTANT
+In order to use tin incident you should include the img.svg that is in demo folder in your clip.js directory
 
 ### Circle Attrs
 
@@ -193,10 +235,10 @@ const nameOfIncident = new Titles.Circle(
 | stopOnLast  |       if you like to stop animation on last text line        |           true,false |
 | delayEnd    |                 delay before last animation                  |          millisecond |
 
-## SvgDrow
+## SvgDraw
 
 ```javascript
-const nameOfIncident = new Titles.SvgDrow(
+const nameOfIncident = new Titles.SvgDraw(
   {
     duration: 1600,
     width: 900,
@@ -215,7 +257,7 @@ const nameOfIncident = new Titles.SvgDrow(
 );
 ```
 
-### SvgDrow Attrs
+### SvgDraw Attrs
 
 | Name              |                                                                    Are                                                                    |               Values |
 | ----------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | -------------------: |
@@ -252,7 +294,8 @@ const nameOfIncident = new Titles.LogoBox(
 );
 ```
 
-## In order to use tin incident you should include the logo.png image in your clip.js directory
+#### IMPORTANT
+In order to use tin incident you should include the logo.png image in your clip.js directory
 
 ### LogoBox Attrs
 
@@ -266,14 +309,130 @@ const nameOfIncident = new Titles.LogoBox(
 | stopOnLast                        | if you like to stop animation on last text line |           true,false |
 | logoUrl                           |                 url of an image                 |               string |
 
-# Add incident to your clip
-
+## CircularText
 ```javascript
-clipName.addIncident(nameOfIncident, 0);
+const nameOfIncident  = new Titles.CircularText(
+  {
+    width: 500,
+    height: 500,
+    color: "#ff0000",
+    text: "CircularText - AnimeTitles - MotorCortex - Plugin -",
+    fontSize: 10,
+    viewBox: 100,
+    path: 38,
+    fill: "#ff000000",
+    fontFamily: "Righteous",
+  },
+  {
+    selector: ".circulartext",
+    repeats: 2,
+  }
+);
 ```
 
-## License
+### CircularText Attrs
+
+| Name          |                   Are                   |            Values |
+| --------------| :-------------------------------------: | ----------------: |
+| width         |  total width of clip container          |             number|
+| height        |  total height of clip container         |             number|
+| color         |  color for the text                     |  hex values or RGB|  
+| text          |  the displayed text                     |             string|
+| fontSize      |  size of the font                       |             number|
+| fontFamily    |  font family                            |             string|
+| viewBox       |  width for the wrapper of the circle    |             number|
+| path          | width for the circle's radius           |             number|        
+| fill          | color for the svg shape                 |  hex values or RGB|  
+
+## LetterScale
+```javascript
+const nameOfIncident  = new Titles.LetterScale(
+  {
+    width: 900,
+    height: 900,
+    color: "rebeccapurple",
+    text: "LetterScale",
+    fontSize: 100,
+    stroke: false,
+    strokeSize: 2,
+    strokeColor: "rebeccapurple",
+    fontFamily: "Righteous",
+  },
+  {
+    selector: ".letterscale",
+  }
+);
+```
+### LetterScale Attrs
+
+| Name          |                 Are                   |               Values |
+| --------------| :-----------------------------------: | -------------------: |
+| width         |  total width of clip container        | number|    
+| height        |  total height of clip container       | number|
+| color         |  color for the text                   |hex values or RGB|  
+| text          |  the displayed text                   | string|
+| fontSize      |  size of the font                     | number|
+| fontFamily    |  font family                          | string|
+| stroke        | a border to SVG shapes                | boolean|      
+| strokeSize    | the stroke's size                     | number|
+| strokeColor   | the stroke's color                    |hex values or RGB| 
+
+
+## RightOpacity 
+```javascript
+const nameOfIncident  = new Titles.RightOpacity(
+  {
+    width: 1000,
+    height: 250,
+    text: "RightOpacity",
+    color: "#0000",
+    fontSize: 100,
+    stroke: true,
+    strokeSize: 2,
+    strokeColor: "rebeccapurple",
+    fontFamily: "Rubik Mono One",
+    exitTime: 1000,
+  },
+  {
+    selector: ".rightopacity",
+  }
+);
+```
+
+### RightOpacity Attrs
+
+| Name          |                 Are                   |               Values |
+| --------------| :-----------------------------------: | -------------------: |
+| width         |  total width of clip container        | number|    
+| height        |  total height of clip container       | number|
+| color         |  color for the text                   |hex values or RGB|  
+| text          |  the displayed text                   | string|
+| fontSize      |  size of the font                     | number|
+| fontFamily    |  font family                          | string|
+| stroke        | a border to SVG shapes                | boolean|      
+| strokeSize    | the stroke's size                     | number|
+| strokeColor   | the stroke's color                    |hex values or RGB| 
+| exitTime      | time for animation to exit            | number|
+
+# Adding Incidents in your clip
+
+```javascript
+clipName.addIncident(incidentName,startTime);
+```
+
+# Contributing 
+
+In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
+1.	**Fork** the repo on GitHub
+2.	**Clone** the project to your own machine
+3.	**Commit** changes to your own branch
+4.	**Push** your work back up to your fork
+5.	Submit a **Pull request** so that we can review your changes
+
+# License
 
 [MIT License](https://opensource.org/licenses/MIT)
 
+# Sponsored by
 [<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
+
