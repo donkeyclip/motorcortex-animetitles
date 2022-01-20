@@ -265,7 +265,7 @@ const nameOfIncident = new Titles.SvgDraw(
 | size              |                                                         scale of clip components                                                          |          "S","M","L" |
 | lineColor         |                                                             the color of line                                                             |    hex values or RGB |
 | textColor         |                                                             the color of text                                                             |    hex values or RGB |
-| strokeDashOffset: |       The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array.        |               number |
+| strokeDashOffset |       The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array.        |               number |
 | StrokeDashArray   | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |               number |
 | erase             |                                                          erase svg after drow it                                                          |          true, false |
 | svg               |                                                     The width of the title container                                                      |              numbers |
