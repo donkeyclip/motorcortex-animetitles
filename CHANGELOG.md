@@ -1,5 +1,22 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.3...v1.0.4) (2022-01-30)
+
+
+### Bug Fixes
+
+* drop code from demo config ([6147d09](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/6147d091a741697c006138cbd547df3a8cfb1346))
+* fix broken rollup config ([81d56da](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/81d56da5779e8d5d0d3ecea20854485b34494dce))
+* fix broken webpack config ([1f92033](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/1f92033ab32c45f1f11be2ee85fce99209ea48c3))
+* update build and demo files drop old babel config ([fdd1449](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/fdd144995e557c03ce3fd75feef67b67efacb3a3))
+* update build and demo files drop old babel config ([0eaef94](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/0eaef941790acf89e3eb7f22794d1ac93d1a2acf))
+* update build and demo files drop old babel config ([bfc7e2a](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/bfc7e2a20a53e1dd76210f1b9bb8a998a1952797))
+* update build and demo files drop old babel config ([b3f992f](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/b3f992fe49ba5c9b1381dab845135f728ee65d12))
+* update build and demo files drop old babel config ([03131d5](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/03131d577d7e0e351b93ab03c05351c3363fadfe))
+* update build and demo files drop old babel config ([d59d064](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/d59d0645b6d1301787bcdb94bbb83abf9ae7db71))
+* update build and demo files drop old babel config ([e7a1e17](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/e7a1e1766b5cdc11d462ea3c553186dad87a9584))
+* update rollup deps to latest packages ([693e426](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/693e42659d824ff82ff8d9a508421e3acebc13db))
+
 ### [1.0.3](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.2...v1.0.3) (2021-09-30)
 
 
