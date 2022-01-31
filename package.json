@@ -1,6 +1,6 @@
 {
   "name": "@donkeyclip/motorcortex-animetitles",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Animetitles plugin for MotorCortex",
   "main": "dist/motorcortex-animetitles.cjs.js",
   "module": "dist/motorcortex-animetitles.esm.js",
