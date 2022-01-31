@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.5](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.4...v1.0.5) (2022-01-31)
+
+
+### Bug Fixes
+
+* remove anime plugin ([4d0a00c](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/4d0a00c05d83d2dc90666b2f20257c1ae4aea7c7))
+
 ### [1.0.4](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.3...v1.0.4) (2022-01-30)
 
 
