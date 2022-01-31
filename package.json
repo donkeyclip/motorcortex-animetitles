@@ -62,9 +62,6 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "dependencies": {
-    "@donkeyclip/motorcortex-anime": "^2.1.16"
-  },
   "peerDependencies": {
     "@donkeyclip/motorcortex": ">= 7.4.0 < 8"
   },

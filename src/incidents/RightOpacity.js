@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class RightOpacity extends HTMLClip {
   get html() {
@@ -58,90 +56,91 @@ export default class RightOpacity extends HTMLClip {
   }
 
   buildTree() {
-    const left = new Anime.Anime(
+    const left = new CSSEffect(
       {
         animatedAttrs: {
-          left: `@expression(index * ${this.attrs.width / this.list.length})px`
+          left: `@expression(index * ${this.attrs.width / this.list.length})px`,
         },
         initialValues: {
-          left: `@expression((index * ${this.attrs.width /
-            this.list.length})+${this.attrs.width / 2})px`
-        }
+          left: `@expression((index * ${this.attrs.width / this.list.length})+${
+            this.attrs.width / 2
+          })px`,
+        },
       },
       {
         duration: 1,
         selector: ".letter",
-        delay: "@stagger(0, 0)"
+        delay: "@stagger(0, 0)",
       }
     );
 
     this.addIncident(left, 0);
 
-    const opacity = new Anime.Anime(
+    const opacity = new CSSEffect(
       {
         animatedAttrs: {
-          opacity: 1
+          opacity: 1,
           // left: `@expression(index * ${this.attrs.width / this.list.length})px`
         },
         initialValues: {
-          opacity: 0
+          opacity: 0,
           // left: `@expression((index * ${this.attrs.width / this.list.length})+${this.attrs.width / 2})px`
-        }
+        },
       },
       {
         duration: 300,
         selector: ".letter",
         easing: "easeOutExpo",
-        delay: "@stagger(0, 300)"
+        delay: "@stagger(0, 300)",
       }
     );
 
     this.addIncident(opacity, 10);
 
-    const left2 = new Anime.Anime(
+    const left2 = new CSSEffect(
       {
         animatedAttrs: {
-          left: "0px"
+          left: "0px",
         },
         initialValues: {
-          left: `${this.attrs.width * 0.5}px`
-        }
+          left: `${this.attrs.width * 0.5}px`,
+        },
       },
       {
         duration: 300,
         selector: ".letter-wrapper",
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
         // delay: "@stagger(0, 300)"
       }
     );
 
     this.addIncident(left2, 0);
 
-    const leftLetter = new Anime.Anime(
+    const leftLetter = new CSSEffect(
       {
         animatedAttrs: {
-          left: `${this.attrs.width / 2}px`
-        }
+          left: `${this.attrs.width / 2}px`,
+        },
       },
       {
         duration: 300,
         selector: ".letter",
         easing: "easeInQuad",
-        delay: "@stagger(0, 300,0.5,easeInQuad,omni)"
+        delay: "@stagger(0, 300,0.5,easeInQuad,omni)",
       }
     );
 
     this.addIncident(leftLetter, this.attrs.exitTime);
 
-    const opacityback = new Anime.Anime(
+    const opacityback = new CSSEffect(
       {
         animatedAttrs: {
-          opacity: 0
-        }
+          opacity: 0,
+        },
       },
       {
         duration: 300,
-        selector: ".letter"
+        selector: ".letter",
       }
     );
     this.addIncident(opacityback, this.calculatedDuration - 300);

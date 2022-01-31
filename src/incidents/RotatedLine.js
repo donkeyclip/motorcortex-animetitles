@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class RotatedLine extends HTMLClip {
   get html() {
@@ -87,128 +85,128 @@ export default class RotatedLine extends HTMLClip {
       fontSizeRigth,
       lineWidth,
       lineHeight,
-      gap
+      gap,
     };
   }
 
   buildTree() {
-    const rotateAminmeEnd = new Anime.Anime(
+    const rotateAminmeEnd = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            rotate: "0deg"
-          }
+            rotate: "0deg",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
         selector: `.wrapper`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const widthLIne = new Anime.Anime(
+    const widthLIne = new CSSEffect(
       {
         animatedAttrs: {
-          height: this.size.lineHeight
+          height: this.size.lineHeight,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
         selector: `.line`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const leftTextAnimate = new Anime.Anime(
+    const leftTextAnimate = new CSSEffect(
       {
         animatedAttrs: {
-          right: `${this.size.gap}%`
+          right: `${this.size.gap}%`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
         selector: `.text-left`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
     for (let i = 1; i <= 3; i++) {
-      const rightTextAnimate = new Anime.Anime(
+      const rightTextAnimate = new CSSEffect(
         {
           animatedAttrs: {
-            right: `-${this.size.gap}%`
+            right: `-${this.size.gap}%`,
           },
-          attrs: {}
+          attrs: {},
         },
         {
           duration: 900 * i,
           selector: ".text-right" + i,
-          easing: "easeOutExpo"
+          easing: "easeOutExpo",
         }
       );
 
       this.addIncident(rightTextAnimate, 1500);
     }
 
-    const rightTextAnimateIn = new Anime.Anime(
+    const rightTextAnimateIn = new CSSEffect(
       {
         animatedAttrs: {
-          right: "100%"
+          right: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
         selector: ".text-right",
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
-    const leftTextAnimateIn = new Anime.Anime(
+    const leftTextAnimateIn = new CSSEffect(
       {
         animatedAttrs: {
-          right: "-100%"
+          right: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 900,
         selector: `.text-left`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
-    const rotateAminmeStartOut = new Anime.Anime(
+    const rotateAminmeStartOut = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            rotate: "90deg"
-          }
+            rotate: "90deg",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
         selector: `.wrapper`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const widthLIneOut = new Anime.Anime(
+    const widthLIneOut = new CSSEffect(
       {
         animatedAttrs: {
-          height: "0rem"
+          height: "0rem",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 450,
         selector: `.line`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 

@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Circle extends HTMLClip {
   get html() {
@@ -97,127 +95,127 @@ export default class Circle extends HTMLClip {
     const word = new HTMLClip({
       css: this.css,
       html: ` <div class="wrapper" >${html} </div>`,
-      selector: ".word"
+      selector: ".word",
     });
 
     this.addIncident(word, 0);
 
-    const circleScale = new Anime.Anime(
+    const circleScale = new CSSEffect(
       {
         animatedAttrs: {
           width: `${this.attrs.width}px`,
-          height: `${this.attrs.width}px`
+          height: `${this.attrs.width}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 500,
         selector: ".circle",
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
     for (let i = 0; i < array.length; i++) {
-      const textAnimation = new Anime.Anime(
+      const textAnimation = new CSSEffect(
         {
           animatedAttrs: {
             top: "0px",
-            opacity: 1
+            opacity: 1,
           },
-          attrs: {}
+          attrs: {},
         },
         {
           duration: 500,
           selector: ".letter" + (i + 1),
-          easing: "easeOutExpo"
+          easing: "easeOutExpo",
         }
       );
 
       word.addIncident(textAnimation, 500 + 100 * (i + 1));
     }
 
-    const circleScaleDown = new Anime.Anime(
+    const circleScaleDown = new CSSEffect(
       {
         animatedAttrs: {
           width: `${this.attrs.width * 0.8}px`,
-          height: `${this.attrs.width * 0.8}px`
+          height: `${this.attrs.width * 0.8}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: ".circle",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 
-    const wrapperDown = new Anime.Anime(
+    const wrapperDown = new CSSEffect(
       {
         animatedAttrs: {
           width: `${this.attrs.width * 0.8}px`,
           height: `${this.attrs.width * 0.8}px`,
           transform: {
-            rotate: "10deg"
-          }
+            rotate: "10deg",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: ".wrapper",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 
-    const maskDown = new Anime.Anime(
+    const maskDown = new CSSEffect(
       {
         animatedAttrs: {
           maskSize: `${this.attrs.width * 0.8}px`,
           transform: {
-            rotate: "-10deg"
-          }
+            rotate: "-10deg",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: ".circle",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 
-    const subOut = new Anime.Anime(
+    const subOut = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: ".sub span",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 
-    const circleScaleDownEnd = new Anime.Anime(
+    const circleScaleDownEnd = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            scale: 0
-          }
+            scale: 0,
+          },
         },
         initialValues: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: ".circle,.sub span,.sub",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 

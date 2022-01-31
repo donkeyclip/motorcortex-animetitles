@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin, Group } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, Group, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class SvgBorder extends HTMLClip {
   get html() {
@@ -135,118 +133,118 @@ export default class SvgBorder extends HTMLClip {
       subGap,
       titleTop,
       subTop,
-      titleContainerTop
+      titleContainerTop,
     };
   }
 
   buildTree() {
     const delayEnd = this.attrs.delayEnd || 0;
-    const borderAnimete = new Anime.Anime(
+    const borderAnimete = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: ` -${this.size.subGap}px`
+          strokeDashoffset: ` -${this.size.subGap}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1400,
         selector: `.shape2`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const titleAnimete = new Anime.Anime(
+    const titleAnimete = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
-        selector: `.text`
+        selector: `.text`,
       }
     );
 
-    const subAnimate = new Anime.Anime(
+    const subAnimate = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: `.sub`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const sloganAnimate = new Anime.Anime(
+    const sloganAnimate = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 600,
         selector: `.slogan`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const borderAnimeteLeft = new Anime.Anime(
+    const borderAnimeteLeft = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: "-6000px"
+          strokeDashoffset: "-6000px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1200,
-        selector: `.shape2`
+        selector: `.shape2`,
       }
     );
 
-    const titleAnimeteLeft = new Anime.Anime(
+    const titleAnimeteLeft = new CSSEffect(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 800,
-        selector: `.text`
+        selector: `.text`,
       }
     );
 
-    const subAnimateLeft = new Anime.Anime(
+    const subAnimateLeft = new CSSEffect(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 800,
         selector: `.sub`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 
-    const sloganAnimateLeft = new Anime.Anime(
+    const sloganAnimateLeft = new CSSEffect(
       {
         animatedAttrs: {
-          left: "150px"
+          left: "150px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 800,
         selector: `.slogan`,
-        easing: "easeInOutQuart"
+        easing: "easeInOutQuart",
       }
     );
 

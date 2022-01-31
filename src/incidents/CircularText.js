@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class CircularText extends HTMLClip {
   get html() {
@@ -8,10 +6,9 @@ export default class CircularText extends HTMLClip {
     <div class="wrapper">
       <div class="circle">
         <svg viewBox="0 0 ${this.attrs.viewBox} ${this.attrs.viewBox}">
-          <path d="M ${this.attrs.viewBox / 2 - this.attrs.path},${this.attrs
-      .viewBox / 2} a ${this.attrs.path}, ${
-      this.attrs.path
-    } 0 1, 1 0,1 z" id="circular" />
+          <path d="M ${this.attrs.viewBox / 2 - this.attrs.path},${
+      this.attrs.viewBox / 2
+    } a ${this.attrs.path}, ${this.attrs.path} 0 1, 1 0,1 z" id="circular" />
           <text class="text"><textPath xlink:href="#circular">
           ${this.attrs.text}
             </textPath>
@@ -65,17 +62,17 @@ export default class CircularText extends HTMLClip {
   }
 
   buildTree() {
-    const left = new Anime.Anime(
+    const left = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            rotate: `360deg`
-          }
-        }
+            rotate: `360deg`,
+          },
+        },
       },
       {
         duration: 3000,
-        selector: ".circle svg"
+        selector: ".circle svg",
       }
     );
     this.addIncident(left, 0);

@@ -1,12 +1,12 @@
-import MotorCortex, { loadPlugin, HTMLClip, Group } from '@donkeyclip/motorcortex';
+import { CSSEffect, HTMLClip, Group } from '@donkeyclip/motorcortex';
 
-function _classCallCheck$1(instance, Constructor) {
+function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-function _defineProperties$1(target, props) {
+function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
@@ -16,16 +16,16 @@ function _defineProperties$1(target, props) {
   }
 }
 
-function _createClass$1(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$1(Constructor, staticProps);
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
   Object.defineProperty(Constructor, "prototype", {
     writable: false
   });
   return Constructor;
 }
 
-function _inherits$1(subClass, superClass) {
+function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
   }
@@ -40,26 +40,26 @@ function _inherits$1(subClass, superClass) {
   Object.defineProperty(subClass, "prototype", {
     writable: false
   });
-  if (superClass) _setPrototypeOf$1(subClass, superClass);
+  if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
-function _getPrototypeOf$1(o) {
-  _getPrototypeOf$1 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
   };
-  return _getPrototypeOf$1(o);
+  return _getPrototypeOf(o);
 }
 
-function _setPrototypeOf$1(o, p) {
-  _setPrototypeOf$1 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
 
-  return _setPrototypeOf$1(o, p);
+  return _setPrototypeOf(o, p);
 }
 
-function _isNativeReflectConstruct$1() {
+function _isNativeReflectConstruct() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -72,7 +72,7 @@ function _isNativeReflectConstruct$1() {
   }
 }
 
-function _assertThisInitialized$1(self) {
+function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
@@ -80,32 +80,32 @@ function _assertThisInitialized$1(self) {
   return self;
 }
 
-function _possibleConstructorReturn$1(self, call) {
+function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
   } else if (call !== void 0) {
     throw new TypeError("Derived constructors may only return object or undefined");
   }
 
-  return _assertThisInitialized$1(self);
+  return _assertThisInitialized(self);
 }
 
-function _createSuper$1(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct$1();
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
 
   return function _createSuperInternal() {
-    var Super = _getPrototypeOf$1(Derived),
+    var Super = _getPrototypeOf(Derived),
         result;
 
     if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf$1(this).constructor;
+      var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
     } else {
       result = Super.apply(this, arguments);
     }
 
-    return _possibleConstructorReturn$1(this, result);
+    return _possibleConstructorReturn(this, result);
   };
 }
 
@@ -272,27 +272,27 @@ var process = global$r.process;
 var Deno = global$r.Deno;
 var versions = process && process.versions || Deno && Deno.version;
 var v8 = versions && versions.v8;
-var match, version$2;
+var match, version$1;
 
 if (v8) {
   match = v8.split('.'); // in old Chrome, versions of V8 isn't V8 = Chrome / 10
   // but their correct versions are not interesting for us
 
-  version$2 = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
+  version$1 = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
 } // BrowserFS NodeJS `process` polyfill incorrectly set `.v8` to `0.0`
 // so check `userAgent` even if `.v8` exists, but 0
 
 
-if (!version$2 && userAgent) {
+if (!version$1 && userAgent) {
   match = userAgent.match(/Edge\/(\d+)/);
 
   if (!match || match[1] >= 74) {
     match = userAgent.match(/Chrome\/(\d+)/);
-    if (match) version$2 = +match[1];
+    if (match) version$1 = +match[1];
   }
 }
 
-var engineV8Version = version$2;
+var engineV8Version = version$1;
 
 /* eslint-disable es/no-symbol -- required for testing */
 var V8_VERSION$2 = engineV8Version;
@@ -916,19 +916,19 @@ var getOwnPropertySymbolsModule = objectGetOwnPropertySymbols;
 var anObject$6 = anObject$8;
 var concat = uncurryThis$8([].concat); // all object keys, includes non-enumerable and symbols
 
-var ownKeys$2 = getBuiltIn$2('Reflect', 'ownKeys') || function ownKeys(it) {
+var ownKeys$1 = getBuiltIn$2('Reflect', 'ownKeys') || function ownKeys(it) {
   var keys = getOwnPropertyNamesModule.f(anObject$6(it));
   var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
   return getOwnPropertySymbols ? concat(keys, getOwnPropertySymbols(it)) : keys;
 };
 
 var hasOwn = hasOwnProperty_1;
-var ownKeys$1 = ownKeys$2;
+var ownKeys = ownKeys$1;
 var getOwnPropertyDescriptorModule = objectGetOwnPropertyDescriptor;
 var definePropertyModule$3 = objectDefineProperty;
 
 var copyConstructorProperties$1 = function (target, source, exceptions) {
-  var keys = ownKeys$1(source);
+  var keys = ownKeys(source);
   var defineProperty = definePropertyModule$3.f;
   var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
 
@@ -1252,2222 +1252,18 @@ $$4({
   }
 });
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-
-    if (enumerableOnly) {
-      symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    }
-
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-/*
- * anime.js v3.1.5
- * (c) 2021 Julian Garnier
- * Released under the MIT license
- * animejs.com
- */
-
-/*
- * anime.js v3.1.2
- * (c) 2020 Julian Garnier
- * Released under the MIT license
- * animejs.com
- */
-// Defaults
-
-
-var defaultInstanceSettings = {};
-var defaultTweenSettings = {
-  duration: 1000,
-  round: 0
-};
-var validTransforms = ['translateX', 'translateY', 'translateZ', 'rotate', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'perspective']; // Caching
-
-var cache = {
-  CSS: {}
-}; // Utils
-
-function minMax(val, min, max) {
-  return Math.min(Math.max(val, min), max);
-}
-
-function stringContains(str, text) {
-  return str.indexOf(text) > -1;
-}
-
-var is = {
-  arr: function (a) {
-    return Array.isArray(a);
-  },
-  obj: function (a) {
-    return stringContains(Object.prototype.toString.call(a), 'Object');
-  },
-  pth: function (a) {
-    return is.obj(a) && a.hasOwnProperty('totalLength');
-  },
-  svg: function (a) {
-    return a instanceof SVGElement;
-  },
-  inp: function (a) {
-    return a instanceof HTMLInputElement;
-  },
-  dom: function (a) {
-    return a.nodeType || is.svg(a);
-  },
-  str: function (a) {
-    return typeof a === 'string';
-  },
-  fnc: function (a) {
-    return typeof a === 'function';
-  },
-  und: function (a) {
-    return typeof a === 'undefined';
-  },
-  hex: function (a) {
-    return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a);
-  },
-  rgb: function (a) {
-    return /^rgb/.test(a);
-  },
-  hsl: function (a) {
-    return /^hsl/.test(a);
-  },
-  col: function (a) {
-    return is.hex(a) || is.rgb(a) || is.hsl(a);
-  },
-  key: function (a) {
-    return !defaultInstanceSettings.hasOwnProperty(a) && !defaultTweenSettings.hasOwnProperty(a) && a !== 'targets' && a !== 'keyframes';
-  }
-};
-
-var penner = function () {
-  // Based on jQuery UI's implemenation of easing equations from Robert Penner (http://www.robertpenner.com/easing)
-  var eases = {
-    linear: function () {
-      return function (t) {
-        return t;
-      };
-    }
-  };
-  return eases;
-}(); // Strings
-
-
-function selectString(str) {
-  try {
-    var nodes = document.querySelectorAll(str);
-    return nodes;
-  } catch (e) {
-    return;
-  }
-} // Arrays
-
-
-function filterArray(arr, callback) {
-  var len = arr.length;
-  var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-  var result = [];
-
-  for (var i = 0; i < len; i++) {
-    if (i in arr) {
-      var val = arr[i];
-
-      if (callback.call(thisArg, val, i, arr)) {
-        result.push(val);
-      }
-    }
-  }
-
-  return result;
-}
-
-function flattenArray(arr) {
-  return arr.reduce(function (a, b) {
-    return a.concat(is.arr(b) ? flattenArray(b) : b);
-  }, []);
-}
-
-function toArray(o) {
-  if (is.arr(o)) {
-    return o;
-  }
-
-  if (is.str(o)) {
-    o = selectString(o) || o;
-  }
-
-  if (o instanceof NodeList || o instanceof HTMLCollection) {
-    return [].slice.call(o);
-  }
-
-  return [o];
-}
-
-function arrayContains(arr, val) {
-  return arr.some(function (a) {
-    return a === val;
-  });
-} // Objects
-
-
-function cloneObject(o) {
-  var clone = {};
-
-  for (var p in o) {
-    clone[p] = o[p];
-  }
-
-  return clone;
-}
-
-function replaceObjectProps(o1, o2) {
-  var o = cloneObject(o1);
-
-  for (var p in o1) {
-    o[p] = o2.hasOwnProperty(p) ? o2[p] : o1[p];
-  }
-
-  return o;
-}
-
-function mergeObjects(o1, o2) {
-  var o = cloneObject(o1);
-
-  for (var p in o2) {
-    o[p] = is.und(o1[p]) ? o2[p] : o1[p];
-  }
-
-  return o;
-} // Colors
-
-
-function rgbToRgba(rgbValue) {
-  var rgb = /rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(rgbValue);
-  return rgb ? "rgba(" + rgb[1] + ",1)" : rgbValue;
-}
-
-function hexToRgba(hexValue) {
-  var rgx = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  var hex = hexValue.replace(rgx, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
-  var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  var r = parseInt(rgb[1], 16);
-  var g = parseInt(rgb[2], 16);
-  var b = parseInt(rgb[3], 16);
-  return "rgba(" + r + "," + g + "," + b + ",1)";
-}
-
-function hslToRgba(hslValue) {
-  var hsl = /hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(hslValue) || /hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(hslValue);
-  var h = parseInt(hsl[1], 10) / 360;
-  var s = parseInt(hsl[2], 10) / 100;
-  var l = parseInt(hsl[3], 10) / 100;
-  var a = hsl[4] || 1;
-
-  function hue2rgb(p, q, t) {
-    if (t < 0) {
-      t += 1;
-    }
-
-    if (t > 1) {
-      t -= 1;
-    }
-
-    if (t < 1 / 6) {
-      return p + (q - p) * 6 * t;
-    }
-
-    if (t < 1 / 2) {
-      return q;
-    }
-
-    if (t < 2 / 3) {
-      return p + (q - p) * (2 / 3 - t) * 6;
-    }
-
-    return p;
-  }
-
-  var r, g, b;
-
-  if (s == 0) {
-    r = g = b = l;
-  } else {
-    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    var p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1 / 3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1 / 3);
-  }
-
-  return "rgba(" + r * 255 + "," + g * 255 + "," + b * 255 + "," + a + ")";
-}
-
-function colorToRgb(val) {
-  if (is.rgb(val)) {
-    return rgbToRgba(val);
-  }
-
-  if (is.hex(val)) {
-    return hexToRgba(val);
-  }
-
-  if (is.hsl(val)) {
-    return hslToRgba(val);
-  }
-} // Units
-
-
-function getUnit(val) {
-  var split = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(val);
-
-  if (split) {
-    return split[1];
-  }
-}
-
-function getTransformUnit(propName) {
-  if (stringContains(propName, 'translate') || propName === 'perspective') {
-    return 'px';
-  }
-
-  if (stringContains(propName, 'rotate') || stringContains(propName, 'skew')) {
-    return 'deg';
-  }
-} // Values
-
-
-function getFunctionValue(val, animatable) {
-  if (!is.fnc(val)) {
-    return val;
-  }
-
-  return val(animatable.target, animatable.id, animatable.total);
-}
-
-function getAttribute(el, prop) {
-  return el.getAttribute(prop);
-}
-
-function convertPxToUnit(el, value, unit) {
-  var valueUnit = getUnit(value);
-
-  if (arrayContains([unit, 'deg', 'rad', 'turn'], valueUnit)) {
-    return value;
-  }
-
-  var cached = cache.CSS[value + unit];
-
-  if (!is.und(cached)) {
-    return cached;
-  }
-
-  var baseline = 100;
-  var tempEl = document.createElement(el.tagName);
-  var parentEl = el.parentNode && el.parentNode !== document ? el.parentNode : document.body;
-  parentEl.appendChild(tempEl);
-  tempEl.style.position = 'absolute';
-  tempEl.style.width = baseline + unit;
-  var factor = baseline / tempEl.offsetWidth;
-  parentEl.removeChild(tempEl);
-  var convertedUnit = factor * parseFloat(value);
-  cache.CSS[value + unit] = convertedUnit;
-  return convertedUnit;
-}
-
-function getCSSValue(el, prop, unit) {
-  if (prop in el.style) {
-    var uppercasePropName = prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-    var value = el.style[prop] || getComputedStyle(el).getPropertyValue(uppercasePropName) || '0';
-    return unit ? convertPxToUnit(el, value, unit) : value;
-  }
-}
-
-function getAnimationType(el, prop) {
-  if (is.dom(el) && !is.inp(el) && (getAttribute(el, prop) || is.svg(el) && el[prop])) {
-    return 'attribute';
-  }
-
-  if (is.dom(el) && arrayContains(validTransforms, prop)) {
-    return 'transform';
-  }
-
-  if (is.dom(el) && prop !== 'transform' && getCSSValue(el, prop)) {
-    return 'css';
-  }
-
-  if (el[prop] != null) {
-    return 'object';
-  }
-}
-
-function getElementTransforms(el) {
-  if (!is.dom(el)) {
-    return;
-  }
-
-  var str = el.style.transform || '';
-  var reg = /(\w+)\(([^)]*)\)/g;
-  var transforms = new Map();
-  var m;
-
-  while (m = reg.exec(str)) {
-    transforms.set(m[1], m[2]);
-  }
-
-  return transforms;
-}
-
-function getTransformValue(el, propName, animatable, unit) {
-  var defaultVal = stringContains(propName, 'scale') ? 1 : 0 + getTransformUnit(propName);
-  var value = getElementTransforms(el).get(propName) || defaultVal;
-
-  if (animatable) {
-    animatable.transforms.list.set(propName, value);
-    animatable.transforms['last'] = propName;
-  }
-
-  return unit ? convertPxToUnit(el, value, unit) : value;
-}
-
-function getOriginalTargetValue(target, propName, unit, animatable) {
-  switch (getAnimationType(target, propName)) {
-    case 'transform':
-      return getTransformValue(target, propName, animatable, unit);
-
-    case 'css':
-      return getCSSValue(target, propName, unit);
-
-    case 'attribute':
-      return getAttribute(target, propName);
-
-    default:
-      return target[propName] || 0;
-  }
-}
-
-function getRelativeValue(to, from) {
-  var operator = /^(\*=|\+=|-=)/.exec(to);
-
-  if (!operator) {
-    return to;
-  }
-
-  var u = getUnit(to) || 0;
-  var x = parseFloat(from);
-  var y = parseFloat(to.replace(operator[0], ''));
-
-  switch (operator[0][0]) {
-    case '+':
-      return x + y + u;
-
-    case '-':
-      return x - y + u;
-
-    case '*':
-      return x * y + u;
-  }
-}
-
-function validateValue(val, unit) {
-  if (is.col(val)) {
-    return colorToRgb(val);
-  }
-
-  if (/\s/g.test(val)) {
-    return val;
-  }
-
-  var originalUnit = getUnit(val);
-  var unitLess = originalUnit ? val.substr(0, val.length - originalUnit.length) : val;
-
-  if (unit) {
-    return unitLess + unit;
-  }
-
-  return unitLess;
-} // Decompose value
-
-
-function decomposeValue(val, unit) {
-  // const rgx = /-?\d*\.?\d+/g; // handles basic numbers
-  // const rgx = /[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
-  var rgx = /[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g; // handles exponents notation
-
-  var value = validateValue(is.pth(val) ? val.totalLength : val, unit) + '';
-  return {
-    original: value,
-    numbers: value.match(rgx) ? value.match(rgx).map(Number) : [0],
-    strings: is.str(val) || unit ? value.split(rgx) : []
-  };
-} // Animatables
-
-
-function parseTargets(targets) {
-  var targetsArray = targets ? flattenArray(is.arr(targets) ? targets.map(toArray) : toArray(targets)) : [];
-  return filterArray(targetsArray, function (item, pos, self) {
-    return self.indexOf(item) === pos;
-  });
-}
-
-function getAnimatables(targets) {
-  var parsed = parseTargets(targets);
-  return parsed.map(function (t, i) {
-    return {
-      target: t,
-      id: i,
-      total: parsed.length,
-      transforms: {
-        list: getElementTransforms(t)
-      }
-    };
-  });
-} // Properties
-
-
-function normalizePropertyTweens(prop, tweenSettings) {
-  var settings = cloneObject(tweenSettings);
-
-  if (is.arr(prop)) {
-    var l = prop.length;
-    var isFromTo = l === 2 && !is.obj(prop[0]);
-
-    if (!isFromTo) {
-      // Duration divided by the number of tweens
-      if (!is.fnc(tweenSettings.duration)) {
-        settings.duration = tweenSettings.duration / l;
-      }
-    } else {
-      // Transform [from, to] values shorthand to a valid tween value
-      prop = {
-        value: prop
-      };
-    }
-  }
-
-  var propArray = is.arr(prop) ? prop : [prop];
-  return propArray.map(function (v, i) {
-    var obj = is.obj(v) && !is.pth(v) ? v : {
-      value: v
-    };
-    return obj;
-  }).map(function (k) {
-    return mergeObjects(k, settings);
-  });
-}
-
-function getProperties(tweenSettings, params) {
-  var properties = [];
-
-  for (var p in params) {
-    if (is.key(p)) {
-      properties.push({
-        name: p,
-        tweens: normalizePropertyTweens(params[p], tweenSettings)
-      });
-    }
-  }
-
-  return properties;
-} // Tweens
-
-
-function normalizeTweenValues(tween, animatable) {
-  var t = {};
-
-  for (var p in tween) {
-    var value = getFunctionValue(tween[p], animatable);
-
-    if (is.arr(value)) {
-      value = value.map(function (v) {
-        return getFunctionValue(v, animatable);
-      });
-
-      if (value.length === 1) {
-        value = value[0];
-      }
-    }
-
-    t[p] = value;
-  }
-
-  t.duration = parseFloat(t.duration);
-  return t;
-}
-
-function normalizeTweens(prop, animatable) {
-  var previousTween;
-  return prop.tweens.map(function (t) {
-    var tween = normalizeTweenValues(t, animatable);
-    var tweenValue = tween.value;
-    var to = is.arr(tweenValue) ? tweenValue[1] : tweenValue;
-    var toUnit = getUnit(to);
-    var originalValue = getOriginalTargetValue(animatable.target, prop.name, toUnit, animatable);
-    var previousValue = previousTween ? previousTween.to.original : originalValue;
-    var from = is.arr(tweenValue) ? tweenValue[0] : previousValue;
-    var fromUnit = getUnit(from) || getUnit(originalValue);
-    var unit = toUnit || fromUnit;
-
-    if (is.und(to)) {
-      to = previousValue;
-    }
-
-    tween.from = decomposeValue(from, unit);
-    tween.to = decomposeValue(getRelativeValue(to, from), unit);
-    tween.start = previousTween ? previousTween.end : 0;
-    tween.end = tween.start + tween.duration;
-    tween.isPath = false;
-    tween.isColor = is.col(tween.from.original);
-
-    if (tween.isColor) {
-      tween.round = 1;
-    }
-
-    previousTween = tween;
-    return tween;
-  });
-} // Tween progress
-
-
-var setProgressValue = {
-  css: function (t, p, v) {
-    return t.style[p] = v;
-  },
-  attribute: function (t, p, v) {
-    return t.setAttribute(p, v);
-  },
-  object: function (t, p, v) {
-    return t[p] = v;
-  },
-  transform: function (t, p, v, transforms, manual) {
-    transforms.list.set(p, v);
-
-    if (p === transforms.last || manual) {
-      var str = '';
-      transforms.list.forEach(function (value, prop) {
-        str += prop + "(" + value + ") ";
-      });
-      t.style.transform = str;
-    }
-  }
-}; // Set Value helper
-
-function setTargetsValue(targets, properties) {
-  var animatables = getAnimatables(targets);
-  animatables.forEach(function (animatable) {
-    for (var property in properties) {
-      var value = getFunctionValue(properties[property], animatable);
-      var target = animatable.target;
-      var valueUnit = getUnit(value);
-      var originalValue = getOriginalTargetValue(target, property, valueUnit, animatable);
-      var unit = valueUnit || getUnit(originalValue);
-      var to = getRelativeValue(validateValue(value, unit), originalValue);
-      var animType = getAnimationType(target, property);
-      setProgressValue[animType](target, property, to, animatable.transforms, true);
-    }
-  });
-} // Animations
-
-
-function createAnimation(animatable, prop) {
-  var animType = getAnimationType(animatable.target, prop.name);
-
-  if (animType) {
-    var tweens = normalizeTweens(prop, animatable);
-    var lastTween = tweens[tweens.length - 1];
-    return {
-      type: animType,
-      property: prop.name,
-      animatable: animatable,
-      tweens: tweens,
-      duration: lastTween.end
-    };
-  }
-}
-
-function getAnimations(animatables, properties) {
-  return filterArray(flattenArray(animatables.map(function (animatable) {
-    return properties.map(function (prop) {
-      return createAnimation(animatable, prop);
-    });
-  })), function (a) {
-    return !is.und(a);
-  });
-} // Create Instance
-
-
-function getInstanceTimings(animations, tweenSettings) {
-  var animLength = animations.length;
-  var timings = {};
-  timings.duration = animLength ? Math.max.apply(Math, animations.map(function (anim) {
-    return anim.duration;
-  })) : tweenSettings.duration;
-  return timings;
-}
-
-var instanceID = 0;
-
-function createNewInstance(params) {
-  var instanceSettings = replaceObjectProps(defaultInstanceSettings, params);
-  var tweenSettings = replaceObjectProps(defaultTweenSettings, params);
-  var properties = getProperties(tweenSettings, params);
-  var animatables = getAnimatables(params.targets);
-  var animations = getAnimations(animatables, properties);
-  var timings = getInstanceTimings(animations, tweenSettings);
-  var id = instanceID;
-  instanceID++;
-  return mergeObjects(instanceSettings, {
-    id: id,
-    children: [],
-    animatables: animatables,
-    animations: animations,
-    duration: timings.duration
-  });
-} // Public Instance
-
-
-function anime(params) {
-  if (params === void 0) {
-    params = {};
-  }
-
-  var children,
-      childrenLength = 0;
-  var resolve = null;
-
-  function makePromise(instance) {
-    var promise = window.Promise && new Promise(function (_resolve) {
-      return resolve = _resolve;
-    });
-    instance.finished = promise;
-    return promise;
-  }
-
-  var instance = createNewInstance(params);
-  makePromise(instance);
-
-  function seekChild(time, child) {
-    if (child) {
-      child.seek(time);
-    }
-  }
-
-  function syncInstanceChildren(time) {
-    if (!instance.reversePlayback) {
-      for (var i = 0; i < childrenLength; i++) {
-        seekChild(time, children[i]);
-      }
-    } else {
-      for (var i$1 = childrenLength; i$1--;) {
-        seekChild(time, children[i$1]);
-      }
-    }
-  }
-
-  function setAnimationsProgress(insTime) {
-    var i = 0;
-    var animations = instance.animations;
-    var animationsLength = animations.length;
-
-    while (i < animationsLength) {
-      var anim = animations[i];
-      var animatable = anim.animatable;
-      var tweens = anim.tweens;
-      var tweenLength = tweens.length - 1;
-      var tween = tweens[tweenLength]; // Only check for keyframes if there is more than one tween
-
-      if (tweenLength) {
-        tween = filterArray(tweens, function (t) {
-          return insTime < t.end;
-        })[0] || tween;
-      }
-
-      var elapsed = minMax(insTime - tween.start, 0, tween.duration) / tween.duration;
-      var strings = tween.to.strings;
-      var round = tween.round;
-      var numbers = [];
-      var toNumbersLength = tween.to.numbers.length;
-      var progress = void 0;
-
-      for (var n = 0; n < toNumbersLength; n++) {
-        var value = void 0;
-        var toNumber = tween.to.numbers[n];
-        var fromNumber = tween.from.numbers[n] || 0;
-        value = fromNumber + elapsed * (toNumber - fromNumber);
-
-        if (round) {
-          if (!(tween.isColor && n > 2)) {
-            value = Math.round(value * round) / round;
-          }
-        }
-
-        numbers.push(value);
-      } // Manual Array.reduce for better performances
-
-
-      var stringsLength = strings.length;
-
-      if (!stringsLength) {
-        progress = numbers[0];
-      } else {
-        progress = strings[0];
-
-        for (var s = 0; s < stringsLength; s++) {
-          strings[s];
-          var b = strings[s + 1];
-          var n$1 = numbers[s];
-
-          if (!isNaN(n$1)) {
-            if (!b) {
-              progress += n$1 + ' ';
-            } else {
-              progress += n$1 + b;
-            }
-          }
-        }
-      }
-
-      setProgressValue[anim.type](animatable.target, anim.property, progress, animatable.transforms);
-      anim.currentValue = progress;
-      i++;
-    }
-  }
-
-  function setInstanceProgress(engineTime) {
-    var insDuration = instance.duration;
-    var insTime = engineTime;
-    instance.progress = minMax(insTime / insDuration * 100, 0, 100);
-    instance.reversePlayback = insTime < instance.currentTime;
-
-    if (children) {
-      syncInstanceChildren(insTime);
-    }
-
-    if (!instance.began && instance.currentTime > 0) {
-      instance.began = true;
-    }
-
-    setAnimationsProgress(insTime);
-    instance.currentTime = minMax(insTime, 0, insDuration);
-
-    if (engineTime >= insDuration) {
-      instance.paused = true;
-
-      if (!instance.completed) {
-        instance.completed = true;
-
-        if (!instance.passThrough && 'Promise' in window) {
-          resolve();
-          makePromise(instance);
-        }
-      }
-    }
-  }
-
-  instance.reset = function () {
-    instance.passThrough = false;
-    instance.currentTime = 0;
-    instance.progress = 0;
-    instance.paused = true;
-    instance.began = false;
-    instance.completed = false;
-    instance.reversePlayback = false;
-    children = instance.children;
-    childrenLength = children.length;
-
-    for (var i = childrenLength; i--;) {
-      instance.children[i].reset();
-    }
-  }; // Set Value helper
-
-
-  instance.set = function (targets, properties) {
-    setTargetsValue(targets, properties);
-    return instance;
-  };
-
-  instance.seek = function (time) {
-    setInstanceProgress(time);
-  };
-
-  instance.reset();
-  return instance;
-} // getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
-// adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
-
-
-function getDistance(p1, p2) {
-  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-}
-
-function getCircleLength(el) {
-  return Math.PI * 2 * getAttribute(el, 'r');
-}
-
-function getRectLength(el) {
-  return getAttribute(el, 'width') * 2 + getAttribute(el, 'height') * 2;
-}
-
-function getLineLength(el) {
-  return getDistance({
-    x: getAttribute(el, 'x1'),
-    y: getAttribute(el, 'y1')
-  }, {
-    x: getAttribute(el, 'x2'),
-    y: getAttribute(el, 'y2')
-  });
-}
-
-function getPolylineLength(el) {
-  var points = el.points;
-  var totalLength = 0;
-  var previousPos;
-
-  for (var i = 0; i < points.numberOfItems; i++) {
-    var currentPos = points.getItem(i);
-
-    if (i > 0) {
-      totalLength += getDistance(previousPos, currentPos);
-    }
-
-    previousPos = currentPos;
-  }
-
-  return totalLength;
-}
-
-function getPolygonLength(el) {
-  var points = el.points;
-  return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
-} // Path animation
-
-
-function getTotalLength(el) {
-  if (el.getTotalLength) {
-    return el.getTotalLength();
-  }
-
-  switch (el.tagName.toLowerCase()) {
-    case 'circle':
-      return getCircleLength(el);
-
-    case 'rect':
-      return getRectLength(el);
-
-    case 'line':
-      return getLineLength(el);
-
-    case 'polyline':
-      return getPolylineLength(el);
-
-    case 'polygon':
-      return getPolygonLength(el);
-  }
-} // Motion path
-
-
-function getParentSvgEl(el) {
-  var parentEl = el.parentNode;
-
-  while (is.svg(parentEl)) {
-    if (!is.svg(parentEl.parentNode)) {
-      break;
-    }
-
-    parentEl = parentEl.parentNode;
-  }
-
-  return parentEl;
-}
-
-function getParentSvg(pathEl, svgData) {
-  var svg = svgData || {};
-  var parentSvgEl = svg.el || getParentSvgEl(pathEl);
-  var rect = parentSvgEl.getBoundingClientRect();
-  var viewBoxAttr = getAttribute(parentSvgEl, 'viewBox');
-  var width = rect.width;
-  var height = rect.height;
-  var viewBox = svg.viewBox || (viewBoxAttr ? viewBoxAttr.split(' ') : [0, 0, width, height]);
-  return {
-    el: parentSvgEl,
-    viewBox: viewBox,
-    x: viewBox[0] / 1,
-    y: viewBox[1] / 1,
-    w: width,
-    h: height,
-    vW: viewBox[2],
-    vH: viewBox[3]
-  };
-}
-
-function getPath(path) {
-  return {
-    el: path,
-    svg: getParentSvg(path),
-    totalLength: getTotalLength(path),
-    deltaCorrections: {
-      x: 4,
-      y: 5
-    }
-  };
-}
-
-function getPathProgress(path, progress, isPathTargetInsideSVG) {
-  function point(offset) {
-    if (offset === void 0) offset = 0;
-
-    var _progress = progress * path.totalLength;
-
-    var l = _progress + offset >= 1 ? _progress + offset : 0;
-    return path.el.getPointAtLength(l);
-  }
-
-  var svg = getParentSvg(path.el, path.svg);
-  var p = point();
-  var p0 = point(-1);
-  var p1 = point(+1);
-  var scaleX = 1; //isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
-
-  var scaleY = 1; //isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
-
-  return {
-    x: (p.x - svg.x) * scaleX,
-    y: (p.y - svg.y) * scaleY,
-    angle: Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI
-  };
-}
-
-anime.version = '3.1.0';
-anime.get = getOriginalTargetValue;
-anime.set = setTargetsValue;
-anime.convertPx = convertPxToUnit;
-anime.penner = penner;
-anime.path = getPath;
-anime.getPathProgress = getPathProgress;
-var anime_es = anime;
-var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
-var compositeAttributes = {
-  transform: transform
-};
-
-function getMatrix2D(win, element) {
-  var transform = win.getComputedStyle(element).transform;
-
-  if (transform === "" || transform === "none") {
-    return {};
-  }
-
-  var values = transform.split("(")[1].split(")")[0].split(",");
-
-  var qrDecompone = function qrDecompone(a) {
-    var angle = Math.atan2(a[1], a[0]),
-        denom = Math.pow(a[0], 2) + Math.pow(a[1], 2),
-        denom2 = Math.pow(a[2], 2) + Math.pow(a[3], 2),
-        scaleX = Math.sqrt(denom),
-        scaleY = (a[0] * a[3] - a[2] * a[1]) / scaleX,
-        skewX = Math.atan2(a[0] * a[2] + a[1] * a[3], denom),
-        skewY = Math.atan2(a[1] * a[3] + a[0] * a[2], denom2);
-    return {
-      rotate: angle / (Math.PI / 180) + "deg",
-      // this is rotation angle in degrees
-      scaleX: scaleX,
-      // scaleX factor
-      scaleY: scaleY,
-      // scaleY factor
-      skewX: (denom === 1 ? skewX / (Math.PI / 180) : 0) + "deg",
-      // skewX angle degrees
-      skewY: (denom2 === 1 ? skewY / (Math.PI / 180) : 0) + "deg",
-      // skewY angle degrees
-      translateX: a[4] + "px",
-      // translation point  x
-      translateY: a[5] + "px" // translation point  y
-
-    };
-  };
-
-  return qrDecompone(values);
-}
-
-var Anime$a = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits(Anime, _MotorCortex$Effect);
-
-  var _super = _createSuper(Anime);
-
-  function Anime() {
-    _classCallCheck(this, Anime);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Anime, [{
-    key: "onGetContext",
-    value: function onGetContext() {
-      var options = {};
-
-      if (Object.prototype.hasOwnProperty.call(compositeAttributes, this.attributeKey)) {
-        var compoAttribute = compositeAttributes[this.attributeKey];
-
-        for (var i = 0; i < compoAttribute.length; i++) {
-          if (!Object.prototype.hasOwnProperty.call(this.targetValue, compoAttribute[i])) {
-            continue;
-          }
-
-          options[compoAttribute[i]] = [this.initialValue[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
-        }
-      } else {
-        options[this.attributeKey] = [this.initialValue, this.targetValue];
-      }
-
-      this.target = anime_es(_objectSpread2(_objectSpread2({
-        autoplay: false,
-        duration: this.props.duration,
-        easing: "linear",
-        targets: this.element
-      }, (this.attrs || {}).attrs || {}), options)); // handle first render initial values
-    }
-  }, {
-    key: "getScratchValue",
-    value: function getScratchValue() {
-      if (this.attributeKey !== "transform") {
-        return anime_es.get(this.element, this.attributeKey);
-      }
-
-      var obj = {};
-      var transform = compositeAttributes[this.attributeKey];
-      var currentTransform = getMatrix2D(this.context.window, this.element);
-
-      for (var i = 0; i < transform.length; i++) {
-        obj[transform[i]] = Object.prototype.hasOwnProperty.call(currentTransform, transform[i]) ? currentTransform[transform[i]] : anime_es.get(this.element, transform[i]);
-      }
-
-      return obj;
-    }
-    /**
-     * @param {number} f
-     */
-
-  }, {
-    key: "onProgress",
-    value: function onProgress(f) {
-      return this.target.seek(this.target.duration * f);
-    }
-  }]);
-
-  return Anime;
-}(MotorCortex.Effect);
-/**
- * Takes as attributes:
- * {
- *  animatedAttrs: {
- *      positionOn: {
- *          pathElement: "selector of the path element"
- *      }
- *  }
- * }
- }
-**/
-
-
-var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits(MotionPath, _MotorCortex$Effect);
-
-  var _super = _createSuper(MotionPath);
-
-  function MotionPath() {
-    _classCallCheck(this, MotionPath);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(MotionPath, [{
-    key: "onGetContext",
-    value: function onGetContext() {
-      this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
-      this.calculatedPoints = [];
-      var svgEl = this.context.getElements(this.targetValue.pathElement)[0];
-      this.path = anime_es.path(svgEl);
-      this.isPathTargetInsideSVG = this.element instanceof SVGElement;
-    }
-  }, {
-    key: "onProgress",
-    value: function onProgress(f) {
-      var toSet;
-      var distance = Math.round(this.path.totalLength / this.pixelsAccuracy * f) * this.pixelsAccuracy;
-
-      if (this.calculatedPoints[distance] !== null && this.calculatedPoints[distance] !== undefined) {
-        toSet = this.calculatedPoints[distance];
-      } else {
-        var position = anime_es.getPathProgress(this.path, distance / this.path.totalLength, this.isPathTargetInsideSVG); // console.log(position);
-
-        toSet = "\n            translateX(".concat(position.x, "px)\n            translateY(").concat(position.y, "px)\n            rotate(").concat(position.angle, "deg)\n        ");
-        this.calculatedPoints[distance] = toSet;
-      }
-
-      this.element.style.transform = toSet;
-    }
-  }]);
-
-  return MotionPath;
-}(MotorCortex.Effect);
-
-var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
-var ru = ["deg", "rad", "grad", "turn"];
-var _MEASUREMENT = "measurement";
-var _COLOR$1 = "color";
-var animatedAttrs = {
-  type: "object",
-  // strict : true,
-  props: {
-    background: {
-      optional: true,
-      type: _COLOR$1
-    },
-    backgroundColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    backgroundPosition: {
-      optional: true,
-      type: "string"
-    },
-    backgroundSize: {
-      optional: true,
-      type: "string"
-    },
-    border: {
-      optional: true,
-      type: "string"
-    },
-    borderBottom: {
-      optional: true,
-      type: "string"
-    },
-    borderBottomColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    borderBottomLeftRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderBottomRightRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderBottomWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    borderEndEndRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderEndStartRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderImageOutset: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    borderImageSlice: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    borderImageWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    borderLeft: {
-      optional: true,
-      type: "string"
-    },
-    borderLeftColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    borderLeftWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderRight: {
-      optional: true,
-      type: "string"
-    },
-    borderRightColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    borderRightWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderStartEndRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderStartStartRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderTop: {
-      optional: true,
-      type: "string"
-    },
-    borderTopColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    borderTopLeftRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderTopRightRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderTopWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    borderWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    bottom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    boxShadow: {
-      optional: true,
-      type: "string"
-    },
-    caretColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    color: {
-      optional: true,
-      type: _COLOR$1
-    },
-    columnCount: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    columnGap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    columnRule: {
-      optional: true,
-      type: "string"
-    },
-    columnRuleColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    columnRuleWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    columns: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    columnWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    flex: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    flexBasis: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    flexGrow: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    flexShrink: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    font: {
-      optional: true,
-      type: "string"
-    },
-    fontSize: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    fontSizeAdjust: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    fontStretch: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: ["%"]
-    },
-    fontWeight: {
-      optional: true,
-      type: "string"
-    },
-    gap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    gridColumnGap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    gridGap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    gridRowGap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    gridTemplateColumns: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    gridTemplateRows: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    height: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    inset: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    insetBlock: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    insetBlockEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    insetBlockStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    insetInline: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    insetInlineEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    insetInlineStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    left: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    letterSpacing: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    lineClamp: {
-      optional: true,
-      type: "number",
-      min: 0,
-      integer: true
-    },
-    lineHeight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    margin: {
-      optional: true,
-      type: "string"
-    },
-    marginBottom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    marginLeft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    marginRight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    marginTop: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    maskBorder: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    maskPosition: {
-      optional: true,
-      type: "string"
-    },
-    maskSize: {
-      optional: true,
-      type: "string"
-    },
-    maxHeight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    maxWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu,
-      min: 0
-    },
-    objectPosition: {
-      optional: true,
-      type: "string"
-    },
-    offset: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    offsetAnchor: {
-      optional: true,
-      type: "string"
-    },
-    offsetDistance: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    offsetPath: {
-      optional: true,
-      type: "string"
-    },
-    offsetPosition: {
-      optional: true,
-      type: "string"
-    },
-    offsetRotate: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: ru
-    },
-    opacity: {
-      optional: true,
-      type: "number",
-      min: 0,
-      max: 1
-    },
-    order: {
-      optional: true,
-      type: "number",
-      integer: true
-    },
-    outline: {
-      optional: true,
-      type: "string"
-    },
-    outlineColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    outlineOffset: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineRadius: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineRadiusBottomleft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineRadiusBottomright: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineRadiusTopleft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineRadiusTopright: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    outlineWidth: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    padding: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    paddingBottom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    paddingLeft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    paddingRight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    paddingTop: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    perspective: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    perspectiveOrigin: {
-      optional: true,
-      type: "string"
-    },
-    right: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    rotate: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: ru
-    },
-    rowGap: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scale: {
-      optional: true,
-      type: "number",
-      min: 0
-    },
-    scrollbarColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    scrollMargin: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginBlock: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginBlockEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginBlockStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginBottom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginInline: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginInlineEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginInlineStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginLeft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginRight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollMarginTop: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPadding: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingBlock: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingBlockEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingBlockStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingBottom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingInline: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingInlineEnd: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingInlineStart: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingLeft: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingRight: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollPaddingTop: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    scrollSnapCoordinate: {
-      optional: true,
-      type: "string"
-    },
-    scrollSnapDestination: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    shapeImageThreshold: {
-      optional: true,
-      type: "string"
-    },
-    shapeMargin: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    shapeOutside: {
-      optional: true,
-      type: "string"
-    },
-    tabSize: {
-      optional: true,
-      type: "string"
-    },
-    textDecoration: {
-      optional: true,
-      type: "string"
-    },
-    textDecorationColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    textDecorationThickness: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    textEmphasis: {
-      optional: true,
-      type: "string"
-    },
-    textEmphasisColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    textFillColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    textIndent: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    textShadow: {
-      optional: true,
-      type: "string"
-    },
-    textStroke: {
-      optional: true,
-      type: "string"
-    },
-    textStrokeColor: {
-      optional: true,
-      type: _COLOR$1
-    },
-    textUnderlineOffset: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    top: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    transform: {
-      optional: true,
-      type: "object",
-      props: {
-        translateX: {
-          type: _MEASUREMENT,
-          units: nu,
-          optional: true
-        },
-        translateY: {
-          type: _MEASUREMENT,
-          units: nu,
-          optional: true
-        },
-        translateZ: {
-          type: _MEASUREMENT,
-          units: nu,
-          optional: true
-        },
-        rotate: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        rotateX: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        rotateY: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        rotateZ: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        scale: {
-          type: "number",
-          min: 0,
-          optional: true
-        },
-        scaleX: {
-          type: "number",
-          min: 0,
-          optional: true
-        },
-        scaleY: {
-          type: "number",
-          min: 0,
-          optional: true
-        },
-        scaleZ: {
-          type: "number",
-          min: 0,
-          optional: true
-        },
-        skewX: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        skewY: {
-          type: _MEASUREMENT,
-          units: ru,
-          optional: true
-        },
-        perspective: {
-          type: _MEASUREMENT,
-          units: nu,
-          optional: true
-        }
-      }
-    },
-    transformOrigin: {
-      optional: true,
-      type: "string"
-    },
-    verticalAlign: {
-      optional: true,
-      type: "string"
-    },
-    visibility: {
-      optional: true,
-      type: "string"
-    },
-    width: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    wordSpacing: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: nu
-    },
-    zIndex: {
-      optional: true,
-      type: "number",
-      integer: true
-    },
-    zoom: {
-      optional: true,
-      type: _MEASUREMENT,
-      units: ["%"],
-      min: 0
-    }
-  },
-  transformOrigin: {
-    type: "string"
-  },
-  verticalAlign: {
-    type: "string"
-  },
-  visibility: {
-    type: "string"
-  },
-  width: {
-    type: _MEASUREMENT,
-    units: nu
-  },
-  wordSpacing: {
-    type: _MEASUREMENT,
-    units: nu
-  },
-  zIndex: {
-    type: "number",
-    integer: true
-  },
-  zoom: {
-    type: _MEASUREMENT,
-    units: ["%"],
-    min: 0
-  }
-};
-var name$1 = "@donkeyclip/motorcortex-anime";
-var version$1 = "2.1.16";
-var index$1 = {
-  npm_name: name$1,
-  version: version$1,
-  incidents: [{
-    exportable: Anime$a,
-    name: "Anime",
-    attributesValidationRules: {
-      animatedAttrs: animatedAttrs
-    }
-  }, {
-    exportable: MotionPath,
-    name: "MotionPath",
-    attributesValidationRules: {
-      animatedAttrs: {
-        type: "object",
-        props: {
-          positionOn: {
-            type: "object",
-            props: {
-              pathElement: {
-                type: "string"
-              }
-            }
-          }
-        }
-      }
-    }
-  }],
-  compositeAttributes: compositeAttributes
-};
-
-var Anime$9 = loadPlugin(index$1);
-
 var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(RotatedLine, _HTMLClip);
+  _inherits(RotatedLine, _HTMLClip);
 
-  var _super = _createSuper$1(RotatedLine);
+  var _super = _createSuper(RotatedLine);
 
   function RotatedLine() {
-    _classCallCheck$1(this, RotatedLine);
+    _classCallCheck(this, RotatedLine);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(RotatedLine, [{
+  _createClass(RotatedLine, [{
     key: "html",
     get: function get() {
       return "\n      <div class=\"wrapper\">\n        <div class=\"text--container text--container-left\">\n          <div class=\"text-left\">".concat(this.attrs.title, "</div>\n        </div>\n        <div class=\"line\"></div>\n        <div class=\"text--container text--container-right\">\n          <div class=\"text-right text-right1\">").concat(this.attrs.subTitle1, "</div>\n          <div class=\"text-right text-right2\">").concat(this.attrs.subTitle2, "</div>\n          <div class=\"text-right text-right3\">").concat(this.attrs.subTitle3, "</div>\n        </div>\n      </div>\n    ");
@@ -3509,7 +1305,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var rotateAminmeEnd = new Anime$9.Anime({
+      var rotateAminmeEnd = new CSSEffect({
         animatedAttrs: {
           transform: {
             rotate: "0deg"
@@ -3521,7 +1317,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         selector: ".wrapper",
         easing: "easeInOutQuart"
       });
-      var widthLIne = new Anime$9.Anime({
+      var widthLIne = new CSSEffect({
         animatedAttrs: {
           height: this.size.lineHeight
         },
@@ -3531,7 +1327,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         selector: ".line",
         easing: "easeInOutQuart"
       });
-      var leftTextAnimate = new Anime$9.Anime({
+      var leftTextAnimate = new CSSEffect({
         animatedAttrs: {
           right: "".concat(this.size.gap, "%")
         },
@@ -3543,7 +1339,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
       });
 
       for (var i = 1; i <= 3; i++) {
-        var rightTextAnimate = new Anime$9.Anime({
+        var rightTextAnimate = new CSSEffect({
           animatedAttrs: {
             right: "-".concat(this.size.gap, "%")
           },
@@ -3556,7 +1352,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         this.addIncident(rightTextAnimate, 1500);
       }
 
-      var rightTextAnimateIn = new Anime$9.Anime({
+      var rightTextAnimateIn = new CSSEffect({
         animatedAttrs: {
           right: "100%"
         },
@@ -3566,7 +1362,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         selector: ".text-right",
         easing: "easeOutExpo"
       });
-      var leftTextAnimateIn = new Anime$9.Anime({
+      var leftTextAnimateIn = new CSSEffect({
         animatedAttrs: {
           right: "-100%"
         },
@@ -3576,7 +1372,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         selector: ".text-left",
         easing: "easeOutExpo"
       });
-      var rotateAminmeStartOut = new Anime$9.Anime({
+      var rotateAminmeStartOut = new CSSEffect({
         animatedAttrs: {
           transform: {
             rotate: "90deg"
@@ -3588,7 +1384,7 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
         selector: ".wrapper",
         easing: "easeInOutQuart"
       });
-      var widthLIneOut = new Anime$9.Anime({
+      var widthLIneOut = new CSSEffect({
         animatedAttrs: {
           height: "0rem"
         },
@@ -3615,20 +1411,18 @@ var RotatedLine = /*#__PURE__*/function (_HTMLClip) {
   return RotatedLine;
 }(HTMLClip);
 
-var Anime$8 = loadPlugin(index$1);
-
 var RolingText = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(RolingText, _HTMLClip);
+  _inherits(RolingText, _HTMLClip);
 
-  var _super = _createSuper$1(RolingText);
+  var _super = _createSuper(RolingText);
 
   function RolingText() {
-    _classCallCheck$1(this, RolingText);
+    _classCallCheck(this, RolingText);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(RolingText, [{
+  _createClass(RolingText, [{
     key: "html",
     get: function get() {
       return "\n      <div class=\"wrapper\">\n        <div class=\"line\"></div>\n        <div class=\"textClip\"> \n          <span>".concat(this.attrs.subTitle1, "</span>\n          <span>").concat(this.attrs.subTitle2, "</span>\n          <span>").concat(this.attrs.subTitle3, "</span>\n        </div>\n      </div>\n        ");
@@ -3678,7 +1472,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var animeLineHeight = new Anime$8.Anime({
+      var animeLineHeight = new CSSEffect({
         animatedAttrs: {
           height: this.size.lineHeight
         },
@@ -3687,7 +1481,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
         duration: 450,
         selector: ".line"
       });
-      var animeTextLeft = new Anime$8.Anime({
+      var animeTextLeft = new CSSEffect({
         animatedAttrs: {
           left: "0px"
         },
@@ -3696,7 +1490,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
         duration: 800,
         selector: ".textClip span"
       });
-      var animeTextTop = new Anime$8.Anime({
+      var animeTextTop = new CSSEffect({
         animatedAttrs: {
           top: this.size.topMove
         },
@@ -3705,7 +1499,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
         duration: 900,
         selector: ".textClip span"
       });
-      var animeTextTopNext = new Anime$8.Anime({
+      var animeTextTopNext = new CSSEffect({
         animatedAttrs: {
           top: this.size.topMove2
         },
@@ -3714,7 +1508,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
         duration: 900,
         selector: ".textClip span"
       });
-      var animeTextLeftBack = new Anime$8.Anime({
+      var animeTextLeftBack = new CSSEffect({
         animatedAttrs: {
           left: "-".concat(this.attrs.width / 2, "px")
         },
@@ -3723,7 +1517,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
         duration: 900,
         selector: ".textClip span"
       });
-      var animeLineHeightBack = new Anime$8.Anime({
+      var animeLineHeightBack = new CSSEffect({
         animatedAttrs: {
           height: "0px"
         },
@@ -3748,20 +1542,18 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
   return RolingText;
 }(HTMLClip);
 
-var Anime$7 = loadPlugin(index$1);
-
 var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(SvgBorder, _HTMLClip);
+  _inherits(SvgBorder, _HTMLClip);
 
-  var _super = _createSuper$1(SvgBorder);
+  var _super = _createSuper(SvgBorder);
 
   function SvgBorder() {
-    _classCallCheck$1(this, SvgBorder);
+    _classCallCheck(this, SvgBorder);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(SvgBorder, [{
+  _createClass(SvgBorder, [{
     key: "html",
     get: function get() {
       switch (this.attrs.size) {
@@ -3803,7 +1595,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
     key: "buildTree",
     value: function buildTree() {
       var delayEnd = this.attrs.delayEnd || 0;
-      var borderAnimete = new Anime$7.Anime({
+      var borderAnimete = new CSSEffect({
         animatedAttrs: {
           strokeDashoffset: " -".concat(this.size.subGap, "px")
         },
@@ -3813,7 +1605,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         selector: ".shape2",
         easing: "easeInOutQuart"
       });
-      var titleAnimete = new Anime$7.Anime({
+      var titleAnimete = new CSSEffect({
         animatedAttrs: {
           top: "0px"
         },
@@ -3822,7 +1614,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         duration: 600,
         selector: ".text"
       });
-      var subAnimate = new Anime$7.Anime({
+      var subAnimate = new CSSEffect({
         animatedAttrs: {
           top: "0px"
         },
@@ -3832,7 +1624,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         selector: ".sub",
         easing: "easeInOutQuart"
       });
-      var sloganAnimate = new Anime$7.Anime({
+      var sloganAnimate = new CSSEffect({
         animatedAttrs: {
           top: "0px"
         },
@@ -3842,7 +1634,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         selector: ".slogan",
         easing: "easeInOutQuart"
       });
-      var borderAnimeteLeft = new Anime$7.Anime({
+      var borderAnimeteLeft = new CSSEffect({
         animatedAttrs: {
           strokeDashoffset: "-6000px"
         },
@@ -3851,7 +1643,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         duration: 1200,
         selector: ".shape2"
       });
-      var titleAnimeteLeft = new Anime$7.Anime({
+      var titleAnimeteLeft = new CSSEffect({
         animatedAttrs: {
           left: "100%"
         },
@@ -3860,7 +1652,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         duration: 800,
         selector: ".text"
       });
-      var subAnimateLeft = new Anime$7.Anime({
+      var subAnimateLeft = new CSSEffect({
         animatedAttrs: {
           left: "100%"
         },
@@ -3870,7 +1662,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
         selector: ".sub",
         easing: "easeInOutQuart"
       });
-      var sloganAnimateLeft = new Anime$7.Anime({
+      var sloganAnimateLeft = new CSSEffect({
         animatedAttrs: {
           left: "150px"
         },
@@ -3899,20 +1691,18 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
   return SvgBorder;
 }(HTMLClip);
 
-var Anime$6 = loadPlugin(index$1);
-
 var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(RotatadLineReveal, _HTMLClip);
+  _inherits(RotatadLineReveal, _HTMLClip);
 
-  var _super = _createSuper$1(RotatadLineReveal);
+  var _super = _createSuper(RotatadLineReveal);
 
   function RotatadLineReveal() {
-    _classCallCheck$1(this, RotatadLineReveal);
+    _classCallCheck(this, RotatadLineReveal);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(RotatadLineReveal, [{
+  _createClass(RotatadLineReveal, [{
     key: "html",
     get: function get() {
       switch (this.attrs.size) {
@@ -3950,29 +1740,27 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
     key: "buildTree",
     value: function buildTree() {
       var grupMc = new Group();
-      var lineRotateEnd = new Anime$6.Anime({
+      var lineRotateEnd = new CSSEffect({
         animatedAttrs: {
           transform: {
             rotate: "0deg"
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 1200,
         selector: ".redLine",
         easing: "easeOutExpo"
       });
-      var lineMoveEnd = new Anime$6.Anime({
+      var lineMoveEnd = new CSSEffect({
         animatedAttrs: {
           left: "".concat(this.attrs.leftEnd, "px")
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".redLine",
         easing: "easeOutExpo"
       });
-      var lineWidthEnd = new Anime$6.Anime({
+      var lineWidthEnd = new CSSEffect({
         animatedAttrs: {
           width: "400px"
         },
@@ -3983,21 +1771,19 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
         duration: 800,
         selector: ".redLine"
       });
-      var moveText = new Anime$6.Anime({
+      var moveText = new CSSEffect({
         animatedAttrs: {
           left: "10px"
-        },
-        attrs: {}
+        }
       }, {
         duration: 800,
         selector: ".text",
         easing: "easeOutExpo"
       });
-      var moveSub = new Anime$6.Anime({
+      var moveSub = new CSSEffect({
         animatedAttrs: {
           top: "0px"
-        },
-        attrs: {}
+        }
       }, {
         duration: 400,
         selector: ".sub",
@@ -4005,11 +1791,10 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
       });
 
       for (var i = 1; i <= 2; i++) {
-        var moveTextOut = new Anime$6.Anime({
+        var moveTextOut = new CSSEffect({
           animatedAttrs: {
             left: "-".concat(this.attrs.width, "px")
-          },
-          attrs: {}
+          }
         }, {
           duration: Math.round(1700),
           selector: ".text" + i,
@@ -4018,11 +1803,10 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
         grupMc.addIncident(moveTextOut, 3125 + i * 100);
       }
 
-      var lineHeight = new Anime$6.Anime({
+      var lineHeight = new CSSEffect({
         animatedAttrs: {
           height: "0px"
-        },
-        attrs: {}
+        }
       }, {
         duration: 400,
         selector: ".redLine",
@@ -4045,20 +1829,18 @@ var RotatadLineReveal = /*#__PURE__*/function (_HTMLClip) {
   return RotatadLineReveal;
 }(HTMLClip);
 
-var Anime$5 = loadPlugin(index$1);
-
 var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(SvgDraw, _HTMLClip);
+  _inherits(SvgDraw, _HTMLClip);
 
-  var _super = _createSuper$1(SvgDraw);
+  var _super = _createSuper(SvgDraw);
 
   function SvgDraw() {
-    _classCallCheck$1(this, SvgDraw);
+    _classCallCheck(this, SvgDraw);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(SvgDraw, [{
+  _createClass(SvgDraw, [{
     key: "html",
     get: function get() {
       switch (this.attrs.size) {
@@ -4094,7 +1876,7 @@ var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var textDrow = new Anime$5.Anime({
+      var textDrow = new CSSEffect({
         animatedAttrs: {
           strokeDashoffset: "0px"
         },
@@ -4104,7 +1886,7 @@ var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
         selector: "svg path",
         easing: "easeInSine"
       });
-      var textBigBack = new Anime$5.Anime({
+      var textBigBack = new CSSEffect({
         animatedAttrs: {
           transform: {
             scaleX: 1.3,
@@ -4117,7 +1899,7 @@ var SvgDraw = /*#__PURE__*/function (_HTMLClip) {
         id: "transform2",
         easing: "easeOutElastic"
       });
-      var textErase = new Anime$5.Anime({
+      var textErase = new CSSEffect({
         animatedAttrs: {
           strokeDashoffset: this.attrs.strokeDashOffset
         },
@@ -4816,20 +2598,18 @@ fixRegExpWellKnownSymbolLogic('split', function (SPLIT, nativeSplit, maybeCallNa
   }];
 }, !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC, UNSUPPORTED_Y);
 
-var Anime$4 = loadPlugin(index$1);
-
 var Circle = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(Circle, _HTMLClip);
+  _inherits(Circle, _HTMLClip);
 
-  var _super = _createSuper$1(Circle);
+  var _super = _createSuper(Circle);
 
   function Circle() {
-    _classCallCheck$1(this, Circle);
+    _classCallCheck(this, Circle);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(Circle, [{
+  _createClass(Circle, [{
     key: "html",
     get: function get() {
       return "\n      <div class=\"wrapper\">\n        <div class=\"circle\">\n          <div class=\"word\"></div>\n        </div>\n        <div class=\"sub\">\n          <span >".concat(this.attrs.subTitle, "</span>\n        </div>\n      </div>\n    ");
@@ -4855,7 +2635,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         selector: ".word"
       });
       this.addIncident(word, 0);
-      var circleScale = new Anime$4.Anime({
+      var circleScale = new CSSEffect({
         animatedAttrs: {
           width: "".concat(this.attrs.width, "px"),
           height: "".concat(this.attrs.width, "px")
@@ -4868,7 +2648,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
       });
 
       for (var _i = 0; _i < array.length; _i++) {
-        var textAnimation = new Anime$4.Anime({
+        var textAnimation = new CSSEffect({
           animatedAttrs: {
             top: "0px",
             opacity: 1
@@ -4882,7 +2662,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         word.addIncident(textAnimation, 500 + 100 * (_i + 1));
       }
 
-      var circleScaleDown = new Anime$4.Anime({
+      var circleScaleDown = new CSSEffect({
         animatedAttrs: {
           width: "".concat(this.attrs.width * 0.8, "px"),
           height: "".concat(this.attrs.width * 0.8, "px")
@@ -4893,7 +2673,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         selector: ".circle",
         easing: "easeOutElastic"
       });
-      var wrapperDown = new Anime$4.Anime({
+      var wrapperDown = new CSSEffect({
         animatedAttrs: {
           width: "".concat(this.attrs.width * 0.8, "px"),
           height: "".concat(this.attrs.width * 0.8, "px"),
@@ -4907,7 +2687,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         selector: ".wrapper",
         easing: "easeOutElastic"
       });
-      var maskDown = new Anime$4.Anime({
+      var maskDown = new CSSEffect({
         animatedAttrs: {
           maskSize: "".concat(this.attrs.width * 0.8, "px"),
           transform: {
@@ -4920,7 +2700,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         selector: ".circle",
         easing: "easeOutElastic"
       });
-      var subOut = new Anime$4.Anime({
+      var subOut = new CSSEffect({
         animatedAttrs: {
           top: "0px"
         },
@@ -4930,7 +2710,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         selector: ".sub span",
         easing: "easeOutElastic"
       });
-      var circleScaleDownEnd = new Anime$4.Anime({
+      var circleScaleDownEnd = new CSSEffect({
         animatedAttrs: {
           transform: {
             scale: 0
@@ -4963,20 +2743,18 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
   return Circle;
 }(HTMLClip);
 
-var Anime$3 = loadPlugin(index$1);
-
 var LogoBox = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(LogoBox, _HTMLClip);
+  _inherits(LogoBox, _HTMLClip);
 
-  var _super = _createSuper$1(LogoBox);
+  var _super = _createSuper(LogoBox);
 
   function LogoBox() {
-    _classCallCheck$1(this, LogoBox);
+    _classCallCheck(this, LogoBox);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(LogoBox, [{
+  _createClass(LogoBox, [{
     key: "html",
     get: function get() {
       return "\n      <div class=\"wrapper\">\n        <div class=\"onemore\">\n          <div class=\"redLineContainer\">\n            <div class=\"yellow\">\n              <div class=\"logo\"><img src=\"".concat(this.attrs.logoUrl, "\" alt=\"Italian Trulli\"></div>\n            </div>\n            <div class=\"redLine\">\n              <div class=\"text text1\">").concat(this.attrs.subTitle1, "</div>\n              <div class=\"text text2\">").concat(this.attrs.subTitle2, "</div>\n              <div class=\"text text3\">").concat(this.attrs.subTitle3, "</div>\n            </div>\n           \n          </div>\n        </div>\n      </div>\n    ");
@@ -4989,7 +2767,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var opacity = new Anime$3.Anime({
+      var opacity = new CSSEffect({
         animatedAttrs: {
           opacity: 1
         },
@@ -4998,7 +2776,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
         duration: 1,
         selector: ".redLineContainer"
       });
-      var border = new Anime$3.Anime({
+      var border = new CSSEffect({
         animatedAttrs: {
           right: "0px"
         },
@@ -5007,7 +2785,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
         duration: 1000,
         selector: ".redLine"
       });
-      var conteiner = new Anime$3.Anime({
+      var conteiner = new CSSEffect({
         animatedAttrs: {
           width: "".concat(this.attrs.width * 0.75 * this.attrs.size, "px")
         },
@@ -5018,7 +2796,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
       });
 
       for (var i = 1; i <= 3; i++) {
-        var textLeft = new Anime$3.Anime({
+        var textLeft = new CSSEffect({
           animatedAttrs: {
             left: "0px"
           },
@@ -5031,7 +2809,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
         this.addIncident(textLeft, 500);
       }
 
-      var conteinerMore = new Anime$3.Anime({
+      var conteinerMore = new CSSEffect({
         animatedAttrs: {
           width: "".concat(this.attrs.width * this.attrs.size, "px")
         },
@@ -5040,7 +2818,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
         duration: 500,
         selector: ".redLineContainer"
       });
-      var yellowW = new Anime$3.Anime({
+      var yellowW = new CSSEffect({
         animatedAttrs: {
           width: "".concat(80 * this.attrs.size, "px")
         },
@@ -5049,7 +2827,7 @@ var LogoBox = /*#__PURE__*/function (_HTMLClip) {
         duration: 500,
         selector: ".yellow"
       });
-      var end = new Anime$3.Anime({
+      var end = new CSSEffect({
         animatedAttrs: {
           width: "0%"
         },
@@ -5232,20 +3010,18 @@ $$1({
   }
 });
 
-var Anime$2 = loadPlugin(index$1);
-
 var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(RightOpacity, _HTMLClip);
+  _inherits(RightOpacity, _HTMLClip);
 
-  var _super = _createSuper$1(RightOpacity);
+  var _super = _createSuper(RightOpacity);
 
   function RightOpacity() {
-    _classCallCheck$1(this, RightOpacity);
+    _classCallCheck(this, RightOpacity);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(RightOpacity, [{
+  _createClass(RightOpacity, [{
     key: "html",
     get: function get() {
       this.list = this.attrs.text.split("");
@@ -5263,7 +3039,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var left = new Anime$2.Anime({
+      var left = new CSSEffect({
         animatedAttrs: {
           left: "@expression(index * ".concat(this.attrs.width / this.list.length, ")px")
         },
@@ -5276,7 +3052,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
         delay: "@stagger(0, 0)"
       });
       this.addIncident(left, 0);
-      var opacity = new Anime$2.Anime({
+      var opacity = new CSSEffect({
         animatedAttrs: {
           opacity: 1 // left: `@expression(index * ${this.attrs.width / this.list.length})px`
 
@@ -5292,7 +3068,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
         delay: "@stagger(0, 300)"
       });
       this.addIncident(opacity, 10);
-      var left2 = new Anime$2.Anime({
+      var left2 = new CSSEffect({
         animatedAttrs: {
           left: "0px"
         },
@@ -5306,7 +3082,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
 
       });
       this.addIncident(left2, 0);
-      var leftLetter = new Anime$2.Anime({
+      var leftLetter = new CSSEffect({
         animatedAttrs: {
           left: "".concat(this.attrs.width / 2, "px")
         }
@@ -5317,7 +3093,7 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
         delay: "@stagger(0, 300,0.5,easeInQuad,omni)"
       });
       this.addIncident(leftLetter, this.attrs.exitTime);
-      var opacityback = new Anime$2.Anime({
+      var opacityback = new CSSEffect({
         animatedAttrs: {
           opacity: 0
         }
@@ -5332,20 +3108,18 @@ var RightOpacity = /*#__PURE__*/function (_HTMLClip) {
   return RightOpacity;
 }(HTMLClip);
 
-var Anime$1 = loadPlugin(index$1);
-
 var LetterScale = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(LetterScale, _HTMLClip);
+  _inherits(LetterScale, _HTMLClip);
 
-  var _super = _createSuper$1(LetterScale);
+  var _super = _createSuper(LetterScale);
 
   function LetterScale() {
-    _classCallCheck$1(this, LetterScale);
+    _classCallCheck(this, LetterScale);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(LetterScale, [{
+  _createClass(LetterScale, [{
     key: "html",
     get: function get() {
       this.list = this.attrs.text.split("");
@@ -5363,7 +3137,7 @@ var LetterScale = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var left = new Anime$1.Anime({
+      var left = new CSSEffect({
         animatedAttrs: {
           fontSize: "".concat(this.attrs.fontSize, "px")
         },
@@ -5436,20 +3210,18 @@ $({
 
 addToUnscopables('fill');
 
-var Anime = loadPlugin(index$1);
-
 var CircularText = /*#__PURE__*/function (_HTMLClip) {
-  _inherits$1(CircularText, _HTMLClip);
+  _inherits(CircularText, _HTMLClip);
 
-  var _super = _createSuper$1(CircularText);
+  var _super = _createSuper(CircularText);
 
   function CircularText() {
-    _classCallCheck$1(this, CircularText);
+    _classCallCheck(this, CircularText);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(CircularText, [{
+  _createClass(CircularText, [{
     key: "html",
     get: function get() {
       return "\n    <div class=\"wrapper\">\n      <div class=\"circle\">\n        <svg viewBox=\"0 0 ".concat(this.attrs.viewBox, " ").concat(this.attrs.viewBox, "\">\n          <path d=\"M ").concat(this.attrs.viewBox / 2 - this.attrs.path, ",").concat(this.attrs.viewBox / 2, " a ").concat(this.attrs.path, ", ").concat(this.attrs.path, " 0 1, 1 0,1 z\" id=\"circular\" />\n          <text class=\"text\"><textPath xlink:href=\"#circular\">\n          ").concat(this.attrs.text, "\n            </textPath>\n          </text>\n        </svg>\n      </div>\n    </div>\n    ");
@@ -5462,7 +3234,7 @@ var CircularText = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var left = new Anime.Anime({
+      var left = new CSSEffect({
         animatedAttrs: {
           transform: {
             rotate: "360deg"
