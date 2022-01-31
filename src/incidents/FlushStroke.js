@@ -41,7 +41,7 @@ export default class FlushStroke extends HTMLClip {
   }
 
   buildTree() {
-    // const left = new Anime.Anime(
+    // const left = new CSSEffect(
     //   {
     //     animatedAttrs: {
     //       color: `rgba(${this.attrs.strokeColor[0]},${this.attrs.strokeColor[1]},${this.attrs.strokeColor[2]},1)`

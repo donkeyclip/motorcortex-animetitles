@@ -1,13 +1,11 @@
-import MotorCortex from "@donkeyclip/motorcortex";
+import { HTMLClip, loadPlugin, CSSEffect } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 import TitlesPlugin from "../dist/motorcortex-animetitles.esm";
 import imgsvg from "./assets/imgsvg.js";
 
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
-const Titles = MotorCortex.loadPlugin(TitlesPlugin);
+const Titles = loadPlugin(TitlesPlugin);
 
-const clip = new MotorCortex.HTMLClip({
+const clip = new HTMLClip({
   css: `
     body{
       background-color : white;
@@ -134,6 +132,21 @@ const rotatedlinereveal = new Titles.RotatadLineReveal(
   }
 );
 
+const rotatedlinerevealOp = new CSSEffect(
+  {
+    animatedAttrs: {
+      opacity: 1,
+    },
+    initialValues: {
+      opacity: 0,
+    },
+  },
+  {
+    duration: 1,
+    selector: ".rotatedlinereveal",
+  }
+);
+
 const rotatedline = new Titles.RotatedLine(
   {
     duration: 6000,
@@ -223,7 +236,7 @@ const RightOpacity = new Titles.RightOpacity(
   }
 );
 
-const rightopacityOpacity = new Anime.Anime(
+const rightopacityOpacity = new CSSEffect(
   {
     animatedAttrs: {
       opacity: 1,
@@ -255,7 +268,7 @@ const LetterScale = new Titles.LetterScale(
   }
 );
 
-const LetterScaleOpacity = new Anime.Anime(
+const LetterScaleOpacity = new CSSEffect(
   {
     animatedAttrs: {
       opacity: 1,
@@ -269,7 +282,7 @@ const LetterScaleOpacity = new Anime.Anime(
     selector: ".letterscale",
   }
 );
-const LetterScaleOpacityBack = new Anime.Anime(
+const LetterScaleOpacityBack = new CSSEffect(
   {
     animatedAttrs: {
       opacity: 0,
@@ -299,7 +312,7 @@ const CircularText = new Titles.CircularText(
   }
 );
 
-const CircularTextOpacity = new Anime.Anime(
+const CircularTextOpacity = new CSSEffect(
   {
     animatedAttrs: {
       opacity: 1,
@@ -316,6 +329,7 @@ const CircularTextOpacity = new Anime.Anime(
 
 clip.addIncident(rolinText, 0);
 clip.addIncident(rotatedlinereveal, 7000);
+clip.addIncident(rotatedlinerevealOp, 7000);
 clip.addIncident(svgborder, 11025);
 clip.addIncident(rotatedline, 16025);
 clip.addIncident(circle, 22025);

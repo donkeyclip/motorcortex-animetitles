@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin, Group } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, Group, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class RotatadLineReveal extends HTMLClip {
   get html() {
@@ -77,115 +75,109 @@ export default class RotatadLineReveal extends HTMLClip {
       fontSize,
       fontSizeSub,
       lineSize,
-      lineHeight
+      lineHeight,
     };
   }
 
   buildTree() {
     const grupMc = new Group();
 
-    const lineRotateEnd = new Anime.Anime(
+    const lineRotateEnd = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            rotate: "0deg"
-          }
+            rotate: "0deg",
+          },
         },
-        attrs: {}
       },
       {
         duration: 1200,
         selector: `.redLine`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
-    const lineMoveEnd = new Anime.Anime(
+    const lineMoveEnd = new CSSEffect(
       {
         animatedAttrs: {
-          left: `${this.attrs.leftEnd}px`
+          left: `${this.attrs.leftEnd}px`,
         },
-        attrs: {}
       },
       {
         duration: 2000,
         selector: `.redLine`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
-    const lineWidthEnd = new Anime.Anime(
+    const lineWidthEnd = new CSSEffect(
       {
         animatedAttrs: {
-          width: "400px"
+          width: "400px",
         },
         attrs: {
-          easing: "easeOutExpo"
-        }
+          easing: "easeOutExpo",
+        },
       },
       {
         duration: 800,
-        selector: `.redLine`
+        selector: `.redLine`,
       }
     );
 
-    const moveText = new Anime.Anime(
+    const moveText = new CSSEffect(
       {
         animatedAttrs: {
-          left: "10px"
+          left: "10px",
         },
-        attrs: {}
       },
       {
         duration: 800,
         selector: `.text`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
-    const moveSub = new Anime.Anime(
+    const moveSub = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0px"
+          top: "0px",
         },
-        attrs: {}
       },
       {
         duration: 400,
         selector: `.sub`,
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
       }
     );
 
     for (let i = 1; i <= 2; i++) {
-      const moveTextOut = new Anime.Anime(
+      const moveTextOut = new CSSEffect(
         {
           animatedAttrs: {
-            left: `-${this.attrs.width}px`
+            left: `-${this.attrs.width}px`,
           },
-          attrs: {}
         },
         {
           duration: Math.round(1700),
           selector: ".text" + i,
-          easing: "easeOutExpo"
+          easing: "easeOutExpo",
         }
       );
 
       grupMc.addIncident(moveTextOut, 3125 + i * 100);
     }
 
-    const lineHeight = new Anime.Anime(
+    const lineHeight = new CSSEffect(
       {
         animatedAttrs: {
-          height: "0px"
+          height: "0px",
         },
-        attrs: {}
       },
       {
         duration: 400,
         selector: `.redLine`,
-        easing: "easeInSine"
+        easing: "easeInSine",
       }
     );
 

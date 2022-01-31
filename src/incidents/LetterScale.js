@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class LetterScale extends HTMLClip {
   get html() {
@@ -58,20 +56,20 @@ export default class LetterScale extends HTMLClip {
   }
 
   buildTree() {
-    const left = new Anime.Anime(
+    const left = new CSSEffect(
       {
         animatedAttrs: {
-          fontSize: `${this.attrs.fontSize}px`
+          fontSize: `${this.attrs.fontSize}px`,
         },
         initialValues: {
-          fontSize: `${this.attrs.fontSize * 0.7}px`
-        }
+          fontSize: `${this.attrs.fontSize * 0.7}px`,
+        },
       },
       {
         duration: 600,
         selector: ".letter",
         easing: "easeOutExpo",
-        delay: `@stagger(0, 600,0.5,linear,omni)`
+        delay: `@stagger(0, 600,0.5,linear,omni)`,
       }
     );
     this.addIncident(left, 0);

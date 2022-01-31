@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class LogoBox extends HTMLClip {
   get html() {
@@ -89,101 +87,101 @@ export default class LogoBox extends HTMLClip {
   }
 
   buildTree() {
-    const opacity = new Anime.Anime(
+    const opacity = new CSSEffect(
       {
         animatedAttrs: {
-          opacity: 1
+          opacity: 1,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1,
-        selector: ".redLineContainer"
+        selector: ".redLineContainer",
       }
     );
 
-    const border = new Anime.Anime(
+    const border = new CSSEffect(
       {
         animatedAttrs: {
-          right: "0px"
+          right: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1000,
-        selector: ".redLine"
+        selector: ".redLine",
       }
     );
 
-    const conteiner = new Anime.Anime(
+    const conteiner = new CSSEffect(
       {
         animatedAttrs: {
-          width: `${this.attrs.width * 0.75 * this.attrs.size}px`
+          width: `${this.attrs.width * 0.75 * this.attrs.size}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1000,
-        selector: ".redLineContainer"
+        selector: ".redLineContainer",
       }
     );
 
     for (let i = 1; i <= 3; i++) {
-      const textLeft = new Anime.Anime(
+      const textLeft = new CSSEffect(
         {
           animatedAttrs: {
-            left: "0px"
+            left: "0px",
           },
-          attrs: {}
+          attrs: {},
         },
         {
           duration: 500 * i,
           selector: ".text" + i,
-          easing: "easeOutExpo"
+          easing: "easeOutExpo",
         }
       );
       this.addIncident(textLeft, 500);
     }
 
-    const conteinerMore = new Anime.Anime(
+    const conteinerMore = new CSSEffect(
       {
         animatedAttrs: {
-          width: `${this.attrs.width * this.attrs.size}px`
+          width: `${this.attrs.width * this.attrs.size}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 500,
-        selector: ".redLineContainer"
+        selector: ".redLineContainer",
       }
     );
 
-    const yellowW = new Anime.Anime(
+    const yellowW = new CSSEffect(
       {
         animatedAttrs: {
-          width: `${80 * this.attrs.size}px`
+          width: `${80 * this.attrs.size}px`,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 500,
-        selector: ".yellow"
+        selector: ".yellow",
       }
     );
 
-    const end = new Anime.Anime(
+    const end = new CSSEffect(
       {
         animatedAttrs: {
-          width: "0%"
+          width: "0%",
         },
         initialValues: {
-          width: "100%"
+          width: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 500,
-        selector: ".wrapper"
+        selector: ".wrapper",
       }
     );
 

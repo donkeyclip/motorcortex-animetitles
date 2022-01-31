@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class SvgDraw extends HTMLClip {
   get html() {
@@ -50,48 +48,48 @@ export default class SvgDraw extends HTMLClip {
   }
 
   buildTree() {
-    const textDrow = new Anime.Anime(
+    const textDrow = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: "0px"
+          strokeDashoffset: "0px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2700,
         selector: `svg path`,
-        easing: "easeInSine"
+        easing: "easeInSine",
       }
     );
 
-    const textBigBack = new Anime.Anime(
+    const textBigBack = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
             scaleX: 1.3,
-            scaleY: 1.3
-          }
-        }
+            scaleY: 1.3,
+          },
+        },
       },
       {
         duration: 1530,
         selector: `svg`,
         id: "transform2",
-        easing: "easeOutElastic"
+        easing: "easeOutElastic",
       }
     );
 
-    const textErase = new Anime.Anime(
+    const textErase = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: this.attrs.strokeDashOffset
+          strokeDashoffset: this.attrs.strokeDashOffset,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2700,
         selector: `svg path`,
-        easing: "easeInSine"
+        easing: "easeInSine",
       }
     );
 
