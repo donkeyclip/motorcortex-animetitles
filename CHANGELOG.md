@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.6](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.5...v1.0.6) (2022-03-01)
+
+
+### Bug Fixes
+
+* fix circleanimation and safari bugs ([aea761a](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/aea761ab1657c45eeb4ab4f35d8316b83bfe3522))
+
 ### [1.0.5](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.4...v1.0.5) (2022-01-31)
 
 
