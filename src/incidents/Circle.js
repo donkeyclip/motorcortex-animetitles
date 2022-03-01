@@ -106,7 +106,10 @@ export default class Circle extends HTMLClip {
           width: `${this.attrs.width}px`,
           height: `${this.attrs.width}px`,
         },
-        attrs: {},
+        initialValues: {
+          width: `0px`,
+          height: `0px`,
+        },
       },
       {
         duration: 500,
@@ -122,7 +125,6 @@ export default class Circle extends HTMLClip {
             top: "0px",
             opacity: 1,
           },
-          attrs: {},
         },
         {
           duration: 500,
@@ -140,7 +142,10 @@ export default class Circle extends HTMLClip {
           width: `${this.attrs.width * 0.8}px`,
           height: `${this.attrs.width * 0.8}px`,
         },
-        attrs: {},
+        // initialValues:{
+        //   width: `${this.attrs.width}px`,
+        //   height: `${this.attrs.width}px`,
+        // }
       },
       {
         duration: 600,

@@ -158,6 +158,7 @@ const nameOfIncident = new Titles.SvgBorder(
 | title      |                   title text                    |          normal text |
 | stopOnLast | if you like to stop animation on last text line |           true,false |
 | delayEnd   |           delay before last animation           |          millisecond |
+| borderGap  |           the gap size of the border            |               number |
 
 ## Circle
 

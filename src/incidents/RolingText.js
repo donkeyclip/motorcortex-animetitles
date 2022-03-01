@@ -80,6 +80,7 @@ export default class RolingText extends HTMLClip {
         height: ${this.size.fontSizeLeft}px;
         align-items: center;
         display: flex;
+        top:0;
       }
   `;
   }
@@ -126,7 +127,6 @@ export default class RolingText extends HTMLClip {
         animatedAttrs: {
           top: this.size.topMove,
         },
-        attrs: {},
       },
       {
         duration: 900,
@@ -139,7 +139,6 @@ export default class RolingText extends HTMLClip {
         animatedAttrs: {
           top: this.size.topMove2,
         },
-        attrs: {},
       },
       {
         duration: 900,
@@ -152,7 +151,6 @@ export default class RolingText extends HTMLClip {
         animatedAttrs: {
           left: `-${this.attrs.width / 2}px`,
         },
-        attrs: {},
       },
       {
         duration: 900,

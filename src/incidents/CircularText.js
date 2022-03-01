@@ -48,6 +48,7 @@ export default class CircularText extends HTMLClip {
       .circle svg {
         display: block;
         overflow: visible;
+        flex:1;
       }
 
       .text{

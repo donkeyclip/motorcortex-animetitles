@@ -4,10 +4,10 @@ export default class SvgBorder extends HTMLClip {
   get html() {
     switch (this.attrs.size) {
       case "S":
-        this.size = this.generateSize(600, 70, "2rem", "1rem", 130, 50, 17, 50);
+        this.size = this.generateSize(600, 70, "2rem", "1rem", 50, 17, 50);
         break;
       case "M":
-        this.size = this.generateSize(700, 90, "3rem", "2rem", 230, 50, 34, 70);
+        this.size = this.generateSize(700, 90, "3rem", "2rem", 50, 34, 70);
         break;
       case "L":
         this.size = this.generateSize(
@@ -15,7 +15,6 @@ export default class SvgBorder extends HTMLClip {
           110,
           "3.5rem",
           "2.5rem",
-          250,
           55,
           45,
           80
@@ -61,7 +60,7 @@ export default class SvgBorder extends HTMLClip {
         fill: transparent;
         stroke: ${this.attrs.lineColor};
         border-bottom: 5px solid black;
-        stroke-dashoffset: -6000;
+        stroke-dashoffset: 6000;
       }
       
       
@@ -120,7 +119,6 @@ export default class SvgBorder extends HTMLClip {
     borderHeight,
     fontSizeTitle,
     fontSizeSub,
-    subGap,
     titleTop,
     subTop,
     titleContainerTop
@@ -130,7 +128,6 @@ export default class SvgBorder extends HTMLClip {
       borderHeight,
       fontSizeTitle,
       fontSizeSub,
-      subGap,
       titleTop,
       subTop,
       titleContainerTop,
@@ -142,7 +139,7 @@ export default class SvgBorder extends HTMLClip {
     const borderAnimete = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: ` -${this.size.subGap}px`,
+          strokeDashoffset: ` ${12000 - this.attrs.borderGap}px`,
         },
         attrs: {},
       },
@@ -197,7 +194,7 @@ export default class SvgBorder extends HTMLClip {
     const borderAnimeteLeft = new CSSEffect(
       {
         animatedAttrs: {
-          strokeDashoffset: "-6000px",
+          strokeDashoffset: "6000px",
         },
         attrs: {},
       },

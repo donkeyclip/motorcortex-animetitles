@@ -177,6 +177,7 @@ const svgborder = new Titles.SvgBorder(
     title: "MotorCortex Team",
     stopOnLast: false,
     fontFamily: "Commissioner",
+    borderGap: 300,
   },
   {
     selector: ".svgborder",
