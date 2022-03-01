@@ -1458,7 +1458,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
           break;
       }
 
-      return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .wrapper{\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        height: ".concat(this.size.lineHeight, ";\n        width : ").concat(this.attrs.width, "px;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n    \n      .line{\n        position: relative; \n        height: 0;\n        width: 3px;\n        justify-content: center;\n        background: ").concat(this.attrs.lineColor, " ;\n        margin-right: ").concat(this.size.gap, "rem;\n      \n      }\n      \n      .textClip{\n        position: relative;\n        display: flex;\n        flex-direction: column;\n        font-size: ").concat(this.size.fontSizeLeft, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        height: ").concat(this.size.fontSizeLeft, "px;\n      }\n    \n      .textClip span{\n        color : ").concat(this.attrs.textColor, ";\n        position: relative;\n        left : -").concat(this.attrs.width / 2, "px;\n        width : 100%;\n        height: ").concat(this.size.fontSizeLeft, "px;\n        align-items: center;\n        display: flex;\n      }\n  ");
+      return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .wrapper{\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        height: ".concat(this.size.lineHeight, ";\n        width : ").concat(this.attrs.width, "px;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n    \n      .line{\n        position: relative; \n        height: 0;\n        width: 3px;\n        justify-content: center;\n        background: ").concat(this.attrs.lineColor, " ;\n        margin-right: ").concat(this.size.gap, "rem;\n      \n      }\n      \n      .textClip{\n        position: relative;\n        display: flex;\n        flex-direction: column;\n        font-size: ").concat(this.size.fontSizeLeft, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        height: ").concat(this.size.fontSizeLeft, "px;\n      }\n    \n      .textClip span{\n        color : ").concat(this.attrs.textColor, ";\n        position: relative;\n        left : -").concat(this.attrs.width / 2, "px;\n        width : 100%;\n        height: ").concat(this.size.fontSizeLeft, "px;\n        align-items: center;\n        display: flex;\n        top:0;\n      }\n  ");
     }
   }, {
     key: "generateSize",
@@ -1495,8 +1495,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
       var animeTextTop = new motorcortex.CSSEffect({
         animatedAttrs: {
           top: this.size.topMove
-        },
-        attrs: {}
+        }
       }, {
         duration: 900,
         selector: ".textClip span"
@@ -1504,8 +1503,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
       var animeTextTopNext = new motorcortex.CSSEffect({
         animatedAttrs: {
           top: this.size.topMove2
-        },
-        attrs: {}
+        }
       }, {
         duration: 900,
         selector: ".textClip span"
@@ -1513,8 +1511,7 @@ var RolingText = /*#__PURE__*/function (_HTMLClip) {
       var animeTextLeftBack = new motorcortex.CSSEffect({
         animatedAttrs: {
           left: "-".concat(this.attrs.width / 2, "px")
-        },
-        attrs: {}
+        }
       }, {
         duration: 900,
         selector: ".textClip span"
@@ -1560,15 +1557,15 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
     get: function get() {
       switch (this.attrs.size) {
         case "S":
-          this.size = this.generateSize(600, 70, "2rem", "1rem", 130, 50, 17, 50);
+          this.size = this.generateSize(600, 70, "2rem", "1rem", 50, 17, 50);
           break;
 
         case "M":
-          this.size = this.generateSize(700, 90, "3rem", "2rem", 230, 50, 34, 70);
+          this.size = this.generateSize(700, 90, "3rem", "2rem", 50, 34, 70);
           break;
 
         case "L":
-          this.size = this.generateSize(1000, 110, "3.5rem", "2.5rem", 250, 55, 45, 80);
+          this.size = this.generateSize(1000, 110, "3.5rem", "2.5rem", 55, 45, 80);
           break;
       }
 
@@ -1577,17 +1574,16 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top :10px;\n        height: 100%;\n        color:  ".concat(this.attrs.textColor, ";\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 6000;\n        stroke-width: 5px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.lineColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -6000;\n      }\n      \n      \n      .text {\n        font-size: ").concat(this.size.fontSizeTitle, ";\n        letter-spacing: 8px;\n        position: relative;\n        top: ").concat(this.size.titleTop, "px;\n      }\n      \n      .sub--container {\n        position: absolute;\n        white-space: nowrap;\n        overflow: hidden;\n        left: 20px;\n        top: -7%;\n      }\n\n      .sloganContainer {\n        position: relative;\n        top: -30px;\n        left: 45%;\n        white-space: nowrap;\n        overflow: hidden;\n        width: 150px;\n      }\n\n      .titleContainer{\n        position: relative;\n        top: -").concat(this.size.titleContainerTop, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        width: ").concat(this.size.borderWidth, "px;\n        height: 50px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n      \n      .sub{\n        position: relative;\n        top: ").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n      \n      .slogan{\n        position: relative;\n        top: -").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n    ");
+      return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top :10px;\n        height: 100%;\n        color:  ".concat(this.attrs.textColor, ";\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 6000;\n        stroke-width: 5px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.lineColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: 6000;\n      }\n      \n      \n      .text {\n        font-size: ").concat(this.size.fontSizeTitle, ";\n        letter-spacing: 8px;\n        position: relative;\n        top: ").concat(this.size.titleTop, "px;\n      }\n      \n      .sub--container {\n        position: absolute;\n        white-space: nowrap;\n        overflow: hidden;\n        left: 20px;\n        top: -7%;\n      }\n\n      .sloganContainer {\n        position: relative;\n        top: -30px;\n        left: 45%;\n        white-space: nowrap;\n        overflow: hidden;\n        width: 150px;\n      }\n\n      .titleContainer{\n        position: relative;\n        top: -").concat(this.size.titleContainerTop, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        width: ").concat(this.size.borderWidth, "px;\n        height: 50px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n      \n      .sub{\n        position: relative;\n        top: ").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n      \n      .slogan{\n        position: relative;\n        top: -").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n    ");
     }
   }, {
     key: "generateSize",
-    value: function generateSize(borderWidth, borderHeight, fontSizeTitle, fontSizeSub, subGap, titleTop, subTop, titleContainerTop) {
+    value: function generateSize(borderWidth, borderHeight, fontSizeTitle, fontSizeSub, titleTop, subTop, titleContainerTop) {
       return {
         borderWidth: borderWidth,
         borderHeight: borderHeight,
         fontSizeTitle: fontSizeTitle,
         fontSizeSub: fontSizeSub,
-        subGap: subGap,
         titleTop: titleTop,
         subTop: subTop,
         titleContainerTop: titleContainerTop
@@ -1599,7 +1595,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
       var delayEnd = this.attrs.delayEnd || 0;
       var borderAnimete = new motorcortex.CSSEffect({
         animatedAttrs: {
-          strokeDashoffset: " -".concat(this.size.subGap, "px")
+          strokeDashoffset: " ".concat(12000 - this.attrs.borderGap, "px")
         },
         attrs: {}
       }, {
@@ -1638,7 +1634,7 @@ var SvgBorder = /*#__PURE__*/function (_HTMLClip) {
       });
       var borderAnimeteLeft = new motorcortex.CSSEffect({
         animatedAttrs: {
-          strokeDashoffset: "-6000px"
+          strokeDashoffset: "6000px"
         },
         attrs: {}
       }, {
@@ -2642,7 +2638,10 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
           width: "".concat(this.attrs.width, "px"),
           height: "".concat(this.attrs.width, "px")
         },
-        attrs: {}
+        initialValues: {
+          width: "0px",
+          height: "0px"
+        }
       }, {
         duration: 500,
         selector: ".circle",
@@ -2654,8 +2653,7 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
           animatedAttrs: {
             top: "0px",
             opacity: 1
-          },
-          attrs: {}
+          }
         }, {
           duration: 500,
           selector: ".letter" + (_i + 1),
@@ -2668,8 +2666,11 @@ var Circle = /*#__PURE__*/function (_HTMLClip) {
         animatedAttrs: {
           width: "".concat(this.attrs.width * 0.8, "px"),
           height: "".concat(this.attrs.width * 0.8, "px")
-        },
-        attrs: {}
+        } // initialValues:{
+        //   width: `${this.attrs.width}px`,
+        //   height: `${this.attrs.width}px`,
+        // }
+
       }, {
         duration: 600,
         selector: ".circle",
@@ -3231,7 +3232,7 @@ var CircularText = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .circle path {\n        fill: ").concat(this.attrs.fill, ";\n        1px solid black;\n      }\n\n      .circle {\n        width:").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .circle svg {\n        display: block;\n        overflow: visible;\n      }\n\n      .text{\n        font-size: ").concat(this.attrs.fontSize, "px;\n      }\n      \n      .circle text {\n        fill: ").concat(this.attrs.color, ";\n        font-family: ").concat(this.attrs.fontFamily, ";\n      }\n    ");
+      return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .circle path {\n        fill: ").concat(this.attrs.fill, ";\n        1px solid black;\n      }\n\n      .circle {\n        width:").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .circle svg {\n        display: block;\n        overflow: visible;\n        flex:1;\n      }\n\n      .text{\n        font-size: ").concat(this.attrs.fontSize, "px;\n      }\n      \n      .circle text {\n        fill: ").concat(this.attrs.color, ";\n        font-family: ").concat(this.attrs.fontFamily, ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3415,6 +3416,11 @@ var SvgBorderVal = {
   },
   delayEnd: {
     optional: true,
+    type: "number",
+    min: 0
+  },
+  borderGap: {
+    optional: false,
     type: "number",
     min: 0
   }
