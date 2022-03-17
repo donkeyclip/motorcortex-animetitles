@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.6...v1.1.0) (2022-03-17)
+
+
+### Features
+
+* declare mc 8 as compatible ([d4c3851](https://www.github.com/donkeyclip/motorcortex-animetitles/commit/d4c38517939a74180959c8874f1b306ed88a1384))
+
 ### [1.0.6](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.5...v1.0.6) (2022-03-01)
 
 
