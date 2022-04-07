@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.1.0...v1.2.0) (2022-04-07)
+
+
+### Features
+
+* drop explorer 11 support ([d17ea56](https://github.com/donkeyclip/motorcortex-animetitles/commit/d17ea56f0a129ec0bfc2a3b4cd063ae7d5d65ce8))
+* update compatibility with motorcortex ([ad93113](https://github.com/donkeyclip/motorcortex-animetitles/commit/ad931139b2967bee065a661fa7f781489a3e45cb))
+
 ## [1.1.0](https://www.github.com/donkeyclip/motorcortex-animetitles/compare/v1.0.6...v1.1.0) (2022-03-17)
 
 
