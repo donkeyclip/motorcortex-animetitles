@@ -1,6 +1,6 @@
 import { HTMLClip, Group, CSSEffect } from "@donkeyclip/motorcortex";
 
-export default class RotatadLineReveal extends HTMLClip {
+export default class RotatedLineReveal extends HTMLClip {
   get html() {
     switch (this.attrs.size) {
       case "S":

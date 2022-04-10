@@ -44,7 +44,7 @@ const clip = new HTMLClip({
   html: `
     <div class="container">
       <div class="row" >
-        <div class="cel"> <div class="rolingtext full"></div>  </div>
+        <div class="cel"> <div class="rollingtext full"></div>  </div>
         <div class="cel"><div class="svgborder full"></div> </div>
         <div class="cel"> <div class="rotatedline full"></div> </div>
         <div class="cel"> <div class="rotatedlinereveal full"></div> </div>
@@ -95,7 +95,7 @@ const svgdraw = new Titles.SvgDraw(
   }
 );
 
-const rolinText = new Titles.RolingText(
+const rolinText = new Titles.RollingText(
   {
     duration: 6000,
     width: 450,
@@ -110,11 +110,11 @@ const rolinText = new Titles.RolingText(
     fontFamily: "Commissioner",
   },
   {
-    selector: ".rolingtext",
+    selector: ".rollingtext",
   }
 );
 
-const rotatedlinereveal = new Titles.RotatadLineReveal(
+const rotatedlinereveal = new Titles.RotatedLineReveal(
   {
     duration: 5000,
     width: 800,
