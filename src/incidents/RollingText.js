@@ -1,6 +1,6 @@
 import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
-export default class RolingText extends HTMLClip {
+export default class RollingText extends HTMLClip {
   get html() {
     return `
       <div class="wrapper">
