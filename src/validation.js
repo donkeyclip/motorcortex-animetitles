@@ -45,7 +45,7 @@ export const RotatedLIneVal = {
   },
 };
 
-export const RolingTextVal = {
+export const RollingTextVal = {
   width: {
     optional: false,
     type: "number",
@@ -86,7 +86,7 @@ export const RolingTextVal = {
   },
 };
 
-export const RotatadLineRevealVal = {
+export const RotatedLineRevealVal = {
   width: {
     optional: false,
     type: "number",

@@ -142,7 +142,7 @@ class RotatedLine extends HTMLClip {
 
 }
 
-class RolingText extends HTMLClip {
+class RollingText extends HTMLClip {
   get html() {
     return "\n      <div class=\"wrapper\">\n        <div class=\"line\"></div>\n        <div class=\"textClip\"> \n          <span>".concat(this.attrs.subTitle1, "</span>\n          <span>").concat(this.attrs.subTitle2, "</span>\n          <span>").concat(this.attrs.subTitle3, "</span>\n        </div>\n      </div>\n        ");
   }
@@ -384,7 +384,7 @@ class SvgBorder extends HTMLClip {
 
 }
 
-class RotatadLineReveal extends HTMLClip {
+class RotatedLineReveal extends HTMLClip {
   get html() {
     switch (this.attrs.size) {
       case "S":
@@ -995,7 +995,7 @@ const RotatedLIneVal = {
     min: 0
   }
 };
-const RolingTextVal = {
+const RollingTextVal = {
   width: {
     optional: false,
     type: "number",
@@ -1035,7 +1035,7 @@ const RolingTextVal = {
     min: 0
   }
 };
-const RotatadLineRevealVal = {
+const RotatedLineRevealVal = {
   width: {
     optional: false,
     type: "number",
@@ -1345,17 +1345,17 @@ var index = {
     name: "RotatedLine",
     attributesValidationRules: RotatedLIneVal
   }, {
-    exportable: RolingText,
-    name: "RolingText",
-    attributesValidationRules: RolingTextVal
+    exportable: RollingText,
+    name: "RollingText",
+    attributesValidationRules: RollingTextVal
   }, {
     exportable: SvgBorder,
     name: "SvgBorder",
     attributesValidationRules: SvgBorderVal
   }, {
-    exportable: RotatadLineReveal,
-    name: "RotatadLineReveal",
-    attributesValidationRules: RotatadLineRevealVal
+    exportable: RotatedLineReveal,
+    name: "RotatedLineReveal",
+    attributesValidationRules: RotatedLineRevealVal
   }, {
     exportable: SvgDraw,
     name: "SvgDraw",
