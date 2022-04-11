@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.2.1](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.0...v1.2.1) (2022-04-11)
+
+
+### Bug Fixes
+
+* delete commitlint.config.js ([16bf946](https://github.com/donkeyclip/motorcortex-animetitles/commit/16bf94696cd2a4f5d7aed07e1f11ecbb54863e00))
+* rename RollingText and RotatedLineReveal Incidents ([bab01f6](https://github.com/donkeyclip/motorcortex-animetitles/commit/bab01f6d42390126842aec1694c153ca0802aa6d))
+
 ## [1.2.0](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.1.0...v1.2.0) (2022-04-07)
 
 
