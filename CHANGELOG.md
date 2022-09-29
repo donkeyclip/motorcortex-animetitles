@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.2](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.1...v1.2.2) (2022-09-29)
+
+
+### Bug Fixes
+
+* add font family to validation and readme ([f7eee0d](https://github.com/donkeyclip/motorcortex-animetitles/commit/f7eee0d986caab14e9e82663d029098f149b6c2a))
+
 ### [1.2.1](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.0...v1.2.1) (2022-04-11)
 
 
