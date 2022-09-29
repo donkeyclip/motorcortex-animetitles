@@ -77,7 +77,7 @@
     "@donkeyclip/motorcortex": "9.1.5",
     "@donkeyclip/motorcortex-player": "2.9.7",
     "@rollup/plugin-babel": "5.3.1",
-    "@rollup/plugin-commonjs": "21.1.0",
+    "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@semantic-release/changelog": "6.0.1",
