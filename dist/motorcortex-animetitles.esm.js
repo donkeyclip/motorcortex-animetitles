@@ -2,7 +2,19 @@ import { HTMLClip, CSSEffect, Group } from '@donkeyclip/motorcortex';
 
 class RotatedLine extends HTMLClip {
   get html() {
-    return "\n      <div class=\"wrapper\">\n        <div class=\"text--container text--container-left\">\n          <div class=\"text-left\">".concat(this.attrs.title, "</div>\n        </div>\n        <div class=\"line\"></div>\n        <div class=\"text--container text--container-right\">\n          <div class=\"text-right text-right1\">").concat(this.attrs.subTitle1, "</div>\n          <div class=\"text-right text-right2\">").concat(this.attrs.subTitle2, "</div>\n          <div class=\"text-right text-right3\">").concat(this.attrs.subTitle3, "</div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="text--container text--container-left">
+          <div class="text-left">${this.attrs.title}</div>
+        </div>
+        <div class="line"></div>
+        <div class="text--container text--container-right">
+          <div class="text-right text-right1">${this.attrs.subTitle1}</div>
+          <div class="text-right text-right2">${this.attrs.subTitle2}</div>
+          <div class="text-right text-right3">${this.attrs.subTitle3}</div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
@@ -24,7 +36,50 @@ class RotatedLine extends HTMLClip {
         break;
     }
 
-    return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .wrapper {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        transform: rotate(90deg);\n        white-space: nowrap;\n        overflow: hidden;\n        width : 100%;\n        width : ".concat(this.attrs.width + this.size.lineWidth, "px;\n        color : ").concat(this.attrs.textColor, ";\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .line {\n        width: 3px;\n        background: ").concat(this.attrs.lineColor, " ;\n        height: 0rem;\n      }\n      \n      .text-left {\n        position: relative;\n        right : -100%;\n        font-size: ").concat(this.size.fontSizeLeft, ";\n        text-align: right;\n      }\n      \n      .text-right {\n        position: relative;\n        right: 100%;\n        font-size: ").concat(this.size.fontSizeRigth, ";\n      }\n      \n      .text--container {\n        white-space: nowrap;\n        overflow: hidden;\n        position: relative;\n        width :").concat(this.attrs.width / 2, "px;\n      } \n    ");
+    return `
+      body{
+       font-size: 62.5%;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(90deg);
+        white-space: nowrap;
+        overflow: hidden;
+        width : 100%;
+        width : ${this.attrs.width + this.size.lineWidth}px;
+        color : ${this.attrs.textColor};
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+
+      .line {
+        width: 3px;
+        background: ${this.attrs.lineColor} ;
+        height: 0rem;
+      }
+      
+      .text-left {
+        position: relative;
+        right : -100%;
+        font-size: ${this.size.fontSizeLeft};
+        text-align: right;
+      }
+      
+      .text-right {
+        position: relative;
+        right: 100%;
+        font-size: ${this.size.fontSizeRigth};
+      }
+      
+      .text--container {
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        width :${this.attrs.width / 2}px;
+      } 
+    `;
   }
 
   generateSize(fontSizeLeft, fontSizeRigth, lineWidth, lineHeight, gap) {
@@ -47,7 +102,7 @@ class RotatedLine extends HTMLClip {
       attrs: {}
     }, {
       duration: 450,
-      selector: ".wrapper",
+      selector: `.wrapper`,
       easing: "easeInOutQuart"
     });
     const widthLIne = new CSSEffect({
@@ -57,24 +112,24 @@ class RotatedLine extends HTMLClip {
       attrs: {}
     }, {
       duration: 450,
-      selector: ".line",
+      selector: `.line`,
       easing: "easeInOutQuart"
     });
     const leftTextAnimate = new CSSEffect({
       animatedAttrs: {
-        right: "".concat(this.size.gap, "%")
+        right: `${this.size.gap}%`
       },
       attrs: {}
     }, {
       duration: 900,
-      selector: ".text-left",
+      selector: `.text-left`,
       easing: "easeInOutQuart"
     });
 
     for (let i = 1; i <= 3; i++) {
       const rightTextAnimate = new CSSEffect({
         animatedAttrs: {
-          right: "-".concat(this.size.gap, "%")
+          right: `-${this.size.gap}%`
         },
         attrs: {}
       }, {
@@ -102,7 +157,7 @@ class RotatedLine extends HTMLClip {
       attrs: {}
     }, {
       duration: 900,
-      selector: ".text-left",
+      selector: `.text-left`,
       easing: "easeOutExpo"
     });
     const rotateAminmeStartOut = new CSSEffect({
@@ -114,7 +169,7 @@ class RotatedLine extends HTMLClip {
       attrs: {}
     }, {
       duration: 450,
-      selector: ".wrapper",
+      selector: `.wrapper`,
       easing: "easeInOutQuart"
     });
     const widthLIneOut = new CSSEffect({
@@ -124,7 +179,7 @@ class RotatedLine extends HTMLClip {
       attrs: {}
     }, {
       duration: 450,
-      selector: ".line",
+      selector: `.line`,
       easing: "easeInOutQuart"
     });
     const delayEnd = this.attrs.delayEnd || 0;
@@ -144,7 +199,16 @@ class RotatedLine extends HTMLClip {
 
 class RollingText extends HTMLClip {
   get html() {
-    return "\n      <div class=\"wrapper\">\n        <div class=\"line\"></div>\n        <div class=\"textClip\"> \n          <span>".concat(this.attrs.subTitle1, "</span>\n          <span>").concat(this.attrs.subTitle2, "</span>\n          <span>").concat(this.attrs.subTitle3, "</span>\n        </div>\n      </div>\n        ");
+    return `
+      <div class="wrapper">
+        <div class="line"></div>
+        <div class="textClip"> 
+          <span>${this.attrs.subTitle1}</span>
+          <span>${this.attrs.subTitle2}</span>
+          <span>${this.attrs.subTitle3}</span>
+        </div>
+      </div>
+        `;
   }
 
   get css() {
@@ -174,7 +238,53 @@ class RollingText extends HTMLClip {
         break;
     }
 
-    return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .wrapper{\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        height: ".concat(this.size.lineHeight, ";\n        width : ").concat(this.attrs.width, "px;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n    \n      .line{\n        position: relative; \n        height: 0;\n        width: 3px;\n        justify-content: center;\n        background: ").concat(this.attrs.lineColor, " ;\n        margin-right: ").concat(this.size.gap, "rem;\n      \n      }\n      \n      .textClip{\n        position: relative;\n        display: flex;\n        flex-direction: column;\n        font-size: ").concat(this.size.fontSizeLeft, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        height: ").concat(this.size.fontSizeLeft, "px;\n      }\n    \n      .textClip span{\n        color : ").concat(this.attrs.textColor, ";\n        position: relative;\n        left : -").concat(this.attrs.width / 2, "px;\n        width : 100%;\n        height: ").concat(this.size.fontSizeLeft, "px;\n        align-items: center;\n        display: flex;\n        top:0;\n      }\n  ");
+    return `
+      body{
+       font-size: 62.5%;
+      }
+
+      .wrapper{
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        height: ${this.size.lineHeight};
+        width : ${this.attrs.width}px;
+        justify-content: center;
+        align-items: center;
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+    
+      .line{
+        position: relative; 
+        height: 0;
+        width: 3px;
+        justify-content: center;
+        background: ${this.attrs.lineColor} ;
+        margin-right: ${this.size.gap}rem;
+      
+      }
+      
+      .textClip{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: ${this.size.fontSizeLeft}px;
+        white-space: nowrap;
+        overflow: hidden;
+        height: ${this.size.fontSizeLeft}px;
+      }
+    
+      .textClip span{
+        color : ${this.attrs.textColor};
+        position: relative;
+        left : -${this.attrs.width / 2}px;
+        width : 100%;
+        height: ${this.size.fontSizeLeft}px;
+        align-items: center;
+        display: flex;
+        top:0;
+      }
+  `;
   }
 
   generateSize(fontSizeLeft, topMove, lineHeight, gap, topMove2) {
@@ -224,7 +334,7 @@ class RollingText extends HTMLClip {
     });
     const animeTextLeftBack = new CSSEffect({
       animatedAttrs: {
-        left: "-".concat(this.attrs.width / 2, "px")
+        left: `-${this.attrs.width / 2}px`
       }
     }, {
       duration: 900,
@@ -269,11 +379,96 @@ class SvgBorder extends HTMLClip {
         break;
     }
 
-    return "\n      <div class=\"svg-wrapper\">\n        <svg height=\"".concat(this.size.borderHeight, "\" width=\"").concat(this.size.borderWidth, "\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect class=\"shape2\" height=\"").concat(this.size.borderHeight, "\" width=\"").concat(this.size.borderWidth, "\" />\n        </svg>\n        <div class=\"sub--container\">\n          <div class=\"sub\">").concat(this.attrs.subTitle, "</div>\n        </div>\n        <div class=\"titleContainer\">\n          <div class=\"text\">").concat(this.attrs.title, "</div>\n        </div>\n        <div class=\"sloganContainer\">\n          <div class=\"slogan\">").concat(this.attrs.slogan, "</div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="svg-wrapper">
+        <svg height="${this.size.borderHeight}" width="${this.size.borderWidth}" xmlns="http://www.w3.org/2000/svg">
+          <rect class="shape2" height="${this.size.borderHeight}" width="${this.size.borderWidth}" />
+        </svg>
+        <div class="sub--container">
+          <div class="sub">${this.attrs.subTitle}</div>
+        </div>
+        <div class="titleContainer">
+          <div class="text">${this.attrs.title}</div>
+        </div>
+        <div class="sloganContainer">
+          <div class="slogan">${this.attrs.slogan}</div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      body{\n       font-size: 62.5%;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top :10px;\n        height: 100%;\n        color:  ".concat(this.attrs.textColor, ";\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 6000;\n        stroke-width: 5px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.lineColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: 6000;\n      }\n      \n      \n      .text {\n        font-size: ").concat(this.size.fontSizeTitle, ";\n        letter-spacing: 8px;\n        position: relative;\n        top: ").concat(this.size.titleTop, "px;\n      }\n      \n      .sub--container {\n        position: absolute;\n        white-space: nowrap;\n        overflow: hidden;\n        left: 20px;\n        top: -7%;\n      }\n\n      .sloganContainer {\n        position: relative;\n        top: -30px;\n        left: 45%;\n        white-space: nowrap;\n        overflow: hidden;\n        width: 150px;\n      }\n\n      .titleContainer{\n        position: relative;\n        top: -").concat(this.size.titleContainerTop, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        width: ").concat(this.size.borderWidth, "px;\n        height: 50px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n      \n      .sub{\n        position: relative;\n        top: ").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n      \n      .slogan{\n        position: relative;\n        top: -").concat(this.size.subTop, "px;\n        font-size : ").concat(this.size.fontSizeSub, ";\n      }\n    ");
+    return `
+      body{
+       font-size: 62.5%;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top :10px;
+        height: 100%;
+        color:  ${this.attrs.textColor};
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 6000;
+        stroke-width: 5px;
+        fill: transparent;
+        stroke: ${this.attrs.lineColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: 6000;
+      }
+      
+      
+      .text {
+        font-size: ${this.size.fontSizeTitle};
+        letter-spacing: 8px;
+        position: relative;
+        top: ${this.size.titleTop}px;
+      }
+      
+      .sub--container {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        left: 20px;
+        top: -7%;
+      }
+
+      .sloganContainer {
+        position: relative;
+        top: -30px;
+        left: 45%;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 150px;
+      }
+
+      .titleContainer{
+        position: relative;
+        top: -${this.size.titleContainerTop}px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: ${this.size.borderWidth}px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .sub{
+        position: relative;
+        top: ${this.size.subTop}px;
+        font-size : ${this.size.fontSizeSub};
+      }
+      
+      .slogan{
+        position: relative;
+        top: -${this.size.subTop}px;
+        font-size : ${this.size.fontSizeSub};
+      }
+    `;
   }
 
   generateSize(borderWidth, borderHeight, fontSizeTitle, fontSizeSub, titleTop, subTop, titleContainerTop) {
@@ -292,12 +487,12 @@ class SvgBorder extends HTMLClip {
     const delayEnd = this.attrs.delayEnd || 0;
     const borderAnimete = new CSSEffect({
       animatedAttrs: {
-        strokeDashoffset: " ".concat(12000 - this.attrs.borderGap, "px")
+        strokeDashoffset: ` ${12000 - this.attrs.borderGap}px`
       },
       attrs: {}
     }, {
       duration: 1400,
-      selector: ".shape2",
+      selector: `.shape2`,
       easing: "easeInOutQuart"
     });
     const titleAnimete = new CSSEffect({
@@ -307,7 +502,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 600,
-      selector: ".text"
+      selector: `.text`
     });
     const subAnimate = new CSSEffect({
       animatedAttrs: {
@@ -316,7 +511,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 600,
-      selector: ".sub",
+      selector: `.sub`,
       easing: "easeInOutQuart"
     });
     const sloganAnimate = new CSSEffect({
@@ -326,7 +521,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 600,
-      selector: ".slogan",
+      selector: `.slogan`,
       easing: "easeInOutQuart"
     });
     const borderAnimeteLeft = new CSSEffect({
@@ -336,7 +531,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 1200,
-      selector: ".shape2"
+      selector: `.shape2`
     });
     const titleAnimeteLeft = new CSSEffect({
       animatedAttrs: {
@@ -345,7 +540,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 800,
-      selector: ".text"
+      selector: `.text`
     });
     const subAnimateLeft = new CSSEffect({
       animatedAttrs: {
@@ -354,7 +549,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 800,
-      selector: ".sub",
+      selector: `.sub`,
       easing: "easeInOutQuart"
     });
     const sloganAnimateLeft = new CSSEffect({
@@ -364,7 +559,7 @@ class SvgBorder extends HTMLClip {
       attrs: {}
     }, {
       duration: 800,
-      selector: ".slogan",
+      selector: `.slogan`,
       easing: "easeInOutQuart"
     });
     this.addIncident(borderAnimete, 0);
@@ -400,11 +595,58 @@ class RotatedLineReveal extends HTMLClip {
         break;
     }
 
-    return "\n      <div class=\"wrapper\">\n        <div class=\"redLine\">\n          <div class=\"text text1\"><div class=\"title \">".concat(this.attrs.title, "</div></div>\n          <div class=\"text text2\"><div class=\"sub\">").concat(this.attrs.subtitle, "</div></div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="redLine">
+          <div class="text text1"><div class="title ">${this.attrs.title}</div></div>
+          <div class="text text2"><div class="sub">${this.attrs.subtitle}</div></div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height:100%;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .redLine {\n        border-left: 2px solid ").concat(this.attrs.lineColor, ";\n        width: 0rem;\n        height: ").concat(this.size.lineHeight, ";\n        display: flex;\n        align-items: flex-start;\n        flex-direction: column;\n        transform: rotate(30deg);\n        position: relative;\n        left: 150%;\n        transform-origin: top left;\n        white-space: nowrap;\n        overflow: hidden;\n        color : ").concat(this.attrs.textColor, "\n      }\n\n      .title{\n        font-size: ").concat(this.size.fontSize, ";\n        font-weight: 600;\n      }\n\n      .sub{\n        font-size: ").concat(this.size.fontSizeSub, ";\n        top: -60px;\n        position: relative;\n      }\n\n      .text {\n        position: relative;\n        left: -50px;\n        white-space: nowrap;\n        overflow: hidden;\n      }\n    ");
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height:100%;
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+
+      .redLine {
+        border-left: 2px solid ${this.attrs.lineColor};
+        width: 0rem;
+        height: ${this.size.lineHeight};
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        transform: rotate(30deg);
+        position: relative;
+        left: 150%;
+        transform-origin: top left;
+        white-space: nowrap;
+        overflow: hidden;
+        color : ${this.attrs.textColor}
+      }
+
+      .title{
+        font-size: ${this.size.fontSize};
+        font-weight: 600;
+      }
+
+      .sub{
+        font-size: ${this.size.fontSizeSub};
+        top: -60px;
+        position: relative;
+      }
+
+      .text {
+        position: relative;
+        left: -50px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    `;
   }
 
   generateSize(fontSize, fontSizeSub, lineSize, lineHeight) {
@@ -426,16 +668,16 @@ class RotatedLineReveal extends HTMLClip {
       }
     }, {
       duration: 1200,
-      selector: ".redLine",
+      selector: `.redLine`,
       easing: "easeOutExpo"
     });
     const lineMoveEnd = new CSSEffect({
       animatedAttrs: {
-        left: "".concat(this.attrs.leftEnd, "px")
+        left: `${this.attrs.leftEnd}px`
       }
     }, {
       duration: 2000,
-      selector: ".redLine",
+      selector: `.redLine`,
       easing: "easeOutExpo"
     });
     const lineWidthEnd = new CSSEffect({
@@ -447,7 +689,7 @@ class RotatedLineReveal extends HTMLClip {
       }
     }, {
       duration: 800,
-      selector: ".redLine"
+      selector: `.redLine`
     });
     const moveText = new CSSEffect({
       animatedAttrs: {
@@ -455,7 +697,7 @@ class RotatedLineReveal extends HTMLClip {
       }
     }, {
       duration: 800,
-      selector: ".text",
+      selector: `.text`,
       easing: "easeOutExpo"
     });
     const moveSub = new CSSEffect({
@@ -464,14 +706,14 @@ class RotatedLineReveal extends HTMLClip {
       }
     }, {
       duration: 400,
-      selector: ".sub",
+      selector: `.sub`,
       easing: "easeOutExpo"
     });
 
     for (let i = 1; i <= 2; i++) {
       const moveTextOut = new CSSEffect({
         animatedAttrs: {
-          left: "-".concat(this.attrs.width, "px")
+          left: `-${this.attrs.width}px`
         }
       }, {
         duration: Math.round(1700),
@@ -487,7 +729,7 @@ class RotatedLineReveal extends HTMLClip {
       }
     }, {
       duration: 400,
-      selector: ".redLine",
+      selector: `.redLine`,
       easing: "easeInSine"
     });
     this.addIncident(lineRotateEnd, 0);
@@ -521,11 +763,34 @@ class SvgDraw extends HTMLClip {
         break;
     }
 
-    return "<div class=\"svg-wrapper\">".concat(this.attrs.svg, "</div>");
+    return `<div class="svg-wrapper">${this.attrs.svg}</div>`;
   }
 
   get css() {
-    return "\n      .svg-wrapper{\n        position: relative;\n        width: ".concat(this.size.svgWidth * 1.5, "px;\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      svg{\n        width: ").concat(this.size.svgWidth, "px;\n        height: ").concat(this.size.svgHeight, "px;\n      }\n\n      .svgContainer{\n        height:100vh;\n      }\n\n      svg path{\n        stroke-dasharray: ").concat(this.attrs.StrokeDashArray, ";\n        stroke-dashoffset: ").concat(this.attrs.strokeDashOffset, ";\n      }\n    ");
+    return `
+      .svg-wrapper{
+        position: relative;
+        width: ${this.size.svgWidth * 1.5}px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      svg{
+        width: ${this.size.svgWidth}px;
+        height: ${this.size.svgHeight}px;
+      }
+
+      .svgContainer{
+        height:100vh;
+      }
+
+      svg path{
+        stroke-dasharray: ${this.attrs.StrokeDashArray};
+        stroke-dashoffset: ${this.attrs.strokeDashOffset};
+      }
+    `;
   }
 
   generateSize(svgWidth, svgHeight, lineSize) {
@@ -544,7 +809,7 @@ class SvgDraw extends HTMLClip {
       attrs: {}
     }, {
       duration: 2700,
-      selector: "svg path",
+      selector: `svg path`,
       easing: "easeInSine"
     });
     const textBigBack = new CSSEffect({
@@ -556,7 +821,7 @@ class SvgDraw extends HTMLClip {
       }
     }, {
       duration: 1530,
-      selector: "svg",
+      selector: `svg`,
       id: "transform2",
       easing: "easeOutElastic"
     });
@@ -567,7 +832,7 @@ class SvgDraw extends HTMLClip {
       attrs: {}
     }, {
       duration: 2700,
-      selector: "svg path",
+      selector: `svg path`,
       easing: "easeInSine"
     });
     this.addIncident(textDrow, 0);
@@ -583,11 +848,86 @@ class SvgDraw extends HTMLClip {
 
 class Circle extends HTMLClip {
   get html() {
-    return "\n      <div class=\"wrapper\">\n        <div class=\"circle\">\n          <div class=\"word\"></div>\n        </div>\n        <div class=\"sub\">\n          <span >".concat(this.attrs.subTitle, "</span>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="circle">
+          <div class="word"></div>
+        </div>
+        <div class="sub">
+          <span >${this.attrs.subTitle}</span>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .wrapper{\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.width, "px;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .circle{\n        width: 0px;\n        height: 0px;\n        background: ").concat(this.attrs.circleColor, ";\n        position: relative;\n        border-radius: 100%;\n        mask: url(./img.svg);\n        mask-position-y: 69px;\n        mask-size: 810px;\n      }\n\n      .word{\n        overflow: hidden;\n        width: 9px;\n        height: 3px;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 100%;\n        height: 100%;\n      }\n      \n      .letter{\n        font-size: ").concat(this.attrs.fontSize, "px;\n        color: ").concat(this.attrs.textColor, ";\n        left: 2.5px;\n        position: relative;\n        text-align: center;\n        top : ").concat(this.attrs.width, "px;\n        width: 100%;\n        background-color:#ffffff00\n        \n      }\n\n      .sub{\n        position: absolute;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        overflow: hidden;\n        top: 33%;\n        transform: rotate(-10deg);\n        width: 400px;\n        height: 400px;\n\n      }\n\n      .sub span{\n        font-size: ").concat(this.attrs.fontSize * 0.8, "px;\n        position: relative;\n        top:100%;\n        letter-spacing: 3px;\n      }\n    ");
+    return `
+      .wrapper{
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.width}px;
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+
+      .circle{
+        width: 0px;
+        height: 0px;
+        background: ${this.attrs.circleColor};
+        position: relative;
+        border-radius: 100%;
+        mask: url(./img.svg);
+        mask-position-y: 69px;
+        mask-size: 810px;
+      }
+
+      .word{
+        overflow: hidden;
+        width: 9px;
+        height: 3px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .letter{
+        font-size: ${this.attrs.fontSize}px;
+        color: ${this.attrs.textColor};
+        left: 2.5px;
+        position: relative;
+        text-align: center;
+        top : ${this.attrs.width}px;
+        width: 100%;
+        background-color:#ffffff00
+        
+      }
+
+      .sub{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        top: 33%;
+        transform: rotate(-10deg);
+        width: 400px;
+        height: 400px;
+
+      }
+
+      .sub span{
+        font-size: ${this.attrs.fontSize * 0.8}px;
+        position: relative;
+        top:100%;
+        letter-spacing: 3px;
+      }
+    `;
   }
 
   buildTree() {
@@ -595,23 +935,23 @@ class Circle extends HTMLClip {
     let html = "";
 
     for (let i = 0; i < array.length; i++) {
-      html += "<span class='letter letter".concat(i + 1, "'>").concat(array[i], "</span>");
+      html += `<span class='letter letter${i + 1}'>${array[i]}</span>`;
     }
 
     const word = new HTMLClip({
       css: this.css,
-      html: " <div class=\"wrapper\" >".concat(html, " </div>"),
+      html: ` <div class="wrapper" >${html} </div>`,
       selector: ".word"
     });
     this.addIncident(word, 0);
     const circleScale = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(this.attrs.width, "px"),
-        height: "".concat(this.attrs.width, "px")
+        width: `${this.attrs.width}px`,
+        height: `${this.attrs.width}px`
       },
       initialValues: {
-        width: "0px",
-        height: "0px"
+        width: `0px`,
+        height: `0px`
       }
     }, {
       duration: 500,
@@ -635,8 +975,8 @@ class Circle extends HTMLClip {
 
     const circleScaleDown = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(this.attrs.width * 0.8, "px"),
-        height: "".concat(this.attrs.width * 0.8, "px")
+        width: `${this.attrs.width * 0.8}px`,
+        height: `${this.attrs.width * 0.8}px`
       } // initialValues:{
       //   width: `${this.attrs.width}px`,
       //   height: `${this.attrs.width}px`,
@@ -649,8 +989,8 @@ class Circle extends HTMLClip {
     });
     const wrapperDown = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(this.attrs.width * 0.8, "px"),
-        height: "".concat(this.attrs.width * 0.8, "px"),
+        width: `${this.attrs.width * 0.8}px`,
+        height: `${this.attrs.width * 0.8}px`,
         transform: {
           rotate: "10deg"
         }
@@ -663,7 +1003,7 @@ class Circle extends HTMLClip {
     });
     const maskDown = new CSSEffect({
       animatedAttrs: {
-        maskSize: "".concat(this.attrs.width * 0.8, "px"),
+        maskSize: `${this.attrs.width * 0.8}px`,
         transform: {
           rotate: "-10deg"
         }
@@ -717,11 +1057,88 @@ class Circle extends HTMLClip {
 
 class LogoBox extends HTMLClip {
   get html() {
-    return "\n      <div class=\"wrapper\">\n        <div class=\"onemore\">\n          <div class=\"redLineContainer\">\n            <div class=\"yellow\">\n              <div class=\"logo\"><img src=\"".concat(this.attrs.logoUrl, "\" alt=\"Italian Trulli\"></div>\n            </div>\n            <div class=\"redLine\">\n              <div class=\"text text1\">").concat(this.attrs.subTitle1, "</div>\n              <div class=\"text text2\">").concat(this.attrs.subTitle2, "</div>\n              <div class=\"text text3\">").concat(this.attrs.subTitle3, "</div>\n            </div>\n           \n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="onemore">
+          <div class="redLineContainer">
+            <div class="yellow">
+              <div class="logo"><img src="${this.attrs.logoUrl}" alt="Italian Trulli"></div>
+            </div>
+            <div class="redLine">
+              <div class="text text1">${this.attrs.subTitle1}</div>
+              <div class="text text2">${this.attrs.subTitle2}</div>
+              <div class="text text3">${this.attrs.subTitle3}</div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .wrapper{\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        font-family: ".concat(this.attrs.fontFamily, " !important;\n      }\n\n      .redLineContainer {\n        white-space: nowrap;\n        width: 0px;\n        overflow: hidden;\n        background: ").concat(this.attrs.textColor, ";\n        display: flex;\n        justify-content: center;\n        align-content: center;\n        opacity: 0;\n        border: ").concat(1 * this.attrs.size, "px solid ").concat(this.attrs.textColor, ";\n      }\n      \n      .redLine {\n        position: relative;\n        right:  100px;\n        overflow: hidden;\n        background: ").concat(this.attrs.bgColor, ";\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        flex-direction: column;\n        height: ").concat(70 * this.attrs.size, "px;\n      }\n      \n      .yellow{\n        width: 0px;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .logo img{\n        width: ").concat(50 * this.attrs.size, "px;\n      }\n      \n      .logo{\n        display: flex;\n        align-items: center;\n      }\n      \n      .text{ \n        left: ").concat(-100 * this.attrs.size, "px;\n        position: relative;\n        display: flex;\n        align-items: center;\n        height: ").concat(22 * this.attrs.size, "px;\n        padding-left: 8%;\n        color: ").concat(this.attrs.textColor, ";\n        font-size :").concat(14 * this.attrs.size, "px;\n      }\n    ");
+    return `
+      .wrapper{
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+
+      .redLineContainer {
+        white-space: nowrap;
+        width: 0px;
+        overflow: hidden;
+        background: ${this.attrs.textColor};
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        opacity: 0;
+        border: ${1 * this.attrs.size}px solid ${this.attrs.textColor};
+      }
+      
+      .redLine {
+        position: relative;
+        right:  100px;
+        overflow: hidden;
+        background: ${this.attrs.bgColor};
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: ${70 * this.attrs.size}px;
+      }
+      
+      .yellow{
+        width: 0px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .logo img{
+        width: ${50 * this.attrs.size}px;
+      }
+      
+      .logo{
+        display: flex;
+        align-items: center;
+      }
+      
+      .text{ 
+        left: ${-100 * this.attrs.size}px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: ${22 * this.attrs.size}px;
+        padding-left: 8%;
+        color: ${this.attrs.textColor};
+        font-size :${14 * this.attrs.size}px;
+      }
+    `;
   }
 
   buildTree() {
@@ -745,7 +1162,7 @@ class LogoBox extends HTMLClip {
     });
     const conteiner = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(this.attrs.width * 0.75 * this.attrs.size, "px")
+        width: `${this.attrs.width * 0.75 * this.attrs.size}px`
       },
       attrs: {}
     }, {
@@ -769,7 +1186,7 @@ class LogoBox extends HTMLClip {
 
     const conteinerMore = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(this.attrs.width * this.attrs.size, "px")
+        width: `${this.attrs.width * this.attrs.size}px`
       },
       attrs: {}
     }, {
@@ -778,7 +1195,7 @@ class LogoBox extends HTMLClip {
     });
     const yellowW = new CSSEffect({
       animatedAttrs: {
-        width: "".concat(80 * this.attrs.size, "px")
+        width: `${80 * this.attrs.size}px`
       },
       attrs: {}
     }, {
@@ -814,23 +1231,57 @@ class RightOpacity extends HTMLClip {
   get html() {
     this.list = this.attrs.text.split("");
     const divList = this.list.map((e, i) => {
-      return "<div class=\"letter letter-item-".concat(i, "\">").concat(e, "</div>");
+      return `<div class="letter letter-item-${i}">${e}</div>`;
     }).join("");
-    return "\n      <div class=\"wrapper\">\n        <div class=\"letter-wrapper\">\n          ".concat(divList, "\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="letter-wrapper">
+          ${divList}
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    const stroke = this.attrs.stroke === true ? "-webkit-text-stroke:".concat(this.attrs.strokeSize, "px ").concat(this.attrs.strokeColor, ";") : "";
-    return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .letter{\n        font-size:").concat(this.attrs.fontSize, "px;\n        color:").concat(this.attrs.color, ";\n        ").concat(stroke, "\n        text-transform:uppercase;\n        font-family: ").concat(this.attrs.fontFamily, ";\n        position: absolute;\n      }\n\n      .letter-wrapper{\n        width:").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    const stroke = this.attrs.stroke === true ? `-webkit-text-stroke:${this.attrs.strokeSize}px ${this.attrs.strokeColor};` : ``;
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .letter{
+        font-size:${this.attrs.fontSize}px;
+        color:${this.attrs.color};
+        ${stroke}
+        text-transform:uppercase;
+        font-family: ${this.attrs.fontFamily};
+        position: absolute;
+      }
+
+      .letter-wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
   }
 
   buildTree() {
     const left = new CSSEffect({
       animatedAttrs: {
-        left: "@expression(index * ".concat(this.attrs.width / this.list.length, ")px")
+        left: `@expression(index * ${this.attrs.width / this.list.length})px`
       },
       initialValues: {
-        left: "@expression((index * ".concat(this.attrs.width / this.list.length, ")+").concat(this.attrs.width / 2, ")px")
+        left: `@expression((index * ${this.attrs.width / this.list.length})+${this.attrs.width / 2})px`
       }
     }, {
       duration: 1,
@@ -859,7 +1310,7 @@ class RightOpacity extends HTMLClip {
         left: "0px"
       },
       initialValues: {
-        left: "".concat(this.attrs.width * 0.5, "px")
+        left: `${this.attrs.width * 0.5}px`
       }
     }, {
       duration: 300,
@@ -870,7 +1321,7 @@ class RightOpacity extends HTMLClip {
     this.addIncident(left2, 0);
     const leftLetter = new CSSEffect({
       animatedAttrs: {
-        left: "".concat(this.attrs.width / 2, "px")
+        left: `${this.attrs.width / 2}px`
       }
     }, {
       duration: 300,
@@ -896,29 +1347,63 @@ class LetterScale extends HTMLClip {
   get html() {
     this.list = this.attrs.text.split("");
     const divList = this.list.map((e, i) => {
-      return "<div class=\"letter letter-item-".concat(i, "\">").concat(e, "</div>");
+      return `<div class="letter letter-item-${i}">${e}</div>`;
     }).join("");
-    return "\n      <div class=\"wrapper\">\n        <div class=\"letter-wrapper\">\n          ".concat(divList, "\n        </div>\n      </div>\n    ");
+    return `
+      <div class="wrapper">
+        <div class="letter-wrapper">
+          ${divList}
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    const stroke = this.attrs.stroke === true ? "-webkit-text-stroke:".concat(this.attrs.strokeSize, "px ").concat(this.attrs.strokeColor, ";") : "";
-    return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .letter{\n        font-size:").concat(this.attrs.fontSize, "px;\n        color:").concat(this.attrs.color, ";\n        text-transform:uppercase;\n        font-family: ").concat(this.attrs.fontFamily, ";\n        position: relative;\n        ").concat(stroke, "\n      }\n      \n      .letter-wrapper{\n        width:").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    const stroke = this.attrs.stroke === true ? `-webkit-text-stroke:${this.attrs.strokeSize}px ${this.attrs.strokeColor};` : ``;
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .letter{
+        font-size:${this.attrs.fontSize}px;
+        color:${this.attrs.color};
+        text-transform:uppercase;
+        font-family: ${this.attrs.fontFamily};
+        position: relative;
+        ${stroke}
+      }
+      
+      .letter-wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
   }
 
   buildTree() {
     const left = new CSSEffect({
       animatedAttrs: {
-        fontSize: "".concat(this.attrs.fontSize, "px")
+        fontSize: `${this.attrs.fontSize}px`
       },
       initialValues: {
-        fontSize: "".concat(this.attrs.fontSize * 0.7, "px")
+        fontSize: `${this.attrs.fontSize * 0.7}px`
       }
     }, {
       duration: 600,
       selector: ".letter",
       easing: "easeOutExpo",
-      delay: "@stagger(0, 600,0.5,linear,omni)"
+      delay: `@stagger(0, 600,0.5,linear,omni)`
     });
     this.addIncident(left, 0);
   }
@@ -927,18 +1412,69 @@ class LetterScale extends HTMLClip {
 
 class CircularText extends HTMLClip {
   get html() {
-    return "\n    <div class=\"wrapper\">\n      <div class=\"circle\">\n        <svg viewBox=\"0 0 ".concat(this.attrs.viewBox, " ").concat(this.attrs.viewBox, "\">\n          <path d=\"M ").concat(this.attrs.viewBox / 2 - this.attrs.path, ",").concat(this.attrs.viewBox / 2, " a ").concat(this.attrs.path, ", ").concat(this.attrs.path, " 0 1, 1 0,1 z\" id=\"circular\" />\n          <text class=\"text\"><textPath xlink:href=\"#circular\">\n          ").concat(this.attrs.text, "\n            </textPath>\n          </text>\n        </svg>\n      </div>\n    </div>\n    ");
+    return `
+    <div class="wrapper">
+      <div class="circle">
+        <svg viewBox="0 0 ${this.attrs.viewBox} ${this.attrs.viewBox}">
+          <path d="M ${this.attrs.viewBox / 2 - this.attrs.path},${this.attrs.viewBox / 2} a ${this.attrs.path}, ${this.attrs.path} 0 1, 1 0,1 z" id="circular" />
+          <text class="text"><textPath xlink:href="#circular">
+          ${this.attrs.text}
+            </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+    `;
   }
 
   get css() {
-    return "\n      .wrapper{\n        width:".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        white-space: nowrap;\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        font-family: ").concat(this.attrs.fontFamily, " !important;\n      }\n\n      .circle path {\n        fill: ").concat(this.attrs.fill, ";\n        1px solid black;\n      }\n\n      .circle {\n        width:").concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .circle svg {\n        display: block;\n        overflow: visible;\n        flex:1;\n      }\n\n      .text{\n        font-size: ").concat(this.attrs.fontSize, "px;\n      }\n      \n      .circle text {\n        fill: ").concat(this.attrs.color, ";\n        font-family: ").concat(this.attrs.fontFamily, ";\n      }\n    ");
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: ${this.attrs.fontFamily} !important;
+      }
+
+      .circle path {
+        fill: ${this.attrs.fill};
+        1px solid black;
+      }
+
+      .circle {
+        width:${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .circle svg {
+        display: block;
+        overflow: visible;
+        flex:1;
+      }
+
+      .text{
+        font-size: ${this.attrs.fontSize}px;
+      }
+      
+      .circle text {
+        fill: ${this.attrs.color};
+        font-family: ${this.attrs.fontFamily};
+      }
+    `;
   }
 
   buildTree() {
     const left = new CSSEffect({
       animatedAttrs: {
         transform: {
-          rotate: "360deg"
+          rotate: `360deg`
         }
       }
     }, {
