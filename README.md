@@ -1,4 +1,5 @@
 # MotorCortex-Animetitles
+
 **Table of Contents**
 
 - [MotorCortex-Animetitles](#motorcortex-animetitles)
@@ -24,24 +25,28 @@
 - [Sponsored by](#sponsored-by)
 
 ## Demo
+
 [Check it out here](https://donkeyclip.github.io/motorcortex-animetitles/demo/)
 
 # Intro / Features
+
 Using MotorCortex-Animetitles you can animate perfect titles for your clips, via its easy to use incidents.
 
 This Plugin exposes ten incidents:
-  - RotatedLine
-  - RollingText
-  - RotatedLineReveal
-  - SvgBorder
-  - Circle
-  - SvgDraw
-  - LogoBox
-  - CircularText
-  - LetterScale
-  - RightOpacity
+
+- RotatedLine
+- RollingText
+- RotatedLineReveal
+- SvgBorder
+- Circle
+- SvgDraw
+- LogoBox
+- CircularText
+- LetterScale
+- RightOpacity
 
 # Getting Started
+
 ## Installation
 
 ```bash
@@ -57,7 +62,6 @@ import { loadPlugin } from "@donkeyclip/motorcortex";
 import TitlesPlugin from "@donkeyclip/motorcortex-animetitles";
 const Titles = loadPlugin(TitlesPlugin);
 ```
-
 
 # Creating Incidents
 
@@ -76,6 +80,7 @@ const nameOfIncident = new Titles.RotatedLine(
     title: "dokimi",
     stopOnLast: false,
     delayEnd: 3000,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".rotatedline",
@@ -95,6 +100,7 @@ const nameOfIncident = new Titles.RotatedLine(
 | title                             |                    left text                    |          normal text |
 | stopOnLast                        | if you like to stop animation on last text line |           true,false |
 | delayEnd                          |           delay before last animation           |          millisecond |
+| fontFamily                        |                   font family                   |               string |
 
 ## RollingText
 
@@ -110,6 +116,7 @@ const nameOfIncident = new Titles.RollingText(
     subTitle3: "test3",
     stopOnLast: false,
     delayEnd: 3000,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".rollingtext",
@@ -128,6 +135,7 @@ const nameOfIncident = new Titles.RollingText(
 | subTitle1 , subTitle2 , subTitle3 |               rolling text lines                |                   normal text |
 | stopOnLast                        | if you like to stop animation on last text line |                    true,false |
 | delayEnd                          |           delay before last animation           |                   millisecond |
+| fontFamily                        |                   font family                   |                        string |
 
 ## RotatedLineReveal
 
@@ -144,6 +152,7 @@ const nameOfIncident = new Titles.RotatedLineReveal(
     leftEnd: 100,
     stopOnLast: false,
     delayEnd: 3000,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".rotatedlinereveal",
@@ -164,6 +173,7 @@ const nameOfIncident = new Titles.RotatedLineReveal(
 | leftEnd    | left distance of componet from the left side of container |              numbers |
 | stopOnLast |      if you like to stop animation on last text line      |           true,false |
 | delayEnd   |                delay before last animation                |          millisecond |
+| fontFamily |                        font family                        |               string |
 
 ## SvgBorder
 
@@ -179,6 +189,7 @@ const nameOfIncident = new Titles.SvgBorder(
     title: "MotorCortex Team",
     stopOnLast: false,
     delayEnd: 3000,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".svgborder",
@@ -199,6 +210,7 @@ const nameOfIncident = new Titles.SvgBorder(
 | title      |                   title text                    |          normal text |
 | stopOnLast | if you like to stop animation on last text line |           true,false |
 | delayEnd   |           delay before last animation           |          millisecond |
+| fontFamily |                   font family                   |               string |
 
 ## Circle
 
@@ -213,6 +225,7 @@ const nameOfIncident = new Titles.Circle(
     stopOnLast: false,
     delayEnd: 3000,
     width: 500,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".circle",
@@ -221,6 +234,7 @@ const nameOfIncident = new Titles.Circle(
 ```
 
 #### IMPORTANT
+
 In order to use tin incident you should include the img.svg that is in demo folder in your clip.js directory
 
 ### Circle Attrs
@@ -234,6 +248,7 @@ In order to use tin incident you should include the img.svg that is in demo fold
 | title       |                svg cobe with 1 path tag only                 |             svg text |
 | stopOnLast  |       if you like to stop animation on last text line        |           true,false |
 | delayEnd    |                 delay before last animation                  |          millisecond |
+| fontFamily  |                         font family                          |               string |
 
 ## SvgDraw
 
@@ -250,6 +265,7 @@ const nameOfIncident = new Titles.SvgDraw(
     svg: `svg code`,
     stopOnLast: false,
     delayEnd: 3000,
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".svgdrow",
@@ -259,18 +275,19 @@ const nameOfIncident = new Titles.SvgDraw(
 
 ### SvgDraw Attrs
 
-| Name              |                                                                    Are                                                                    |               Values |
-| ----------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | -------------------: |
-| width             |                                                       total width of clip container                                                       | all positive numbers |
-| size              |                                                         scale of clip components                                                          |          "S","M","L" |
-| lineColor         |                                                             the color of line                                                             |    hex values or RGB |
-| textColor         |                                                             the color of text                                                             |    hex values or RGB |
+| Name             |                                                                    Are                                                                    |               Values |
+| ---------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | -------------------: |
+| width            |                                                       total width of clip container                                                       | all positive numbers |
+| size             |                                                         scale of clip components                                                          |          "S","M","L" |
+| lineColor        |                                                             the color of line                                                             |    hex values or RGB |
+| textColor        |                                                             the color of text                                                             |    hex values or RGB |
 | strokeDashOffset |       The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array.        |               number |
-| StrokeDashArray   | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |               number |
-| erase             |                                                          erase svg after drow it                                                          |          true, false |
-| svg               |                                                     The width of the title container                                                      |              numbers |
-| stopOnLast        |                                              if you like to stop animation on last text line                                              |           true,false |
-| delayEnd          |                                                        delay before last animation                                                        |          millisecond |
+| StrokeDashArray  | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |               number |
+| erase            |                                                          erase svg after drow it                                                          |          true, false |
+| svg              |                                                     The width of the title container                                                      |              numbers |
+| stopOnLast       |                                              if you like to stop animation on last text line                                              |           true,false |
+| delayEnd         |                                                        delay before last animation                                                        |          millisecond |
+| fontFamily       |                                                                font family                                                                |               string |
 
 ## LogoBox
 
@@ -287,6 +304,7 @@ const nameOfIncident = new Titles.LogoBox(
     stopOnLast: false,
     logoUrl:
       "https://donkeyclip.github.io/motorcortex-animetitles/demo/logo.png",
+    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".logobox",
@@ -295,6 +313,7 @@ const nameOfIncident = new Titles.LogoBox(
 ```
 
 #### IMPORTANT
+
 In order to use tin incident you should include the logo.png image in your clip.js directory
 
 ### LogoBox Attrs
@@ -308,10 +327,12 @@ In order to use tin incident you should include the logo.png image in your clip.
 | width                             |          total width of text container          | all positive numbers |
 | stopOnLast                        | if you like to stop animation on last text line |           true,false |
 | logoUrl                           |                 url of an image                 |               string |
+| fontFamily                        |                   font family                   |               string |
 
 ## CircularText
+
 ```javascript
-const nameOfIncident  = new Titles.CircularText(
+const nameOfIncident = new Titles.CircularText(
   {
     width: 500,
     height: 500,
@@ -332,21 +353,22 @@ const nameOfIncident  = new Titles.CircularText(
 
 ### CircularText Attrs
 
-| Name          |                   Are                   |            Values |
-| --------------| :-------------------------------------: | ----------------: |
-| width         |  total width of clip container          |             number|
-| height        |  total height of clip container         |             number|
-| color         |  color for the text                     |  hex values or RGB|  
-| text          |  the displayed text                     |             string|
-| fontSize      |  size of the font                       |             number|
-| fontFamily    |  font family                            |             string|
-| viewBox       |  width for the wrapper of the circle    |             number|
-| path          | width for the circle's radius           |             number|        
-| fill          | color for the svg shape                 |  hex values or RGB|  
+| Name       |                 Are                 |            Values |
+| ---------- | :---------------------------------: | ----------------: |
+| width      |    total width of clip container    |            number |
+| height     |   total height of clip container    |            number |
+| color      |         color for the text          | hex values or RGB |
+| text       |         the displayed text          |            string |
+| fontSize   |          size of the font           |            number |
+| fontFamily |             font family             |            string |
+| viewBox    | width for the wrapper of the circle |            number |
+| path       |    width for the circle's radius    |            number |
+| fill       |       color for the svg shape       | hex values or RGB |
 
 ## LetterScale
+
 ```javascript
-const nameOfIncident  = new Titles.LetterScale(
+const nameOfIncident = new Titles.LetterScale(
   {
     width: 900,
     height: 900,
@@ -363,24 +385,25 @@ const nameOfIncident  = new Titles.LetterScale(
   }
 );
 ```
+
 ### LetterScale Attrs
 
-| Name          |                 Are                   |               Values |
-| --------------| :-----------------------------------: | -------------------: |
-| width         |  total width of clip container        | number|    
-| height        |  total height of clip container       | number|
-| color         |  color for the text                   |hex values or RGB|  
-| text          |  the displayed text                   | string|
-| fontSize      |  size of the font                     | number|
-| fontFamily    |  font family                          | string|
-| stroke        | a border to SVG shapes                | boolean|      
-| strokeSize    | the stroke's size                     | number|
-| strokeColor   | the stroke's color                    |hex values or RGB| 
+| Name        |              Are               |            Values |
+| ----------- | :----------------------------: | ----------------: |
+| width       | total width of clip container  |            number |
+| height      | total height of clip container |            number |
+| color       |       color for the text       | hex values or RGB |
+| text        |       the displayed text       |            string |
+| fontSize    |        size of the font        |            number |
+| fontFamily  |          font family           |            string |
+| stroke      |     a border to SVG shapes     |           boolean |
+| strokeSize  |       the stroke's size        |            number |
+| strokeColor |       the stroke's color       | hex values or RGB |
 
+## RightOpacity
 
-## RightOpacity 
 ```javascript
-const nameOfIncident  = new Titles.RightOpacity(
+const nameOfIncident = new Titles.RightOpacity(
   {
     width: 1000,
     height: 250,
@@ -401,38 +424,39 @@ const nameOfIncident  = new Titles.RightOpacity(
 
 ### RightOpacity Attrs
 
-| Name          |                 Are                   |               Values |
-| --------------| :-----------------------------------: | -------------------: |
-| width         |  total width of clip container        | number|    
-| height        |  total height of clip container       | number|
-| color         |  color for the text                   |hex values or RGB|  
-| text          |  the displayed text                   | string|
-| fontSize      |  size of the font                     | number|
-| fontFamily    |  font family                          | string|
-| stroke        | a border to SVG shapes                | boolean|      
-| strokeSize    | the stroke's size                     | number|
-| strokeColor   | the stroke's color                    |hex values or RGB| 
-| exitTime      | time for animation to exit            | number|
+| Name        |              Are               |            Values |
+| ----------- | :----------------------------: | ----------------: |
+| width       | total width of clip container  |            number |
+| height      | total height of clip container |            number |
+| color       |       color for the text       | hex values or RGB |
+| text        |       the displayed text       |            string |
+| fontSize    |        size of the font        |            number |
+| fontFamily  |          font family           |            string |
+| stroke      |     a border to SVG shapes     |           boolean |
+| strokeSize  |       the stroke's size        |            number |
+| strokeColor |       the stroke's color       | hex values or RGB |
+| exitTime    |   time for animation to exit   |            number |
 
 # Adding Incidents in your clip
 
 ```javascript
-clipName.addIncident(incidentName,startTime);
+clipName.addIncident(incidentName, startTime);
 ```
 
-# Contributing 
+# Contributing
 
 In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
-1.	**Fork** the repo on GitHub
-2.	**Clone** the project to your own machine
-3.	**Commit** changes to your own branch
-4.	**Push** your work back up to your fork
-5.	Submit a **Pull request** so that we can review your changes
+
+1. **Fork** the repo on GitHub
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. Submit a **Pull request** so that we can review your changes
 
 # License
 
 [MIT License](https://opensource.org/licenses/MIT)
 
 # Sponsored by
-[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
 
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)

@@ -993,6 +993,10 @@ const RotatedLIneVal = {
     optional: true,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const RollingTextVal = {
@@ -1033,6 +1037,10 @@ const RollingTextVal = {
     optional: true,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const RotatedLineRevealVal = {
@@ -1074,6 +1082,10 @@ const RotatedLineRevealVal = {
     optional: true,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const SvgBorderVal = {
@@ -1119,6 +1131,10 @@ const SvgBorderVal = {
     optional: false,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const CircleVal = {
@@ -1156,6 +1172,10 @@ const CircleVal = {
     optional: true,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const SvgDrawVal = {
@@ -1200,6 +1220,10 @@ const SvgDrawVal = {
     optional: true,
     type: "number",
     min: 0
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
   }
 };
 const RigthOpacityValidationVal = {
