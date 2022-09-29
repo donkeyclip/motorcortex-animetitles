@@ -879,7 +879,6 @@ class Circle extends HTMLClip {
         background: ${this.attrs.circleColor};
         position: relative;
         border-radius: 100%;
-        mask: url(./img.svg);
         mask-position-y: 69px;
         mask-size: 810px;
       }
