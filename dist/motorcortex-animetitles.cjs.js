@@ -1361,7 +1361,7 @@ const CircularTextValidation = {
 };
 
 var name = "@donkeyclip/motorcortex-animetitles";
-var version = "1.2.1";
+var version = "1.2.2";
 
 var index = {
   npm_name: name,
