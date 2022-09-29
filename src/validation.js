@@ -43,6 +43,10 @@ export const RotatedLIneVal = {
     type: "number",
     min: 0,
   },
+  fontFamily: {
+    optional: false,
+    type: "string",
+  },
 };
 
 export const RollingTextVal = {
@@ -83,6 +87,10 @@ export const RollingTextVal = {
     optional: true,
     type: "number",
     min: 0,
+  },
+  fontFamily: {
+    optional: false,
+    type: "string",
   },
 };
 
@@ -125,6 +133,10 @@ export const RotatedLineRevealVal = {
     optional: true,
     type: "number",
     min: 0,
+  },
+  fontFamily: {
+    optional: false,
+    type: "string",
   },
 };
 
@@ -172,6 +184,10 @@ export const SvgBorderVal = {
     type: "number",
     min: 0,
   },
+  fontFamily: {
+    optional: false,
+    type: "string",
+  },
 };
 
 export const CircleVal = {
@@ -209,6 +225,10 @@ export const CircleVal = {
     optional: true,
     type: "number",
     min: 0,
+  },
+  fontFamily: {
+    optional: false,
+    type: "string",
   },
 };
 
@@ -255,6 +275,10 @@ export const SvgDrawVal = {
     type: "number",
     min: 0,
   },
+  fontFamily: {
+    optional: false,
+    type: "string",
+  },
 };
 export const LogoBoxVal = {
   size: {
@@ -292,6 +316,10 @@ export const LogoBoxVal = {
     type: "boolean",
   },
   logoUrl: {
+    optional: false,
+    type: "string",
+  },
+  fontFamily: {
     optional: false,
     type: "string",
   },

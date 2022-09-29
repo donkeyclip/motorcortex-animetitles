@@ -192,7 +192,7 @@ const circle = new Titles.Circle(
     title: "ANIMATED",
     subTitle: "TITLES",
     stopOnLast: false,
-    fontFamily: "Commissioner",
+    fontFamily: "Righteous",
     width: 500,
   },
   {
