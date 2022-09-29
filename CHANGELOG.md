@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.3](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.2...v1.2.3) (2022-09-29)
+
+
+### Bug Fixes
+
+* update dependencies ([db2d520](https://github.com/donkeyclip/motorcortex-animetitles/commit/db2d5204c4b19d1a3637020b39076c1f16ca5b0a))
+
 ### [1.2.2](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.1...v1.2.2) (2022-09-29)
 
 
