@@ -65,6 +65,63 @@ const Titles = loadPlugin(TitlesPlugin);
 
 # Creating Incidents
 
+## RotatedTextReveal
+
+```javascript
+const nameOfIncident = new new Titles.RotatedTextReveal(
+  {
+    text: "Reveal Incident",
+    width: 500,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300,0.5,linear,omni",
+    wordSplit: false,
+  },
+  { duration: 2500, selector: ".rollingtext" }
+)();
+```
+
+### RotatedTextReveal Attrs
+
+| Name       |               Are                |                    Values |
+| ---------- | :------------------------------: | ------------------------: |
+| width      |  total width of clip container   |      all positive numbers |
+| fontSize   |     scale of clip components     |      all positive numbers |
+| color      |        the color of text         |         hex values or RGB |
+| text       |               text               |               normal text |
+| stagger    | stagger between words or letters | valid Motorcortex stagger |
+| fontFamily |           font family            |                    string |
+
+## TextReveal
+
+```javascript
+const nameOfIncident = new new Titles.TextReveal(
+  {
+    text: "Reveal Incident",
+    width: 500,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300,0.5,linear,omni",
+    wordSplit: false,
+  },
+  { duration: 2500, selector: ".rollingtext" }
+)();
+```
+
+### TextReveal Attrs
+
+| Name       |               Are                |                    Values |
+| ---------- | :------------------------------: | ------------------------: |
+| width      |  total width of clip container   |      all positive numbers |
+| fontSize   |     scale of clip components     |      all positive numbers |
+| color      |        the color of text         |         hex values or RGB |
+| text       |               text               |               normal text |
+| stagger    | stagger between words or letters | valid Motorcortex stagger |
+| fontFamily |           font family            |                    string |
+| wordSplit  | font splitting or word splitting |                true,false |
+
 ## RotatedLine
 
 ```javascript

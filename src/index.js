@@ -6,7 +6,9 @@ import SvgDraw from "./incidents/SvgDraw";
 import Circle from "./incidents/Circle";
 import LogoBox from "./incidents/LogoBox";
 import RightOpacity from "./incidents/RightOpacity";
-// import FlushStroke from "./incidents/FlushStroke";
+import TextReveal from "./incidents/TextReveal";
+import RotatedTextReveal from "./incidents/RotatedTextReveal";
+import Trailing from "./incidents/Trailing";
 import LetterScale from "./incidents/LetterScale";
 import CircularText from "./incidents/CircularText";
 import {
@@ -19,6 +21,9 @@ import {
   RigthOpacityValidationVal,
   LetterScaleValidationVal,
   CircularTextValidation,
+  TextRevealValidation,
+  RotatedTextRevealValidation,
+  TrailingValidation,
 } from "./validation";
 import { name, version } from "../package.json";
 
@@ -80,6 +85,21 @@ export default {
       exportable: CircularText,
       name: "CircularText",
       attributesValidationRules: CircularTextValidation,
+    },
+    {
+      exportable: TextReveal,
+      name: "TextReveal",
+      attributesValidationRules: TextRevealValidation,
+    },
+    {
+      exportable: RotatedTextReveal,
+      name: "RotatedTextReveal",
+      attributesValidationRules: RotatedTextRevealValidation,
+    },
+    {
+      exportable: Trailing,
+      name: "Trailing",
+      attributesValidationRules: TrailingValidation,
     },
   ],
 };

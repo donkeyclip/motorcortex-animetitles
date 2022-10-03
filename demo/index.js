@@ -1,6 +1,8 @@
 import { HTMLClip, loadPlugin, CSSEffect } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import TitlesPlugin from "../dist/motorcortex-animetitles.esm";
+import TextReveal from "../src/incidents/TextReveal";
+import RotatedTextReveal from "../src/incidents/RotatedTextReveal";
 import imgsvg from "./assets/imgsvg.js";
 
 const Titles = loadPlugin(TitlesPlugin);
@@ -78,22 +80,6 @@ const clip = new HTMLClip({
     height: "720px",
   },
 });
-
-const svgdraw = new Titles.SvgDraw(
-  {
-    duration: 3600,
-    width: 900,
-    size: "L",
-    lineColor: "#ff0000",
-    strokeDashOffset: 10000,
-    StrokeDashArray: 10000,
-    svg: imgsvg,
-    stopOnLast: false,
-  },
-  {
-    selector: ".svgdraw",
-  }
-);
 
 const rolinText = new Titles.RollingText(
   {
@@ -328,20 +314,47 @@ const CircularTextOpacity = new CSSEffect(
   }
 );
 
-clip.addIncident(rolinText, 0);
-clip.addIncident(rotatedlinereveal, 7000);
-clip.addIncident(rotatedlinerevealOp, 7000);
-clip.addIncident(svgborder, 11025);
-clip.addIncident(rotatedline, 16025);
-clip.addIncident(circle, 22025);
-clip.addIncident(logobox, 26225);
-clip.addIncident(svgdraw, 29725);
-clip.addIncident(rightopacityOpacity, 35845);
-clip.addIncident(RightOpacity, 35846);
-clip.addIncident(LetterScaleOpacity, clip.calculatedDuration);
-clip.addIncident(LetterScale, clip.calculatedDuration);
-clip.addIncident(LetterScaleOpacityBack, clip.calculatedDuration);
-clip.addIncident(CircularTextOpacity, clip.calculatedDuration);
-clip.addIncident(CircularText, clip.calculatedDuration);
+const TextRevealIncident = new Titles.TextReveal(
+  {
+    text: "Reveal Incident",
+    width: 500,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300,0.5,linear,omni",
+    exit: "top",
+    // exitTime: 1000,
+  },
+  { duration: 2500, selector: ".rollingtext" }
+);
+const RotatedTextRevealIncident = new RotatedTextReveal(
+  {
+    text: "Rotated Reveal Incident",
+    width: 600,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300",
+  },
+  { duration: 2500, selector: ".rollingtext" }
+);
+
+clip.addIncident(TextRevealIncident, 0);
+// clip.addIncident(RotatedTextRevealIncident, 0);
+// clip.addIncident(rolinText, 0);
+// clip.addIncident(rotatedlinereveal, 7000);
+// clip.addIncident(rotatedlinerevealOp, 7000);
+// clip.addIncident(svgborder, 11025);
+// clip.addIncident(rotatedline, 16025);
+// clip.addIncident(circle, 22025);
+// clip.addIncident(logobox, 26225);
+// clip.addIncident(svgdraw, 29725);
+// clip.addIncident(rightopacityOpacity, 35845);
+// clip.addIncident(RightOpacity, 35846);
+// clip.addIncident(LetterScaleOpacity, clip.calculatedDuration);
+// clip.addIncident(LetterScale, clip.calculatedDuration);
+// clip.addIncident(LetterScaleOpacityBack, clip.calculatedDuration);
+// clip.addIncident(CircularTextOpacity, clip.calculatedDuration);
+// clip.addIncident(CircularText, clip.calculatedDuration);
 
 new Player({ clip });
