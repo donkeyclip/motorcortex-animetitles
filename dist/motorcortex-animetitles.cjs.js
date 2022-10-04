@@ -1992,7 +1992,7 @@ const RotatedTextRevealValidation = {
 };
 
 var name = "@donkeyclip/motorcortex-animetitles";
-var version = "1.2.3";
+var version = "1.3.0";
 
 var index = {
   npm_name: name,
