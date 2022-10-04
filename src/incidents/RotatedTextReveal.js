@@ -71,6 +71,24 @@ export default class RotatedTextReveal extends HTMLClip {
         delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0,
       }
     );
+
+    if (this.attrs.exitTime) {
+      const exit = new CSSEffect(
+        {
+          animatedAttrs: {
+            transform: { rotate: "90deg" },
+          },
+        },
+        {
+          duration: 600,
+          selector: ".letter",
+          easing: "easeOutExpo",
+          delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0,
+        }
+      );
+      this.addIncident(exit, this.attrs.exitTime || 1000);
+    }
+
     this.addIncident(left, 0);
   }
 }
