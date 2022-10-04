@@ -747,105 +747,6 @@ class RotatedLineReveal extends HTMLClip {
 
 }
 
-class SvgDraw extends HTMLClip {
-  get html() {
-    switch (this.attrs.size) {
-      case "S":
-        this.size = this.generateSize(200, 100, "");
-        break;
-
-      case "M":
-        this.size = this.generateSize(300, 200, "5rem");
-        break;
-
-      case "L":
-        this.size = this.generateSize(500, 400, "7rem");
-        break;
-    }
-
-    return `<div class="svg-wrapper">${this.attrs.svg}</div>`;
-  }
-
-  get css() {
-    return `
-      .svg-wrapper{
-        position: relative;
-        width: ${this.size.svgWidth * 1.5}px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      svg{
-        width: ${this.size.svgWidth}px;
-        height: ${this.size.svgHeight}px;
-      }
-
-      .svgContainer{
-        height:100vh;
-      }
-
-      svg path{
-        stroke-dasharray: ${this.attrs.StrokeDashArray};
-        stroke-dashoffset: ${this.attrs.strokeDashOffset};
-      }
-    `;
-  }
-
-  generateSize(svgWidth, svgHeight, lineSize) {
-    return {
-      svgWidth,
-      svgHeight,
-      lineSize
-    };
-  }
-
-  buildTree() {
-    const textDrow = new CSSEffect({
-      animatedAttrs: {
-        strokeDashoffset: "0px"
-      },
-      attrs: {}
-    }, {
-      duration: 2700,
-      selector: `svg path`,
-      easing: "easeInSine"
-    });
-    const textBigBack = new CSSEffect({
-      animatedAttrs: {
-        transform: {
-          scaleX: 1.3,
-          scaleY: 1.3
-        }
-      }
-    }, {
-      duration: 1530,
-      selector: `svg`,
-      id: "transform2",
-      easing: "easeOutElastic"
-    });
-    const textErase = new CSSEffect({
-      animatedAttrs: {
-        strokeDashoffset: this.attrs.strokeDashOffset
-      },
-      attrs: {}
-    }, {
-      duration: 2700,
-      selector: `svg path`,
-      easing: "easeInSine"
-    });
-    this.addIncident(textDrow, 0);
-    this.addIncident(textBigBack, 2700);
-    const delayEnd = this.attrs.delayEnd || 0;
-
-    if (!this.attrs.stopOnLast) {
-      this.addIncident(textErase, 3420 + delayEnd);
-    }
-  }
-
-}
-
 class Circle extends HTMLClip {
   get html() {
     return `
@@ -1342,6 +1243,177 @@ class RightOpacity extends HTMLClip {
 
 }
 
+class TextReveal extends HTMLClip {
+  get html() {
+    this.list = this.attrs.text.split(this.attrs.wordSplit ? " " : "");
+    const divList = this.list.map((e, i) => {
+      return `<div class="letter letter-item-${i}">${e === " " ? "&nbsp;" : e}</div>
+          ${this.attrs.wordSplit ? `<div>&nbsp;</div>` : ""}
+        `;
+    }).join("");
+    return `
+      <div class="wrapper">
+        <div class="letter-wrapper">
+          ${divList}
+        </div>
+      </div>
+    `;
+  }
+
+  get css() {
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.fontSize}px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .letter{
+        font-size:${this.attrs.fontSize}px;
+        color:${this.attrs.color};
+        text-transform:uppercase;
+        font-family: ${this.attrs.fontFamily};
+        position: relative;
+       
+      }
+      
+      .letter-wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.fontSize}px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
+  }
+
+  buildTree() {
+    const left = new CSSEffect({
+      animatedAttrs: {
+        top: `0%`
+      },
+      initialValues: {
+        top: `100%`
+      }
+    }, {
+      duration: 600,
+      selector: ".letter",
+      easing: "easeOutExpo",
+      delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
+    });
+
+    if (this.attrs.exit) {
+      const exit = new CSSEffect({
+        animatedAttrs: {
+          top: `${this.attrs.exit === "top" ? -100 : 100}%`
+        }
+      }, {
+        duration: 600,
+        selector: ".letter",
+        easing: "easeOutExpo",
+        delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
+      });
+      this.addIncident(exit, this.attrs.exitTime || 1000);
+    }
+
+    this.addIncident(left, 0);
+  }
+
+}
+
+class RotatedTextReveal extends HTMLClip {
+  get html() {
+    this.list = this.attrs.text.split("");
+    const divList = this.list.map((e, i) => {
+      return `<div class="letter letter-item-${i}">${e === " " ? "&nbsp;" : e}</div>
+        `;
+    }).join("");
+    return `
+      <div class="wrapper">
+        <div class="letter-wrapper">
+          ${divList}
+        </div>
+      </div>
+    `;
+  }
+
+  get css() {
+    return `
+      .wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.fontSize}px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .letter{
+        font-size:${this.attrs.fontSize}px;
+        color:${this.attrs.color};
+        text-transform:uppercase;
+        font-family: ${this.attrs.fontFamily};
+        position: relative;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+       
+      }
+      
+      .letter-wrapper{
+        width:${this.attrs.width}px;
+        height: ${this.attrs.fontSize}px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
+  }
+
+  buildTree() {
+    const left = new CSSEffect({
+      animatedAttrs: {
+        transform: {
+          rotate: "0deg"
+        }
+      },
+      initialValues: {
+        transform: {
+          rotate: "90deg"
+        }
+      }
+    }, {
+      duration: 600,
+      selector: ".letter",
+      easing: "easeOutExpo",
+      delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
+    });
+
+    if (this.attrs.exitTime) {
+      const exit = new CSSEffect({
+        animatedAttrs: {
+          transform: {
+            rotate: "90deg"
+          }
+        }
+      }, {
+        duration: 600,
+        selector: ".letter",
+        easing: "easeOutExpo",
+        delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
+      });
+      this.addIncident(exit, this.attrs.exitTime || 1000);
+    }
+
+    this.addIncident(left, 0);
+  }
+
+}
+
 class LetterScale extends HTMLClip {
   get html() {
     this.list = this.attrs.text.split("");
@@ -1713,54 +1785,6 @@ const CircleVal = {
     type: "string"
   }
 };
-const SvgDrawVal = {
-  width: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
-  size: {
-    type: "enum",
-    values: ["S", "M", "L"]
-  },
-  lineColor: {
-    optional: true,
-    type: _COLOR
-  },
-  textColor: {
-    optional: true,
-    type: _COLOR
-  },
-  strokeDashOffset: {
-    optional: true,
-    type: "number"
-  },
-  StrokeDashArray: {
-    optional: true,
-    type: "number"
-  },
-  erase: {
-    optional: true,
-    type: "boolean"
-  },
-  svg: {
-    optional: true,
-    type: "string"
-  },
-  stopOnLast: {
-    optional: false,
-    type: "boolean"
-  },
-  delayEnd: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
-  fontFamily: {
-    optional: false,
-    type: "string"
-  }
-};
 const RigthOpacityValidationVal = {
   width: {
     optional: false,
@@ -1892,6 +1916,78 @@ const CircularTextValidation = {
     type: "string"
   }
 };
+const TextRevealValidation = {
+  width: {
+    optional: false,
+    type: "number",
+    min: 0
+  },
+  wordSplit: {
+    optional: true,
+    type: "boolean"
+  },
+  color: {
+    optional: true,
+    type: _COLOR
+  },
+  text: {
+    optional: false,
+    type: "string"
+  },
+  fontSize: {
+    optional: false,
+    type: "number",
+    min: 0
+  },
+  stagger: {
+    optional: true,
+    type: "string"
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
+  },
+  exit: {
+    optional: true,
+    type: "string"
+  },
+  exitTime: {
+    optional: true,
+    type: "number"
+  }
+};
+const RotatedTextRevealValidation = {
+  width: {
+    optional: false,
+    type: "number",
+    min: 0
+  },
+  color: {
+    optional: true,
+    type: _COLOR
+  },
+  text: {
+    optional: false,
+    type: "string"
+  },
+  fontSize: {
+    optional: false,
+    type: "number",
+    min: 0
+  },
+  stagger: {
+    optional: true,
+    type: "string"
+  },
+  fontFamily: {
+    optional: false,
+    type: "string"
+  },
+  exitTime: {
+    optional: true,
+    type: "number"
+  }
+};
 
 var name = "@donkeyclip/motorcortex-animetitles";
 var version = "1.2.3";
@@ -1916,10 +2012,6 @@ var index = {
     name: "RotatedLineReveal",
     attributesValidationRules: RotatedLineRevealVal
   }, {
-    exportable: SvgDraw,
-    name: "SvgDraw",
-    attributesValidationRules: SvgDrawVal
-  }, {
     exportable: Circle,
     name: "Circle",
     attributesValidationRules: CircleVal
@@ -1930,13 +2022,7 @@ var index = {
     exportable: RightOpacity,
     name: "RightOpacity",
     attributesValidationRules: RigthOpacityValidationVal
-  }, //todo
-  // {
-  //   exportable: FlushStroke,
-  //   name: "FlushStroke"
-  //   attributesValidationRules: Circle
-  // },
-  {
+  }, {
     exportable: LetterScale,
     name: "LetterScale",
     attributesValidationRules: LetterScaleValidationVal
@@ -1944,6 +2030,14 @@ var index = {
     exportable: CircularText,
     name: "CircularText",
     attributesValidationRules: CircularTextValidation
+  }, {
+    exportable: TextReveal,
+    name: "TextReveal",
+    attributesValidationRules: TextRevealValidation
+  }, {
+    exportable: RotatedTextReveal,
+    name: "RotatedTextReveal",
+    attributesValidationRules: RotatedTextRevealValidation
   }]
 };
 

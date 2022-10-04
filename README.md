@@ -65,6 +65,66 @@ const Titles = loadPlugin(TitlesPlugin);
 
 # Creating Incidents
 
+## RotatedTextReveal
+
+```javascript
+const nameOfIncident = new Titles.RotatedTextReveal(
+  {
+    text: "Rotated Reveal Incident",
+    width: 600,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300",
+    exitTime: 1000,
+  },
+  { duration: 2000, selector: ".rotatedtextreveal" }
+);
+```
+
+### RotatedTextReveal Attrs
+
+| Name       |               Are                |                    Values |
+| ---------- | :------------------------------: | ------------------------: |
+| width      |  total width of clip container   |      all positive numbers |
+| fontSize   |         size of the font         |      all positive numbers |
+| color      |        the color of text         |         hex values or RGB |
+| text       |               text               |               normal text |
+| stagger    | stagger between words or letters | valid Motorcortex stagger |
+| fontFamily |           font family            |                    string |
+| exitTime   |    time for animation to exit    |                    number |
+
+## TextReveal
+
+```javascript
+const nameOfIncident = new new Titles.TextReveal(
+  {
+    text: "Reveal Incident",
+    width: 500,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300,0.5,linear,omni",
+    wordSplit: false,
+    exitTime: 1000,
+  },
+  { duration: 2500, selector: ".rollingtext" }
+)();
+```
+
+### TextReveal Attrs
+
+| Name       |               Are                |                    Values |
+| ---------- | :------------------------------: | ------------------------: |
+| width      |  total width of clip container   |      all positive numbers |
+| fontSize   |         size of the font         |      all positive numbers |
+| color      |        the color of text         |         hex values or RGB |
+| text       |               text               |               normal text |
+| stagger    | stagger between words or letters | valid Motorcortex stagger |
+| fontFamily |           font family            |                    string |
+| wordSplit  | font splitting or word splitting |                true,false |
+| exitTime   |    time for animation to exit    |                    number |
+
 ## RotatedLine
 
 ```javascript
@@ -107,16 +167,16 @@ const nameOfIncident = new Titles.RotatedLine(
 ```javascript
 const nameOfIncident = new Titles.RollingText(
   {
-    width: 250,
-    size: "L",
+    width: 450,
+    size: "XL",
     lineColor: "#ff0000",
     textColor: "#000",
-    subTitle1: "test",
-    subTitle2: "test2",
-    subTitle3: "test3",
+    subTitle1: "The",
+    subTitle2: "MotorCortex Team",
+    subTitle3: "Presents",
     stopOnLast: false,
-    delayEnd: 3000,
-    fontFamily: "Rubik Mono One",
+    delayEnd: 1000,
+    fontFamily: "Commissioner",
   },
   {
     selector: ".rollingtext",
@@ -142,17 +202,15 @@ const nameOfIncident = new Titles.RollingText(
 ```javascript
 const nameOfIncident = new Titles.RotatedLineReveal(
   {
-    duration: 5000,
     width: 800,
     size: "M",
     lineColor: "#ff0000",
     textColor: "#000",
-    title: "Animetitle",
+    title: "Animetitles",
     subtitle: "MC Plugin",
     leftEnd: 100,
     stopOnLast: false,
-    delayEnd: 3000,
-    fontFamily: "Rubik Mono One",
+    fontFamily: "Commissioner",
   },
   {
     selector: ".rotatedlinereveal",
@@ -180,16 +238,15 @@ const nameOfIncident = new Titles.RotatedLineReveal(
 ```javascript
 const nameOfIncident = new Titles.SvgBorder(
   {
-    duration: 5000,
     size: "L",
     lineColor: "#ff0000",
     textColor: "#000",
-    subTitle: "Develop by",
+    subTitle: "Developed by",
     slogan: "-KMB-",
     title: "MotorCortex Team",
     stopOnLast: false,
-    delayEnd: 3000,
-    fontFamily: "Rubik Mono One",
+    fontFamily: "Commissioner",
+    borderGap: 300,
   },
   {
     selector: ".svgborder",
@@ -220,12 +277,11 @@ const nameOfIncident = new Titles.Circle(
     fontSize: 40,
     circleColor: "#ff0000",
     textColor: "#000",
-    title: "IOAN",
-    subTitle: "BRAPAPAPA",
+    title: "ANIMATED",
+    subTitle: "TITLES",
     stopOnLast: false,
-    delayEnd: 3000,
+    fontFamily: "Righteous",
     width: 500,
-    fontFamily: "Rubik Mono One",
   },
   {
     selector: ".circle",
@@ -241,6 +297,7 @@ In order to use tin incident you should include the img.svg that is in demo fold
 
 | Name        |                             Are                              |               Values |
 | ----------- | :----------------------------------------------------------: | -------------------: |
+| fontSize    |                       size of the font                       | all positive numbers |
 | width       | total width of clip container and width/height of the circle | all positive numbers |
 | circleColor |                     the color of circle                      |    hex values or RGB |
 | textColor   |                      the color of text                       |    hex values or RGB |
@@ -249,45 +306,6 @@ In order to use tin incident you should include the img.svg that is in demo fold
 | stopOnLast  |       if you like to stop animation on last text line        |           true,false |
 | delayEnd    |                 delay before last animation                  |          millisecond |
 | fontFamily  |                         font family                          |               string |
-
-## SvgDraw
-
-```javascript
-const nameOfIncident = new Titles.SvgDraw(
-  {
-    duration: 1600,
-    width: 900,
-    size: "M",
-    lineColor: "#ff0000",
-    strokeDashOffset: 10000,
-    StrokeDashArray: 10000,
-    erase: true,
-    svg: `svg code`,
-    stopOnLast: false,
-    delayEnd: 3000,
-    fontFamily: "Rubik Mono One",
-  },
-  {
-    selector: ".svgdrow",
-  }
-);
-```
-
-### SvgDraw Attrs
-
-| Name             |                                                                    Are                                                                    |               Values |
-| ---------------- | :---------------------------------------------------------------------------------------------------------------------------------------: | -------------------: |
-| width            |                                                       total width of clip container                                                       | all positive numbers |
-| size             |                                                         scale of clip components                                                          |          "S","M","L" |
-| lineColor        |                                                             the color of line                                                             |    hex values or RGB |
-| textColor        |                                                             the color of text                                                             |    hex values or RGB |
-| strokeDashOffset |       The strokeDashOffset attribute is a presentation attribute defining an offset on the rendering of the associated dash array.        |               number |
-| StrokeDashArray  | The StrokeDashArray attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape; |               number |
-| erase            |                                                          erase svg after drow it                                                          |          true, false |
-| svg              |                                                     The width of the title container                                                      |              numbers |
-| stopOnLast       |                                              if you like to stop animation on last text line                                              |           true,false |
-| delayEnd         |                                                        delay before last animation                                                        |          millisecond |
-| fontFamily       |                                                                font family                                                                |               string |
 
 ## LogoBox
 

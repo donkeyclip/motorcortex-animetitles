@@ -2,11 +2,11 @@ import RotatedLIne from "./incidents/RotatedLine";
 import RollingText from "./incidents/RollingText";
 import SvgBorder from "./incidents/SvgBorder";
 import RotatedLineReveal from "./incidents/RotatedLineReveal";
-import SvgDraw from "./incidents/SvgDraw";
 import Circle from "./incidents/Circle";
 import LogoBox from "./incidents/LogoBox";
 import RightOpacity from "./incidents/RightOpacity";
-// import FlushStroke from "./incidents/FlushStroke";
+import TextReveal from "./incidents/TextReveal";
+import RotatedTextReveal from "./incidents/RotatedTextReveal";
 import LetterScale from "./incidents/LetterScale";
 import CircularText from "./incidents/CircularText";
 import {
@@ -14,11 +14,12 @@ import {
   RollingTextVal,
   SvgBorderVal,
   RotatedLineRevealVal,
-  SvgDrawVal,
   CircleVal,
   RigthOpacityValidationVal,
   LetterScaleValidationVal,
   CircularTextValidation,
+  TextRevealValidation,
+  RotatedTextRevealValidation,
 } from "./validation";
 import { name, version } from "../package.json";
 
@@ -47,11 +48,6 @@ export default {
       attributesValidationRules: RotatedLineRevealVal,
     },
     {
-      exportable: SvgDraw,
-      name: "SvgDraw",
-      attributesValidationRules: SvgDrawVal,
-    },
-    {
       exportable: Circle,
       name: "Circle",
       attributesValidationRules: CircleVal,
@@ -65,12 +61,6 @@ export default {
       name: "RightOpacity",
       attributesValidationRules: RigthOpacityValidationVal,
     },
-    //todo
-    // {
-    //   exportable: FlushStroke,
-    //   name: "FlushStroke"
-    //   attributesValidationRules: Circle
-    // },
     {
       exportable: LetterScale,
       name: "LetterScale",
@@ -80,6 +70,16 @@ export default {
       exportable: CircularText,
       name: "CircularText",
       attributesValidationRules: CircularTextValidation,
+    },
+    {
+      exportable: TextReveal,
+      name: "TextReveal",
+      attributesValidationRules: TextRevealValidation,
+    },
+    {
+      exportable: RotatedTextReveal,
+      name: "RotatedTextReveal",
+      attributesValidationRules: RotatedTextRevealValidation,
     },
   ],
 };

@@ -1,7 +1,6 @@
 import { HTMLClip, loadPlugin, CSSEffect } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import TitlesPlugin from "../dist/motorcortex-animetitles.esm";
-import imgsvg from "./assets/imgsvg.js";
 
 const Titles = loadPlugin(TitlesPlugin);
 
@@ -44,6 +43,8 @@ const clip = new HTMLClip({
   html: `
     <div class="container">
       <div class="row" >
+        <div class="cel"> <div class="textreveal full"></div>  </div>
+        <div class="cel"> <div class="rotatedtextreveal full"></div>  </div>
         <div class="cel"> <div class="rollingtext full"></div>  </div>
         <div class="cel"><div class="svgborder full"></div> </div>
         <div class="cel"> <div class="rotatedline full"></div> </div>
@@ -79,25 +80,8 @@ const clip = new HTMLClip({
   },
 });
 
-const svgdraw = new Titles.SvgDraw(
-  {
-    duration: 3600,
-    width: 900,
-    size: "L",
-    lineColor: "#ff0000",
-    strokeDashOffset: 10000,
-    StrokeDashArray: 10000,
-    svg: imgsvg,
-    stopOnLast: false,
-  },
-  {
-    selector: ".svgdraw",
-  }
-);
-
 const rolinText = new Titles.RollingText(
   {
-    duration: 6000,
     width: 450,
     size: "XL",
     lineColor: "#ff0000",
@@ -116,7 +100,6 @@ const rolinText = new Titles.RollingText(
 
 const rotatedlinereveal = new Titles.RotatedLineReveal(
   {
-    duration: 5000,
     width: 800,
     size: "M",
     lineColor: "#ff0000",
@@ -132,24 +115,8 @@ const rotatedlinereveal = new Titles.RotatedLineReveal(
   }
 );
 
-const rotatedlinerevealOp = new CSSEffect(
-  {
-    animatedAttrs: {
-      opacity: 1,
-    },
-    initialValues: {
-      opacity: 0,
-    },
-  },
-  {
-    duration: 1,
-    selector: ".rotatedlinereveal",
-  }
-);
-
 const rotatedline = new Titles.RotatedLine(
   {
-    duration: 6000,
     width: 400,
     size: "XL",
     lineColor: "#ff0000",
@@ -168,7 +135,6 @@ const rotatedline = new Titles.RotatedLine(
 
 const svgborder = new Titles.SvgBorder(
   {
-    duration: 5000,
     size: "L",
     lineColor: "#ff0000",
     textColor: "#000",
@@ -186,7 +152,7 @@ const svgborder = new Titles.SvgBorder(
 
 const circle = new Titles.Circle(
   {
-    fontSize: 40,
+    fontSize: 70,
     circleColor: "#ff0000",
     textColor: "#000",
     title: "ANIMATED",
@@ -233,6 +199,7 @@ const RightOpacity = new Titles.RightOpacity(
     exitTime: 1000,
   },
   {
+    duration: 3000,
     selector: ".rightopacity",
   }
 );
@@ -328,16 +295,41 @@ const CircularTextOpacity = new CSSEffect(
   }
 );
 
-clip.addIncident(rolinText, 0);
-clip.addIncident(rotatedlinereveal, 7000);
-clip.addIncident(rotatedlinerevealOp, 7000);
-clip.addIncident(svgborder, 11025);
-clip.addIncident(rotatedline, 16025);
-clip.addIncident(circle, 22025);
-clip.addIncident(logobox, 26225);
-clip.addIncident(svgdraw, 29725);
-clip.addIncident(rightopacityOpacity, 35845);
-clip.addIncident(RightOpacity, 35846);
+const TextRevealIncident = new Titles.TextReveal(
+  {
+    text: "Reveal Incident",
+    width: 500,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300,0.5,linear,omni",
+    exit: "bottom",
+  },
+  { duration: 2000, selector: ".textreveal" }
+);
+const RotatedTextRevealIncident = new Titles.RotatedTextReveal(
+  {
+    text: "Rotated Reveal Incident",
+    width: 600,
+    color: "black",
+    fontFamily: "Righteous",
+    fontSize: 40,
+    stagger: "0, 300",
+    exitTime: 1000,
+  },
+  { duration: 2000, selector: ".rotatedtextreveal" }
+);
+
+clip.addIncident(TextRevealIncident, 0);
+clip.addIncident(RotatedTextRevealIncident, clip.calculatedDuration);
+clip.addIncident(rolinText, clip.calculatedDuration);
+clip.addIncident(rotatedlinereveal, clip.calculatedDuration);
+clip.addIncident(svgborder, clip.calculatedDuration);
+clip.addIncident(rotatedline, clip.calculatedDuration);
+clip.addIncident(circle, clip.calculatedDuration);
+clip.addIncident(logobox, clip.calculatedDuration);
+clip.addIncident(rightopacityOpacity, clip.calculatedDuration);
+clip.addIncident(RightOpacity, clip.calculatedDuration);
 clip.addIncident(LetterScaleOpacity, clip.calculatedDuration);
 clip.addIncident(LetterScale, clip.calculatedDuration);
 clip.addIncident(LetterScaleOpacityBack, clip.calculatedDuration);
