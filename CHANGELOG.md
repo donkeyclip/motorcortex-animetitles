@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.3...v1.3.0) (2022-10-04)
+
+
+### Features
+
+* add new incidents and clear readme ([6786def](https://github.com/donkeyclip/motorcortex-animetitles/commit/6786def3a3dcb34da8a7ef565c0746e0c7ea8098))
+* new incidents ([c3648bf](https://github.com/donkeyclip/motorcortex-animetitles/commit/c3648bf835f77be6862a7d35cf96fe7ec712baf3))
+
 ### [1.2.3](https://github.com/donkeyclip/motorcortex-animetitles/compare/v1.2.2...v1.2.3) (2022-09-29)
 
 
