@@ -232,54 +232,6 @@ export const CircleVal = {
   },
 };
 
-export const SvgDrawVal = {
-  width: {
-    optional: true,
-    type: "number",
-    min: 0,
-  },
-  size: {
-    type: "enum",
-    values: ["S", "M", "L"],
-  },
-  lineColor: {
-    optional: true,
-    type: _COLOR,
-  },
-  textColor: {
-    optional: true,
-    type: _COLOR,
-  },
-  strokeDashOffset: {
-    optional: true,
-    type: "number",
-  },
-  StrokeDashArray: {
-    optional: true,
-    type: "number",
-  },
-  erase: {
-    optional: true,
-    type: "boolean",
-  },
-  svg: {
-    optional: true,
-    type: "string",
-  },
-  stopOnLast: {
-    optional: false,
-    type: "boolean",
-  },
-  delayEnd: {
-    optional: true,
-    type: "number",
-    min: 0,
-  },
-  fontFamily: {
-    optional: false,
-    type: "string",
-  },
-};
 export const LogoBoxVal = {
   size: {
     optional: true,
@@ -527,32 +479,8 @@ export const RotatedTextRevealValidation = {
     optional: false,
     type: "string",
   },
-};
-export const TrailingValidation = {
-  width: {
-    optional: false,
-    type: "number",
-    min: 0,
-  },
-  color: {
+  exitTime: {
     optional: true,
-    type: _COLOR,
-  },
-  text: {
-    optional: false,
-    type: "string",
-  },
-  fontSize: {
-    optional: false,
     type: "number",
-    min: 0,
-  },
-  stagger: {
-    optional: true,
-    type: "string",
-  },
-  fontFamily: {
-    optional: false,
-    type: "string",
   },
 };
