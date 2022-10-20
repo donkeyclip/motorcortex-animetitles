@@ -18,26 +18,21 @@ class RotatedLine extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     switch (this.attrs.size) {
       case "S":
         this.size = this.generateSize("1.5rem", "1rem", "0.2rem", "5rem", 3);
         break;
-
       case "M":
         this.size = this.generateSize("2rem", "1.2rem", "0.3rem", "7rem", 4);
         break;
-
       case "L":
         this.size = this.generateSize("2.5rem", "1.5rem", "0.3rem", "9rem", 4);
         break;
-
       case "XL":
         this.size = this.generateSize("3rem", "2rem", "0.3rem", "11rem", 4);
         break;
     }
-
     return `
       body{
        font-size: 62.5%;
@@ -83,7 +78,6 @@ class RotatedLine extends motorcortex.HTMLClip {
       } 
     `;
   }
-
   generateSize(fontSizeLeft, fontSizeRigth, lineWidth, lineHeight, gap) {
     return {
       fontSizeLeft,
@@ -93,7 +87,6 @@ class RotatedLine extends motorcortex.HTMLClip {
       gap
     };
   }
-
   buildTree() {
     const rotateAminmeEnd = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -127,7 +120,6 @@ class RotatedLine extends motorcortex.HTMLClip {
       selector: `.text-left`,
       easing: "easeInOutQuart"
     });
-
     for (let i = 1; i <= 3; i++) {
       const rightTextAnimate = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -141,7 +133,6 @@ class RotatedLine extends motorcortex.HTMLClip {
       });
       this.addIncident(rightTextAnimate, 1500);
     }
-
     const rightTextAnimateIn = new motorcortex.CSSEffect({
       animatedAttrs: {
         right: "100%"
@@ -188,7 +179,6 @@ class RotatedLine extends motorcortex.HTMLClip {
     this.addIncident(widthLIne, 0);
     this.addIncident(rotateAminmeEnd, 450);
     this.addIncident(leftTextAnimate, 900);
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(rightTextAnimateIn, 4200 + delayEnd);
       this.addIncident(leftTextAnimateIn, 4200 + delayEnd);
@@ -196,7 +186,6 @@ class RotatedLine extends motorcortex.HTMLClip {
       this.addIncident(widthLIneOut, 5550 + delayEnd);
     }
   }
-
 }
 
 class RollingText extends motorcortex.HTMLClip {
@@ -212,34 +201,27 @@ class RollingText extends motorcortex.HTMLClip {
       </div>
         `;
   }
-
   get css() {
     switch (this.attrs.size) {
       case "S":
         this.size = this.generateSize(21, "-21px", "31px", 0.5, "-42px");
         break;
-
       case "M":
         this.size = this.generateSize(28, "-28px", "38px", 1, "-56px");
         break;
-
       case "L":
         this.size = this.generateSize(35, "-35px", "45px", 1.5, "-70px");
         break;
-
       case "XL":
         this.size = this.generateSize(42, "-42px", "52px", 2, "-84px");
         break;
-
       case "XXL":
         this.size = this.generateSize(49, "-49px", "59px", 2, "-98px");
         break;
-
       case "XXXL":
         this.size = this.generateSize(70, "-70px", "80px", 2, "-140px", 86);
         break;
     }
-
     return `
       body{
        font-size: 62.5%;
@@ -288,7 +270,6 @@ class RollingText extends motorcortex.HTMLClip {
       }
   `;
   }
-
   generateSize(fontSizeLeft, topMove, lineHeight, gap, topMove2) {
     return {
       fontSizeLeft,
@@ -298,7 +279,6 @@ class RollingText extends motorcortex.HTMLClip {
       topMove2
     };
   }
-
   buildTree() {
     const animeLineHeight = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -356,13 +336,11 @@ class RollingText extends motorcortex.HTMLClip {
     this.addIncident(animeTextTop, 2250);
     this.addIncident(animeTextTopNext, 3450);
     const delayEnd = this.attrs.delayEnd || 0;
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(animeTextLeftBack, 4500 + delayEnd);
       this.addIncident(animeLineHeightBack, 5550 + delayEnd);
     }
   }
-
 }
 
 class SvgBorder extends motorcortex.HTMLClip {
@@ -371,16 +349,13 @@ class SvgBorder extends motorcortex.HTMLClip {
       case "S":
         this.size = this.generateSize(600, 70, "2rem", "1rem", 50, 17, 50);
         break;
-
       case "M":
         this.size = this.generateSize(700, 90, "3rem", "2rem", 50, 34, 70);
         break;
-
       case "L":
         this.size = this.generateSize(1000, 110, "3.5rem", "2.5rem", 55, 45, 80);
         break;
     }
-
     return `
       <div class="svg-wrapper">
         <svg height="${this.size.borderHeight}" width="${this.size.borderWidth}" xmlns="http://www.w3.org/2000/svg">
@@ -398,7 +373,6 @@ class SvgBorder extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       body{
@@ -472,7 +446,6 @@ class SvgBorder extends motorcortex.HTMLClip {
       }
     `;
   }
-
   generateSize(borderWidth, borderHeight, fontSizeTitle, fontSizeSub, titleTop, subTop, titleContainerTop) {
     return {
       borderWidth,
@@ -484,7 +457,6 @@ class SvgBorder extends motorcortex.HTMLClip {
       titleContainerTop
     };
   }
-
   buildTree() {
     const delayEnd = this.attrs.delayEnd || 0;
     const borderAnimete = new motorcortex.CSSEffect({
@@ -573,12 +545,10 @@ class SvgBorder extends motorcortex.HTMLClip {
     grupMc.addIncident(titleAnimeteLeft, 400);
     grupMc.addIncident(subAnimateLeft, 400);
     grupMc.addIncident(sloganAnimateLeft, 400);
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(grupMc, 3000 + delayEnd);
     }
   }
-
 }
 
 class RotatedLineReveal extends motorcortex.HTMLClip {
@@ -587,16 +557,13 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       case "S":
         this.size = this.generateSize("1.5rem", "1rem", "3.5rem", "55px");
         break;
-
       case "M":
         this.size = this.generateSize("2.5rem", "2rem", "5rem", "90px");
         break;
-
       case "L":
         this.size = this.generateSize("3.5rem", "2rem", "7rem", "100px");
         break;
     }
-
     return `
       <div class="wrapper">
         <div class="redLine">
@@ -606,7 +573,6 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -650,7 +616,6 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       }
     `;
   }
-
   generateSize(fontSize, fontSizeSub, lineSize, lineHeight) {
     return {
       fontSize,
@@ -659,7 +624,6 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       lineHeight
     };
   }
-
   buildTree() {
     const grupMc = new motorcortex.Group();
     const lineRotateEnd = new motorcortex.CSSEffect({
@@ -711,7 +675,6 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       selector: `.sub`,
       easing: "easeOutExpo"
     });
-
     for (let i = 1; i <= 2; i++) {
       const moveTextOut = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -724,7 +687,6 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
       });
       grupMc.addIncident(moveTextOut, 3125 + i * 100);
     }
-
     const lineHeight = new motorcortex.CSSEffect({
       animatedAttrs: {
         height: "0px"
@@ -740,13 +702,11 @@ class RotatedLineReveal extends motorcortex.HTMLClip {
     this.addIncident(moveText, 1200);
     this.addIncident(moveSub, 2000);
     const delayEnd = this.attrs.delayEnd || 0;
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(grupMc, delayEnd);
       this.addIncident(lineHeight, 4250 + delayEnd);
     }
   }
-
 }
 
 class Circle extends motorcortex.HTMLClip {
@@ -762,7 +722,6 @@ class Circle extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -831,15 +790,12 @@ class Circle extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const array = this.attrs.title.split("");
     let html = "";
-
     for (let i = 0; i < array.length; i++) {
       html += `<span class='letter letter${i + 1}'>${array[i]}</span>`;
     }
-
     const word = new motorcortex.HTMLClip({
       css: this.css,
       html: ` <div class="wrapper" >${html} </div>`,
@@ -860,7 +816,6 @@ class Circle extends motorcortex.HTMLClip {
       selector: ".circle",
       easing: "easeOutExpo"
     });
-
     for (let i = 0; i < array.length; i++) {
       const textAnimation = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -874,16 +829,15 @@ class Circle extends motorcortex.HTMLClip {
       });
       word.addIncident(textAnimation, 500 + 100 * (i + 1));
     }
-
     const circleScaleDown = new motorcortex.CSSEffect({
       animatedAttrs: {
         width: `${this.attrs.width * 0.8}px`,
         height: `${this.attrs.width * 0.8}px`
-      } // initialValues:{
+      }
+      // initialValues:{
       //   width: `${this.attrs.width}px`,
       //   height: `${this.attrs.width}px`,
       // }
-
     }, {
       duration: 600,
       selector: ".circle",
@@ -949,12 +903,10 @@ class Circle extends motorcortex.HTMLClip {
     this.addIncident(subOut, 2000);
     this.addIncident(circleScale, 0);
     const delayEnd = this.attrs.delayEnd || 0;
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(circleScaleDownEnd, 3600 + delayEnd);
     }
   }
-
 }
 
 class LogoBox extends motorcortex.HTMLClip {
@@ -977,7 +929,6 @@ class LogoBox extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -1042,7 +993,6 @@ class LogoBox extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const opacity = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1071,7 +1021,6 @@ class LogoBox extends motorcortex.HTMLClip {
       duration: 1000,
       selector: ".redLineContainer"
     });
-
     for (let i = 1; i <= 3; i++) {
       const textLeft = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -1085,7 +1034,6 @@ class LogoBox extends motorcortex.HTMLClip {
       });
       this.addIncident(textLeft, 500);
     }
-
     const conteinerMore = new motorcortex.CSSEffect({
       animatedAttrs: {
         width: `${this.attrs.width * this.attrs.size}px`
@@ -1121,12 +1069,10 @@ class LogoBox extends motorcortex.HTMLClip {
     this.addIncident(conteiner, 0);
     this.addIncident(conteinerMore, 1500);
     this.addIncident(yellowW, 1500);
-
     if (!this.attrs.stopOnLast) {
       this.addIncident(end, 3000);
     }
   }
-
 }
 
 class RightOpacity extends motorcortex.HTMLClip {
@@ -1143,7 +1089,6 @@ class RightOpacity extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     const stroke = this.attrs.stroke === true ? `-webkit-text-stroke:${this.attrs.strokeSize}px ${this.attrs.strokeColor};` : ``;
     return `
@@ -1176,7 +1121,6 @@ class RightOpacity extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const left = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1193,12 +1137,13 @@ class RightOpacity extends motorcortex.HTMLClip {
     this.addIncident(left, 0);
     const opacity = new motorcortex.CSSEffect({
       animatedAttrs: {
-        opacity: 1 // left: `@expression(index * ${this.attrs.width / this.list.length})px`
-
+        opacity: 1
+        // left: `@expression(index * ${this.attrs.width / this.list.length})px`
       },
-      initialValues: {
-        opacity: 0 // left: `@expression((index * ${this.attrs.width / this.list.length})+${this.attrs.width / 2})px`
 
+      initialValues: {
+        opacity: 0
+        // left: `@expression((index * ${this.attrs.width / this.list.length})+${this.attrs.width / 2})px`
       }
     }, {
       duration: 300,
@@ -1217,9 +1162,10 @@ class RightOpacity extends motorcortex.HTMLClip {
     }, {
       duration: 300,
       selector: ".letter-wrapper",
-      easing: "easeOutExpo" // delay: "@stagger(0, 300)"
-
+      easing: "easeOutExpo"
+      // delay: "@stagger(0, 300)"
     });
+
     this.addIncident(left2, 0);
     const leftLetter = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1242,7 +1188,6 @@ class RightOpacity extends motorcortex.HTMLClip {
     });
     this.addIncident(opacityback, this.calculatedDuration - 300);
   }
-
 }
 
 class TextReveal extends motorcortex.HTMLClip {
@@ -1261,7 +1206,6 @@ class TextReveal extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -1292,7 +1236,6 @@ class TextReveal extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const left = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1307,7 +1250,6 @@ class TextReveal extends motorcortex.HTMLClip {
       easing: "easeOutExpo",
       delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
     });
-
     if (this.attrs.exit) {
       const exit = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -1321,10 +1263,8 @@ class TextReveal extends motorcortex.HTMLClip {
       });
       this.addIncident(exit, this.attrs.exitTime || 1000);
     }
-
     this.addIncident(left, 0);
   }
-
 }
 
 class RotatedTextReveal extends motorcortex.HTMLClip {
@@ -1342,7 +1282,6 @@ class RotatedTextReveal extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -1375,7 +1314,6 @@ class RotatedTextReveal extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const left = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1394,7 +1332,6 @@ class RotatedTextReveal extends motorcortex.HTMLClip {
       easing: "easeOutExpo",
       delay: this.attrs.stagger ? `@stagger(${this.attrs.stagger})` : 0
     });
-
     if (this.attrs.exitTime) {
       const exit = new motorcortex.CSSEffect({
         animatedAttrs: {
@@ -1410,10 +1347,8 @@ class RotatedTextReveal extends motorcortex.HTMLClip {
       });
       this.addIncident(exit, this.attrs.exitTime || 1000);
     }
-
     this.addIncident(left, 0);
   }
-
 }
 
 class LetterScale extends motorcortex.HTMLClip {
@@ -1430,7 +1365,6 @@ class LetterScale extends motorcortex.HTMLClip {
       </div>
     `;
   }
-
   get css() {
     const stroke = this.attrs.stroke === true ? `-webkit-text-stroke:${this.attrs.strokeSize}px ${this.attrs.strokeColor};` : ``;
     return `
@@ -1463,7 +1397,6 @@ class LetterScale extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const left = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1480,7 +1413,6 @@ class LetterScale extends motorcortex.HTMLClip {
     });
     this.addIncident(left, 0);
   }
-
 }
 
 class CircularText extends motorcortex.HTMLClip {
@@ -1499,7 +1431,6 @@ class CircularText extends motorcortex.HTMLClip {
     </div>
     `;
   }
-
   get css() {
     return `
       .wrapper{
@@ -1542,7 +1473,6 @@ class CircularText extends motorcortex.HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const left = new motorcortex.CSSEffect({
       animatedAttrs: {
@@ -1556,7 +1486,6 @@ class CircularText extends motorcortex.HTMLClip {
     });
     this.addIncident(left, 0);
   }
-
 }
 
 const _COLOR = "color";
