@@ -40,7 +40,7 @@ export default class RotatedTextReveal extends HTMLClip {
         position: relative;
         transform: rotate(90deg);
         transform-origin: bottom left;
-       
+        text-transform:${this.attrs.textTransform};
       }
       
       .letter-wrapper{

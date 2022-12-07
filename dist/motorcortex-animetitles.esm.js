@@ -1218,7 +1218,7 @@ class TextReveal extends HTMLClip {
       .letter{
         font-size:${this.attrs.fontSize}px;
         color:${this.attrs.color};
-        text-transform:uppercase;
+        text-transform:${this.attrs.textTransform};
         font-family: ${this.attrs.fontFamily};
         position: relative;
        
@@ -1299,7 +1299,7 @@ class RotatedTextReveal extends HTMLClip {
         position: relative;
         transform: rotate(90deg);
         transform-origin: bottom left;
-       
+        text-transform:${this.attrs.textTransform};
       }
       
       .letter-wrapper{
@@ -1863,6 +1863,10 @@ const TextRevealValidation = {
     optional: false,
     type: "string"
   },
+  textTransform: {
+    optional: false,
+    type: "string"
+  },
   fontSize: {
     optional: false,
     type: "number",
@@ -1894,6 +1898,10 @@ const RotatedTextRevealValidation = {
   color: {
     optional: true,
     type: _COLOR
+  },
+  textTransform: {
+    optional: false,
+    type: "string"
   },
   text: {
     optional: false,

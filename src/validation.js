@@ -429,6 +429,10 @@ export const TextRevealValidation = {
     optional: false,
     type: "string",
   },
+  textTransform: {
+    optional: false,
+    type: "string",
+  },
   fontSize: {
     optional: false,
     type: "number",
@@ -461,6 +465,10 @@ export const RotatedTextRevealValidation = {
   color: {
     optional: true,
     type: _COLOR,
+  },
+  textTransform: {
+    optional: false,
+    type: "string",
   },
   text: {
     optional: false,

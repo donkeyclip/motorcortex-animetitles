@@ -36,7 +36,7 @@ export default class TextReveal extends HTMLClip {
       .letter{
         font-size:${this.attrs.fontSize}px;
         color:${this.attrs.color};
-        text-transform:uppercase;
+        text-transform:${this.attrs.textTransform};
         font-family: ${this.attrs.fontFamily};
         position: relative;
        
