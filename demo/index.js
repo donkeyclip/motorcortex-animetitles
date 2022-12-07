@@ -304,6 +304,7 @@ const TextRevealIncident = new Titles.TextReveal(
     fontSize: 40,
     stagger: "0, 300,0.5,linear,omni",
     exit: "bottom",
+    textTransform: "none",
   },
   { duration: 2000, selector: ".textreveal" }
 );
@@ -316,6 +317,7 @@ const RotatedTextRevealIncident = new Titles.RotatedTextReveal(
     fontSize: 40,
     stagger: "0, 300",
     exitTime: 1000,
+    textTransform: "none",
   },
   { duration: 2000, selector: ".rotatedtextreveal" }
 );
