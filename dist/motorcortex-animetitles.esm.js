@@ -1138,7 +1138,6 @@ class RightOpacity extends HTMLClip {
         opacity: 1
         // left: `@expression(index * ${this.attrs.width / this.list.length})px`
       },
-
       initialValues: {
         opacity: 0
         // left: `@expression((index * ${this.attrs.width / this.list.length})+${this.attrs.width / 2})px`
@@ -1163,7 +1162,6 @@ class RightOpacity extends HTMLClip {
       easing: "easeOutExpo"
       // delay: "@stagger(0, 300)"
     });
-
     this.addIncident(left2, 0);
     const leftLetter = new CSSEffect({
       animatedAttrs: {
