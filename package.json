@@ -60,7 +60,7 @@
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "14.1.0",
     "babel-loader": "8.3.0",
-    "browserify": "17.0.0",
+    "browserify": "17.0.1",
     "browserslist": "4.22.3",
     "caniuse-lite": "1.0.30001582",
     "concurrently": "7.6.0",
